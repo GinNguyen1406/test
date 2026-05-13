@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<title>Bunniihaus – The Gift That Stays.</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,500;1,600&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#E0E0E0;display:flex;justify-content:center;padding:24px 0;font-family:'Outfit',system-ui,sans-serif}
+.ph{width:390px;background:#F8F8F8;border-radius:44px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,0.18);border:1.5px solid #ddd}
+.sc::-webkit-scrollbar{display:none}
+/* STATUS */
+.sb{display:flex;justify-content:space-between;align-items:center;padding:12px 24px 0;font-size:13px;font-weight:700;color:#111}
+.sb-r{display:flex;align-items:center;gap:5px}
+.bat{width:24px;height:12px;border:1.5px solid #111;border-radius:3px;position:relative;padding:2px;display:flex}
+.bat::after{content:'';position:absolute;right:-5px;top:50%;transform:translateY(-50%);width:3px;height:6px;background:#111;border-radius:1px}
+.bat-f{flex:.6;background:#111;border-radius:1.5px}
+.wi{display:flex;gap:1.5px;align-items:flex-end}
+.wb{background:#111;border-radius:.5px}
+/* HEADER */
+.hdr{display:flex;align-items:center;justify-content:space-between;padding:10px 20px 8px;background:#F8F8F8}
+.logo{font-family:'Playfair Display',serif;font-size:20px;color:#111}
+.logo em{font-style:italic;color:#FF6B8A}
+.hic{display:flex;gap:10px}
+.hb{width:34px;height:34px;display:flex;align-items:center;justify-content:center}
+.hb svg{width:18px;height:18px;stroke:#222;stroke-width:1.5;fill:none;stroke-linecap:round}
+/* HERO SPLIT */
+.hero{margin:0 14px;border-radius:26px;overflow:hidden;height:248px;display:flex;background:linear-gradient(148deg,#FFEEE8 0%,#FFE0EC 45%,#D8F4F0 100%);position:relative}
+.hbl1{position:absolute;width:130px;height:130px;border-radius:50%;background:#FF9A6C;opacity:.12;top:-30px;left:130px;pointer-events:none}
+.hbl2{position:absolute;width:80px;height:80px;border-radius:50%;background:#37DEE7;opacity:.15;bottom:-20px;left:90px;pointer-events:none}
+.hl{width:196px;flex-shrink:0;position:relative;overflow:hidden}
+.hp{position:absolute;border-radius:15px;overflow:hidden;box-shadow:0 3px 14px rgba(0,0,0,0.1);display:flex;align-items:center;justify-content:center}
+.hp img{width:100%;height:100%;object-fit:contain;padding:5px;display:block}
+.hr{flex:1;padding:22px 18px 22px 10px;display:flex;flex-direction:column;justify-content:center;position:relative;z-index:2}
+.hey{font-size:8.5px;letter-spacing:.2em;text-transform:uppercase;color:#FF6B8A;font-weight:700;margin-bottom:10px}
+.hl2{font-family:'Playfair Display',serif;font-size:23px;color:#1A1A1A;line-height:1}
+.hl2 em{font-style:italic;color:#FF6B8A}
+.htag{font-family:'Playfair Display',serif;font-size:16px;color:#111;margin-top:12px;line-height:1.3;font-style:italic}
+.htag strong{font-style:normal;font-weight:700;color:#FF6B8A;display:block;font-size:17px}
+.hadr{font-size:9px;color:#BBB;margin-top:10px;line-height:1.6}
+.hcta{margin-top:13px;background:#FF6B8A;color:#fff;font-size:10.5px;font-weight:700;padding:8px 16px;border-radius:18px;cursor:pointer;display:inline-block;letter-spacing:.02em}
+/* SEARCH */
+.sr{display:flex;gap:8px;align-items:center;padding:14px 16px 8px;background:#F8F8F8}
+.sb2{flex:1;height:42px;background:#EEEEEE;border-radius:21px;display:flex;align-items:center;gap:9px;padding:0 15px}
+.sb2 svg{width:15px;height:15px;stroke:#bbb;stroke-width:1.8;fill:none}
+.sb2 input{border:none;background:transparent;outline:none;font-size:12.5px;color:#888;font-family:'Outfit',sans-serif;width:100%}
+.sb2 input::placeholder{color:#ccc}
+.flt{width:42px;height:42px;background:#111;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.flt svg{width:15px;height:15px;stroke:#fff;stroke-width:1.8;fill:none;stroke-linecap:round}
+/* CHIPS */
+.chips{display:flex;gap:7px;padding:4px 16px 12px;overflow-x:auto;background:#F8F8F8}
+.chips::-webkit-scrollbar{display:none}
+.chip{white-space:nowrap;font-size:11px;font-weight:600;padding:6px 16px;border-radius:18px;cursor:pointer;transition:all .15s}
+.chip.on{background:#FF6B8A;color:#fff}
+.chip.off{background:#fff;color:#666;border:1px solid #E5E5E5}
+.chip.off:hover{border-color:#FF6B8A;color:#FF6B8A}
+/* COUNT */
+.crow{padding:0 16px 10px;display:flex;justify-content:space-between;align-items:center;background:#F8F8F8}
+.cnt{font-size:11px;font-weight:600;color:#bbb;letter-spacing:.08em;text-transform:uppercase}
+.srt{font-size:11px;color:#888;font-weight:500;display:flex;align-items:center;gap:5px}
+.srt svg{width:13px;height:13px;stroke:#ccc;stroke-width:2;fill:none}
+/* MASONRY */
+.mason{display:flex;gap:10px;padding:0 14px;margin-bottom:14px;background:#F8F8F8}
+.mcol{flex:1;display:flex;flex-direction:column;gap:10px}
+/* CARD */
+.pc{background:#fff;border-radius:22px;overflow:hidden;border:1px solid rgba(0,0,0,0.07);cursor:pointer;transition:transform .2s,box-shadow .2s;box-shadow:0 3px 12px rgba(0,0,0,0.08), 0 1px 3px rgba(0,0,0,0.05)}
+.pc:hover{transform:translateY(-3px);box-shadow:0 12px 32px rgba(0,0,0,.13), 0 2px 6px rgba(0,0,0,0.06)}
+.pch{padding:12px 12px 6px;display:flex;justify-content:space-between;align-items:flex-start}
+.pcn{font-size:13px;font-weight:600;color:#111;line-height:1.3}
+.pcs{font-size:8.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#ccc;margin-top:3px}
+.pcw{width:28px;height:28px;background:#F8F8F8;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .2s}
+.pcw:hover{background:#FFEAEF}
+.pcw svg{width:12px;height:12px;stroke:#ddd;stroke-width:1.8;fill:none}
+/* PRODUCT IMAGE WITH SOFT SHAPE */
+.pci{width:100%;background:transparent;padding:0 8px}
+.pshape{
+  width:100%;
+  border-radius:16px;
+  overflow:hidden;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.pshape img{
+  width:100%;
+  object-fit:contain;
+  display:block;
+  padding:8px;
+  mix-blend-mode:multiply;
+}
+.pb{display:inline-block;font-size:8px;font-weight:700;letter-spacing:.08em;padding:2px 8px;border-radius:5px;margin-top:4px}
+.bn{background:#FFF0F4;color:#FF6B8A}
+.bh{background:#FFF4E8;color:#FF8C42}
+.ba{background:#E8F5FF;color:#0068FF}
+.pcf{padding:9px 12px 12px;display:flex;align-items:center;justify-content:space-between}
+.pcp{font-size:12px;font-weight:700;color:#111}
+.pcb{height:28px;padding:0 12px;border-radius:14px;background:#FF6B8A;display:flex;align-items:center;gap:5px;cursor:pointer;transition:opacity .15s}
+.pcb:hover{opacity:.88}
+.pcb span{font-size:9.5px;font-weight:700;color:#fff}
+.pcb svg{width:9px;height:9px;stroke:#fff;stroke-width:2;fill:none}
+/* BRAND STRIP */
+.bstrip{margin:4px 14px 14px;border-radius:22px;background:linear-gradient(135deg,#FF6B8A 0%,#FF9A6C 50%,#37DEE7 100%);padding:22px 20px;overflow:hidden;position:relative}
+.bdec{position:absolute;width:140px;height:140px;border-radius:50%;background:rgba(255,255,255,.1);right:-30px;top:-30px}
+.bz{position:relative}
+.btag{font-size:9px;font-weight:600;letter-spacing:.18em;color:rgba(255,255,255,.45);text-transform:uppercase;margin-bottom:8px}
+.btitle{font-family:'Playfair Display',serif;font-size:20px;color:#fff;line-height:1.25;margin-bottom:6px}
+.btitle span{font-style:italic}
+.bsub{font-size:10px;color:rgba(255,255,255,.5);margin-bottom:16px;line-height:1.6}
+.brow{display:flex;border-top:.5px solid rgba(255,255,255,.2);padding-top:14px}
+.bst{flex:1;text-align:center}
+.bsn{font-family:'Playfair Display',serif;font-size:20px;color:#fff}
+.bsl{font-size:9px;color:rgba(255,255,255,.4);letter-spacing:.1em;text-transform:uppercase;margin-top:2px}
+/* FOOTER */
+.foot{background:#111;padding:24px 20px 28px}
+.flog{font-family:'Playfair Display',serif;font-size:17px;color:#fff}
+.flog em{font-style:italic;color:#FF9A6C}
+.fadr{font-size:10px;color:#555;margin:5px 0 16px;line-height:1.6}
+.flnk{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:16px}
+.fl{font-size:10px;color:#555}
+.fsoc{display:flex;gap:8px}
+.fs{width:32px;height:32px;border-radius:50%;border:.5px solid #2A2A2A;display:flex;align-items:center;justify-content:center;transition:border-color .2s}
+.fs:hover{border-color:#555}
+.fs svg{width:13px;height:13px;stroke:#555;stroke-width:1.5;fill:none}
+.fcp{font-size:9px;color:#333;margin-top:16px;line-height:1.5}
+/* FLOAT */
+.fbr{position:sticky;bottom:0;background:linear-gradient(to top,rgba(248,248,248,1) 60%,transparent);padding:10px 16px 14px;display:flex;gap:8px;justify-content:center}
+.fb{display:inline-flex;align-items:center;gap:6px;padding:11px 22px;border-radius:24px;font-size:11.5px;font-weight:700;cursor:pointer;border:none;font-family:'Outfit',sans-serif;transition:opacity .15s}
+.fb:hover{opacity:.88}
+.fbz{background:#0068FF;color:#fff}
+.fbm{background:#fff;color:#222;border:1px solid #E8E8E8;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+</style>
+</head>
+<body>
+<div class="ph"><div class="sc">
+
+<!-- STATUS BAR -->
+<div class="sb"><span>9:41</span><div class="sb-r"><div class="wi"><div class="wb" style="width:3px;height:4px"></div><div class="wb" style="width:3px;height:6px"></div><div class="wb" style="width:3px;height:8px"></div><div class="wb" style="width:3px;height:10px"></div></div><div class="bat"><div class="bat-f"></div></div></div></div>
+
+<!-- HEADER -->
+<div class="hdr"><div class="logo">Bunnii<em>haus</em></div><div class="hic"><div class="hb"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7.5"/><path d="M19.5 19.5l-2.8-2.8"/></svg></div><div class="hb"><svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h10"/></svg></div></div></div>
+
+<!-- HERO SPLIT -->
+<div class="hero">
+  <div class="hbl1"></div><div class="hbl2"></div>
+  <div class="hl">
+    <div class="hp" style="left:8px;top:10px;width:86px;height:94px;background:#F5F0EB;transform:rotate(-2deg)"><img src="https://livelykid.com/cdn/shop/files/SMG2R__87608_1200x1200.jpg?v=1776969503" alt="Smudge Rabbit"/></div>
+    <div class="hp" style="left:98px;top:18px;width:82px;height:84px;background:#F0ECFC;transform:rotate(2deg)"><img src="https://www.babycubby.com/cdn/shop/files/BAS3COS_4__88258.jpg?v=1774376595" alt="Zodihop Luxe Bunny"/></div>
+    <div class="hp" style="left:8px;top:109px;width:84px;height:77px;background:#E6F4E0;transform:rotate(1.5deg)"><img src="https://www.babycubby.com/cdn/shop/files/A2ASP__90847.jpg?v=1769018170" alt="Asparagus"/></div>
+    <div class="hp" style="left:96px;top:106px;width:86px;height:88px;background:#FFECF3;transform:rotate(-1.5deg)"><img src="https://www.babycubby.com/cdn/shop/files/A2MAR__34730.jpg?v=1774377013" alt="Planet Mars"/></div>
+    <div class="hp" style="left:8px;top:191px;width:82px;height:70px;background:#FDF0E0;transform:rotate(-1deg)"><img src="https://www.babycubby.com/cdn/shop/files/A6POT__82893.jpg?v=1740083561" alt="Potato"/></div>
+    <div class="hp" style="left:94px;top:198px;width:84px;height:66px;background:#FDF2E8;transform:rotate(1.5deg)"><img src="https://www.babycubby.com/cdn/shop/files/BAR4BP_1__98123.jpg?v=1767040279" alt="Bartholomew Bear"/></div>
+  </div>
+  <div class="hr">
+    <div class="hey">Authentic Jellycat</div>
+    <div class="hl2">Bunnii<em>haus</em></div>
+    <div class="htag"><strong>The Gift<br>That Stays.</strong></div>
+    <div class="hadr">207 Hoàng Sa,<br>Tân Định, TP.HCM</div>
+    <div class="hcta">Shop Now →</div>
+  </div>
+</div>
+
+<!-- SEARCH -->
+<div class="sr"><div class="sb2"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7.5"/><path d="M19.5 19.5l-2.8-2.8"/></svg><input placeholder="Tìm sản phẩm Jellycat..."/></div><div class="flt"><svg viewBox="0 0 24 24"><path d="M4 6h16M8 12h8M11 18h2"/></svg></div></div>
+
+<!-- CHIPS -->
+<div class="chips"><div class="chip on">Tất cả</div><div class="chip off">Bashful</div><div class="chip off">Smudge</div><div class="chip off">Amuseables</div><div class="chip off">Luxe</div><div class="chip off">New In</div><div class="chip off">Bag Charm</div></div>
+
+<!-- COUNT -->
+<div class="crow"><span class="cnt">18 Sản phẩm</span><div class="srt"><svg viewBox="0 0 24 24"><path d="M3 6h18M6 12h12M9 18h6"/></svg>Sắp xếp</div></div>
+
+<!-- MASONRY GRID -->
+<div class="mason">
+<div class="mcol">
+
+  <div class="pc"><div class="pch"><div><div class="pcn">Smudge Rabbit</div><div class="pcs">Jellycat · Medium</div><div class="pb bh">Best Seller</div></div><div class="pcw"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div></div>
+  <div class="pci"><div class="pshape" style="height:162px;background:#F5F0EB"><img src="https://livelykid.com/cdn/shop/files/SMG2R__87608_1200x1200.jpg?v=1776969503" alt="Smudge Rabbit" style="height:154px"/></div></div>
+  <div class="pcf"><span class="pcp">890.000đ</span><div class="pcb"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg><span>Tư vấn</span></div></div></div>
+
+  <div class="pc"><div class="pch"><div><div class="pcn">Amuseables Ruler</div><div class="pcs">Jellycat · Small</div></div><div class="pcw"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div></div>
+  <div class="pci"><div class="pshape" style="height:110px;background:#FFF5E8"><img src="https://www.babycubby.com/cdn/shop/files/A6RUL__07851.jpg?v=1761156737" alt="Amuseables Ruler" style="height:102px"/></div></div>
+  <div class="pcf"><span class="pcp">650.000đ</span><div class="pcb"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg><span>Tư vấn</span></div></div></div>
+
+  <div class="pc"><div class="pch"><div><div class="pcn">Zodihop Luxe Bunny</div><div class="pcs">Jellycat · Original</div><div class="pb bn">Hot</div></div><div class="pcw"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div></div>
+  <div class="pci"><div class="pshape" style="height:164px;background:#F0ECFC"><img src="https://www.babycubby.com/cdn/shop/files/BAS3COS_4__88258.jpg?v=1774376595" alt="Zodihop Luxe Bunny" style="height:156px"/></div></div>
+  <div class="pcf"><span class="pcp">1.350.000đ</span><div class="pcb"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg><span>Tư vấn</span></div></div></div>
+
+  <div class="pc"><div class="pch"><div><div class="pcn">Planet Mars</div><div class="pcs">Jellycat · Small</div><div class="pb ba">New</div></div><div class="pcw"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div></div>
+  <div class="pci"><div class="pshape" style="height:126px;background:#FFECF3"><img src="https://www.babycubby.com/cdn/shop/files/A2MAR__34730.jpg?v=1774377013" alt="Planet Mars" style="height:118px"/></div></div>
+  <div class="pcf"><span class="pcp">980.000đ</span><div class="pcb"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg><span>Tư vấn</span></div></div></div>
+
+  <div class="pc"><div class="pch"><div><div class="pcn">Zyllan Alien</div><div class="pcs">Jellycat · Medium</div><div class="pb ba">New</div></div><div class="pcw"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div></div>
+  <div class="pci"><div class="pshape" style="height:108px;background:#E8F5EC"><img src="https://www.babycubby.com/cdn/shop/files/AL3GRE__20440.jpg?v=1774376920" alt="Zyllan Alien" style="height:100px"/></div></div>
+  <div class="pcf"><span class="pcp">880.000đ</span><div class="pcb"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg><span>Tư vấn</span></div></div></div>
+
+  <div class="pc"><div class="pch"><div><div class="pcn">Blush Bunny Blankie</div><div class="pcs">Jellycat · Blush</div></div><div class="pcw"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div></div>
+  <div class="pci"><div class="pshape" style="height:140px;background:#FFEAF2"><img src="https://www.babycubby.com/cdn/shop/files/BLNK4BLU__96676.jpg?v=1761597630" alt="Blush Bunny Blankie" style="height:132px"/></div></div>
+  <div class="pcf"><span class="pcp">1.850.000đ</span><div class="pcb"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg><span>Tư vấn</span></div></div></div>
+
+  <div class="pc"><div class="pch"><div><div class="pcn">Siofra Shamrock Charm</div><div class="pcs">Jellycat · Bag Charm</div></div><div class="pcw"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div></div>
+  <div class="pci"><div class="pshape" style="height:102px;background:#E8F5E8"><img src="https://www.babycubby.com/cdn/shop/files/A4SHMBC_4__50860.jpg?v=1769018706" alt="Siofra Shamrock" style="height:94px"/></div></div>
+  <div class="pcf"><span class="pcp">520.000đ</span><div class="pcb"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg><span>Tư vấn</span></div></div></div>
+
+  <div class="pc"><div class="pch"><div><div class="pcn">Amuseables Asparagus</div><div class="pcs">Jellycat · Large</div><div class="pb ba">New</div></div><div class="pcw"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div></div>
+  <div class="pci"><div class="pshape" style="height:157px;background:#E6F4E0"><img src="https://www.babycubby.com/cdn/shop/files/A2ASP__90847.jpg?v=1769018170" alt="Amuseables Asparagus" style="height:149px"/></div></div>
+  <div class="pcf"><span class="pcp">1.200.000đ</span><div class="pcb"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg><span>Tư vấn</span></div></div></div>
+
+  <div class="pc"><div class="pch"><div><div class="pcn">Boiled Egg Scientist</div><div class="pcs">Jellycat · Outfit</div></div><div class="pcw"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div></div>
+  <div class="pci"><div class="pshape" style="height:106px;background:#FFF8E8"><img src="https://www.babycubby.com/cdn/shop/files/A6BERS__39066.jpg?v=1774376841" alt="Boiled Egg Scientist" style="height:98px"/></div></div>
+  <div class="pcf"><span class="pcp">780.000đ</span><div class="pcb"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg><span>Tư vấn</span></div></div></div>
+
+</div>
+<div class="mcol">
+
+  <div class="pc"><div class="pch"><div><div class="pcn">Amuseables Potato</div><div class="pcs">Jellycat · Medium</div></div><div class="pcw"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div></div>
+  <div class="pci"><div class="pshape" style="height:104px;background:#FDF0E0"><img src="https://www.babycubby.com/cdn/shop/files/A6POT__82893.jpg?v=1740083561" alt="Amuseables Potato" style="height:96px"/></div></div>
+  <div class="pcf"><span class="pcp">680.000đ</span><div class="pcb"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg><span>Tư vấn</span></div></div></div>
+
+  <div class="pc"><div class="pch"><div><div class="pcn">Bashful Bunny Blankie</div><div class="pcs">Jellycat · Beige</div><div class="pb bh">Hot</div></div><div class="pcw"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div></div>
+  <div class="pci"><div class="pshape" style="height:155px;background:#FFF4E8"><img src="https://www.babycubby.com/cdn/shop/files/BLNK4B__34757.jpg?v=1735681509" alt="Bashful Bunny Blankie" style="height:147px"/></div></div>
+  <div class="pcf"><span class="pcp">1.850.000đ</span><div class="pcb"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg><span>Tư vấn</span></div></div></div>
+
+  <div class="pc"><div class="pch"><div><div class="pcn">Space Comet</div><div class="pcs">Jellycat · Small</div></div><div class="pcw"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div></div>
+  <div class="pci"><div class="pshape" style="height:110px;background:#E4F0FF"><img src="https://www.babycubby.com/cdn/shop/files/A4COM__07157.jpg?v=1774377091" alt="Space Comet" style="height:102px"/></div></div>
+  <div class="pcf"><span class="pcp">980.000đ</span><div class="pcb"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg><span>Tư vấn</span></div></div></div>
+
+  <div class="pc"><div class="pch"><div><div class="pcn">Peanut Space Rodeo</div><div class="pcs">Jellycat · Outfit</div><div class="pb ba">New</div></div><div class="pcw"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div></div>
+  <div class="pci"><div class="pshape" style="height:134px;background:#FDF0E0"><img src="https://www.babycubby.com/cdn/shop/files/A6PSC__31773.jpg?v=1774376768" alt="Peanut Space Rodeo" style="height:126px"/></div></div>
+  <div class="pcf"><span class="pcp">750.000đ</span><div class="pcb"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg><span>Tư vấn</span></div></div></div>
+
+  <div class="pc"><div class="pch"><div><div class="pcn">Silver Bunny Blankie</div><div class="pcs">Jellycat · Silver</div></div><div class="pcw"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div></div>
+  <div class="pci"><div class="pshape" style="height:116px;background:#EDEDF4"><img src="https://www.babycubby.com/cdn/shop/files/BLNK4BS__77501.jpg?v=1761597705" alt="Silver Bunny Blankie" style="height:108px"/></div></div>
+  <div class="pcf"><span class="pcp">1.850.000đ</span><div class="pcb"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg><span>Tư vấn</span></div></div></div>
+
+  <div class="pc"><div class="pch"><div><div class="pcn">Bartholomew Bear Backpack</div><div class="pcs">Jellycat · Backpack</div><div class="pb bh">Exclusive</div></div><div class="pcw"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div></div>
+  <div class="pci"><div class="pshape" style="height:159px;background:#FDF2E8"><img src="https://www.babycubby.com/cdn/shop/files/BAR4BP_1__98123.jpg?v=1767040279" alt="Bartholomew Bear Backpack" style="height:151px"/></div></div>
+  <div class="pcf"><span class="pcp">2.200.000đ</span><div class="pcb"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg><span>Tư vấn</span></div></div></div>
+
+  <div class="pc"><div class="pch"><div><div class="pcn">Munro Scottie Dog Space</div><div class="pcs">Jellycat · Outfit</div><div class="pb ba">New</div></div><div class="pcw"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div></div>
+  <div class="pci"><div class="pshape" style="height:106px;background:#EBF0FC"><img src="https://www.babycubby.com/cdn/shop/files/MUN3SPD__38313.jpg?v=1774376685" alt="Munro Scottie Dog" style="height:98px"/></div></div>
+  <div class="pcf"><span class="pcp">1.350.000đ</span><div class="pcb"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg><span>Tư vấn</span></div></div></div>
+
+  <div class="pc"><div class="pch"><div><div class="pcn">Asparagus Large</div><div class="pcs">Jellycat · Large</div></div><div class="pcw"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div></div>
+  <div class="pci"><div class="pshape" style="height:151px;background:#E6F4E0"><img src="https://www.babycubby.com/cdn/shop/files/A2ASP_2__41635.jpg?v=1769018173" alt="Asparagus Large" style="height:143px"/></div></div>
+  <div class="pcf"><span class="pcp">1.580.000đ</span><div class="pcb"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg><span>Tư vấn</span></div></div></div>
+
+  <div class="pc"><div class="pch"><div><div class="pcn">Potato Large</div><div class="pcs">Jellycat · Large</div></div><div class="pcw"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div></div>
+  <div class="pci"><div class="pshape" style="height:108px;background:#FDF0E0"><img src="https://www.babycubby.com/cdn/shop/files/A6POT_2__71211.jpg?v=1740083561" alt="Potato Large" style="height:100px"/></div></div>
+  <div class="pcf"><span class="pcp">980.000đ</span><div class="pcb"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg><span>Tư vấn</span></div></div></div>
+
+</div>
+</div>
+
+<!-- BRAND STRIP -->
+<div class="bstrip"><div class="bdec"></div><div class="bz">
+  <div class="btag">Why Bunniihaus</div>
+  <div class="btitle">Certified Authentic.<br><span>Premium Gifting.</span></div>
+  <div class="bsub">Imported direct from Jellycat UK.<br>Invoice · Original tags · Sealed packaging.</div>
+  <div class="brow">
+    <div class="bst"><div class="bsn">100%</div><div class="bsl">Authentic</div></div>
+    <div class="bst" style="border-left:.5px solid rgba(255,255,255,.2)"><div class="bsn">2K+</div><div class="bsl">Clients</div></div>
+    <div class="bst" style="border-left:.5px solid rgba(255,255,255,.2)"><div class="bsn">63</div><div class="bsl">Provinces</div></div>
+  </div>
+</div></div>
+
+<!-- FOOTER -->
+<div class="foot">
+  <div class="flog">Bunnii<em>haus</em></div>
+  <div class="fadr">207 Hoàng Sa, Tân Định, Quận 1, TP.HCM<br>The Gift That Stays. · Authentic Jellycat Vietnam</div>
+  <div class="flnk"><span class="fl">Shop</span><span class="fl">About</span><span class="fl">Contact</span><span class="fl">Policy</span></div>
+  <div class="fsoc">
+    <div class="fs"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></div>
+    <div class="fs"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="#555"/></svg></div>
+    <div class="fs"><svg viewBox="0 0 24 24"><path d="M21 2H3v16l4-4h14V2z"/></svg></div>
+  </div>
+  <div class="fcp">© 2024 Bunniihaus · The Gift That Stays.<br>Images © Jellycat Ltd. Used for illustration purposes only.</div>
+</div>
+
+<!-- FLOATING CTA -->
+<div class="fbr">
+  <button class="fb fbz"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect width="24" height="24" rx="5" fill="rgba(255,255,255,.2)"/><path d="M7 9a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v4a1 1 0 0 1-1 1H8.5L6 16V9z" fill="white"/></svg>Chat Zalo</button>
+  <button class="fb fbm"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#FF6B8A" stroke-width="2"><path d="M12 3C6.5 3 2 7.1 2 12.2c0 2.7 1.3 5.2 3.4 6.9V22l3.1-1.7c.8.2 1.6.3 2.5.3 5.5 0 10-4.1 10-9.2C21 7.1 17.5 3 12 3z"/><path d="M8 12l2 2 5-5" stroke-linecap="round" stroke-linejoin="round"/></svg>Messenger</button>
+</div>
+
+</div></div>
+</body>
+</html>
