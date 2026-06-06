@@ -65,7 +65,8 @@ button{font-family:inherit;border:none;background:none;cursor:pointer}
 .flt:hover{transform:scale(1.05)}
 .flt svg{width:16px;height:16px;stroke:#fff;stroke-width:1.8;fill:none;stroke-linecap:round}
 
-.chips{display:flex;gap:7px;padding:6px 16px 10px;overflow-x:auto;scroll-snap-type:x mandatory}
+.chips{display:flex;gap:7px;padding:10px 16px;overflow-x:auto;scroll-snap-type:x mandatory;position:sticky;top:62px;z-index:45;background:rgba(248,248,248,.94);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line);transition:box-shadow .2s}
+.chips.stuck{box-shadow:0 4px 14px rgba(0,0,0,.06)}
 .chips::-webkit-scrollbar{display:none}
 .chip{white-space:nowrap;font-size:11.5px;font-weight:600;padding:8px 16px;border-radius:20px;cursor:pointer;transition:all .18s;scroll-snap-align:start;border:1px solid transparent;user-select:none}
 .chip.on{background:var(--pink);color:#fff;box-shadow:0 3px 10px rgba(255,107,138,.32)}
@@ -227,7 +228,7 @@ button{font-family:inherit;border:none;background:none;cursor:pointer}
   .flt{width:52px;height:52px}
   .flt svg{width:18px;height:18px}
 
-  .chips{padding:6px 36px 14px;gap:9px}
+  .chips{padding:12px 36px;gap:9px;top:70px}
   .chip{font-size:12.5px;padding:9px 18px;border-radius:22px}
 
   .crow{padding:0 38px 16px}
@@ -743,6 +744,18 @@ document.addEventListener('keydown', (e)=>{
       showLightbox();
     }
   });
+})();
+
+// ── STICKY CHIPS SHADOW ─────────────────────────────────────
+(function(){
+  const chips = document.getElementById('chips');
+  const sentinel = document.createElement('div');
+  sentinel.style.cssText = 'position:absolute;top:0;height:1px;width:1px';
+  chips.parentNode.insertBefore(sentinel, chips);
+  const io = new IntersectionObserver(([e])=>{
+    chips.classList.toggle('stuck', !e.isIntersecting);
+  }, {threshold:0});
+  io.observe(sentinel);
 })();
 
 // ── INIT ────────────────────────────────────────────────────
