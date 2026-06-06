@@ -2,374 +2,644 @@
 <html lang="vi">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
-<title>Bunniihaus – The Gift That Stays.</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,500;1,600&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=5">
+<title>Bunniihaus — The Gift That Stays.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,500;1,600&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-body{background:#E0E0E0;display:flex;justify-content:center;padding:24px 0;font-family:'Outfit',system-ui,sans-serif}
-.ph{width:390px;background:#F8F8F8;border-radius:44px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,0.18);border:1.5px solid #ddd}
-.sc::-webkit-scrollbar{display:none}
-/* STATUS */
-.sb{display:flex;justify-content:space-between;align-items:center;padding:12px 24px 0;font-size:13px;font-weight:700;color:#111}
-.sb-r{display:flex;align-items:center;gap:5px}
-.bat{width:24px;height:12px;border:1.5px solid #111;border-radius:3px;position:relative;padding:2px;display:flex}
-.bat::after{content:'';position:absolute;right:-5px;top:50%;transform:translateY(-50%);width:3px;height:6px;background:#111;border-radius:1px}
-.bat-f{flex:.6;background:#111;border-radius:1.5px}
-.wi{display:flex;gap:1.5px;align-items:flex-end}
-.wb{background:#111;border-radius:.5px}
-/* HEADER */
-.hdr{display:flex;align-items:center;justify-content:space-between;padding:10px 20px 8px;background:#F8F8F8}
-.logo{font-family:'Playfair Display',serif;font-size:20px;color:#111}
-.logo em{font-style:italic;color:#FF6B8A}
-.hic{display:flex;gap:10px}
-.hb{width:34px;height:34px;display:flex;align-items:center;justify-content:center}
-.hb svg{width:18px;height:18px;stroke:#222;stroke-width:1.5;fill:none;stroke-linecap:round}
-/* HERO */
-.hero{margin:0 14px;border-radius:26px;overflow:hidden;height:248px;display:flex;background:linear-gradient(148deg,#FFEEE8 0%,#FFE0EC 45%,#D8F4F0 100%);position:relative}
-.hbl1{position:absolute;width:130px;height:130px;border-radius:50%;background:#FF9A6C;opacity:.12;top:-30px;left:130px;pointer-events:none}
-.hbl2{position:absolute;width:80px;height:80px;border-radius:50%;background:#37DEE7;opacity:.15;bottom:-20px;left:90px;pointer-events:none}
-.hl{width:196px;flex-shrink:0;position:relative;overflow:hidden}
-.hp{position:absolute;border-radius:15px;overflow:hidden;box-shadow:0 3px 14px rgba(0,0,0,0.1);display:flex;align-items:center;justify-content:center}
-.hp img{width:100%;height:100%;object-fit:contain;padding:5px;display:block;mix-blend-mode:multiply}
-.hr{flex:1;padding:22px 18px 22px 10px;display:flex;flex-direction:column;justify-content:center;position:relative;z-index:2}
-.hey{font-size:8.5px;letter-spacing:.2em;text-transform:uppercase;color:#FF6B8A;font-weight:700;margin-bottom:10px}
-.hl2{font-family:'Playfair Display',serif;font-size:23px;color:#1A1A1A;line-height:1}
-.hl2 em{font-style:italic;color:#FF6B8A}
-.htag{font-family:'Playfair Display',serif;font-size:16px;color:#111;margin-top:12px;line-height:1.3;font-style:italic}
-.htag strong{font-style:normal;font-weight:700;color:#FF6B8A;display:block;font-size:17px}
-.hadr{font-size:9px;color:#BBB;margin-top:10px;line-height:1.6}
-.hcta{margin-top:13px;background:#FF6B8A;color:#fff;font-size:10.5px;font-weight:700;padding:8px 16px;border-radius:18px;cursor:pointer;display:inline-block;letter-spacing:.02em;transition:opacity .15s}
-.hcta:hover{opacity:.88}
-/* SEARCH */
-.sr{display:flex;gap:8px;align-items:center;padding:14px 16px 8px;background:#F8F8F8}
-.sb2{flex:1;height:42px;background:#EEEEEE;border-radius:21px;display:flex;align-items:center;gap:9px;padding:0 15px}
-.sb2 svg{width:15px;height:15px;stroke:#bbb;stroke-width:1.8;fill:none}
-.sb2 input{border:none;background:transparent;outline:none;font-size:12.5px;color:#888;font-family:'Outfit',sans-serif;width:100%}
-.sb2 input::placeholder{color:#ccc}
-.flt{width:42px;height:42px;background:#111;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;cursor:pointer;transition:background .2s}
-.flt:hover{background:#333}
-.flt svg{width:15px;height:15px;stroke:#fff;stroke-width:1.8;fill:none;stroke-linecap:round}
-/* CHIPS */
-.chips{display:flex;gap:7px;padding:4px 16px 12px;overflow-x:auto;background:#F8F8F8}
-.chips::-webkit-scrollbar{display:none}
-.chip{white-space:nowrap;font-size:11px;font-weight:600;padding:6px 16px;border-radius:18px;cursor:pointer;transition:all .18s}
-.chip.on{background:#FF6B8A;color:#fff;box-shadow:0 2px 8px rgba(255,107,138,.35)}
-.chip.off{background:#fff;color:#666;border:1px solid #E5E5E5}
-.chip.off:hover{border-color:#FF6B8A;color:#FF6B8A}
-/* COUNT */
-.crow{padding:0 16px 10px;display:flex;justify-content:space-between;align-items:center;background:#F8F8F8}
-.cnt{font-size:11px;font-weight:600;color:#bbb;letter-spacing:.08em;text-transform:uppercase}
-.srt{font-size:11px;color:#888;font-weight:500;display:flex;align-items:center;gap:5px}
-.srt svg{width:13px;height:13px;stroke:#ccc;stroke-width:2;fill:none}
-/* MASONRY */
-.mason{display:flex;gap:10px;padding:0 14px;margin-bottom:14px;background:#F8F8F8}
-.mcol{flex:1;display:flex;flex-direction:column;gap:10px}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+:root{
+  --pink:#FF6B8A; --pink-deep:#e85578; --orange:#FF9A6C; --cyan:#37DEE7;
+  --bg:#F8F8F8; --ink:#111; --mute:#888; --line:rgba(0,0,0,0.07);
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);font-family:'Outfit',system-ui,-apple-system,sans-serif;color:var(--ink);min-height:100vh;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+button{font-family:inherit;border:none;background:none;cursor:pointer}
 
-/* CARD */
-.pc{
-  background:#fff;
-  border-radius:22px;
-  overflow:hidden;
-  border:1px solid rgba(0,0,0,0.07);
-  cursor:pointer;
-  transition:transform .22s cubic-bezier(.25,.46,.45,.94), box-shadow .22s cubic-bezier(.25,.46,.45,.94), opacity .2s;
-  box-shadow:0 3px 12px rgba(0,0,0,0.07), 0 1px 3px rgba(0,0,0,0.04);
-  position:relative;
-}
-.pc:hover{
-  transform:translateY(-5px) scale(1.012);
-  box-shadow:0 16px 36px rgba(0,0,0,.13), 0 4px 10px rgba(0,0,0,0.06);
-  border-color:rgba(255,107,138,0.18);
-}
-.pc:hover .pshape{
-  filter:brightness(1.03);
-}
-.pc:hover .pcb{
-  background:#e85578;
-  box-shadow:0 3px 10px rgba(255,107,138,.4);
-}
-.pc:hover .pcw svg{
-  stroke:#FF6B8A;
-}
-/* card hidden */
+/* ── HEADER ─────────────────────────────────────────────────────────── */
+.hdr{position:sticky;top:0;z-index:50;background:rgba(248,248,248,.92);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line);padding:12px 18px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-family:'Playfair Display',serif;font-size:22px;color:var(--ink);letter-spacing:-.01em}
+.logo em{font-style:italic;color:var(--pink)}
+.hic{display:flex;gap:8px}
+.hb{width:38px;height:38px;display:flex;align-items:center;justify-content:center;border-radius:50%;transition:background .18s}
+.hb:hover{background:rgba(0,0,0,.04)}
+.hb svg{width:19px;height:19px;stroke:#222;stroke-width:1.6;fill:none;stroke-linecap:round;stroke-linejoin:round}
+
+/* ── HERO ───────────────────────────────────────────────────────────── */
+.hero{margin:14px;border-radius:24px;overflow:hidden;background:linear-gradient(140deg,#FFEEE8 0%,#FFE0EC 45%,#D8F4F0 100%);position:relative;display:grid;grid-template-columns:1fr 1fr;gap:0;align-items:center}
+.hbl1{position:absolute;width:160px;height:160px;border-radius:50%;background:var(--orange);opacity:.12;top:-40px;left:38%;pointer-events:none;filter:blur(8px)}
+.hbl2{position:absolute;width:110px;height:110px;border-radius:50%;background:var(--cyan);opacity:.16;bottom:-25px;left:26%;pointer-events:none;filter:blur(8px)}
+.hl{position:relative;overflow:hidden;padding:12px;display:grid;grid-template-columns:1fr 1fr;gap:8px;align-self:stretch;align-content:center}
+.hp{aspect-ratio:1/1;border-radius:14px;overflow:hidden;box-shadow:0 3px 14px rgba(0,0,0,.08);background:#fff;transition:transform .4s cubic-bezier(.25,.46,.45,.94);display:flex;align-items:center;justify-content:center}
+.hp:hover{transform:scale(1.06) rotate(0deg) !important;z-index:5;box-shadow:0 12px 30px rgba(0,0,0,.18)}
+.hp img{width:100%;height:100%;object-fit:contain;padding:8px;mix-blend-mode:multiply}
+/* hide extras 7-8 on mobile */
+.hp.extra{display:none}
+/* mobile rotations for first 6 */
+.hp.hp1{transform:rotate(-1.5deg)}
+.hp.hp2{transform:rotate(1.5deg)}
+.hp.hp3{transform:rotate(1deg)}
+.hp.hp4{transform:rotate(-1deg)}
+.hp.hp5{transform:rotate(-2deg)}
+.hp.hp6{transform:rotate(2deg)}
+.hr{padding:24px 18px 26px 6px;display:flex;flex-direction:column;justify-content:center;position:relative;z-index:2}
+.hey{font-size:9.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--pink);font-weight:700;margin-bottom:10px}
+.hl2{font-family:'Playfair Display',serif;font-size:26px;color:#1A1A1A;line-height:1}
+.hl2 em{font-style:italic;color:var(--pink)}
+.htag{font-family:'Playfair Display',serif;font-size:15px;color:var(--ink);margin-top:14px;line-height:1.25;font-style:italic}
+.htag strong{font-style:normal;font-weight:700;color:var(--pink);display:block;font-size:18px}
+.hadr{font-size:10px;color:#aaa;margin-top:12px;line-height:1.55}
+.hcta{margin-top:16px;background:var(--pink);color:#fff;font-size:11.5px;font-weight:700;padding:10px 20px;border-radius:22px;display:inline-flex;align-items:center;gap:6px;align-self:flex-start;transition:all .18s;box-shadow:0 4px 14px rgba(255,107,138,.32)}
+.hcta:hover{background:var(--pink-deep);transform:translateY(-1px)}
+
+/* ── SEARCH & CHIPS ────────────────────────────────────────────────── */
+.sr{display:flex;gap:8px;align-items:center;padding:6px 16px 8px}
+.sb2{flex:1;height:44px;background:#fff;border:1px solid var(--line);border-radius:22px;display:flex;align-items:center;gap:10px;padding:0 16px;transition:border-color .18s,box-shadow .18s}
+.sb2:focus-within{border-color:var(--pink);box-shadow:0 0 0 3px rgba(255,107,138,.12)}
+.sb2 svg{width:16px;height:16px;stroke:#bbb;stroke-width:1.8;fill:none;flex-shrink:0}
+.sb2 input{flex:1;border:none;background:transparent;outline:none;font-size:13px;color:var(--ink);font-family:inherit}
+.sb2 input::placeholder{color:#bbb}
+.flt{width:44px;height:44px;background:var(--ink);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:transform .18s}
+.flt:hover{transform:scale(1.05)}
+.flt svg{width:16px;height:16px;stroke:#fff;stroke-width:1.8;fill:none;stroke-linecap:round}
+
+.chips{display:flex;gap:7px;padding:6px 16px 10px;overflow-x:auto;scroll-snap-type:x mandatory}
+.chips::-webkit-scrollbar{display:none}
+.chip{white-space:nowrap;font-size:11.5px;font-weight:600;padding:8px 16px;border-radius:20px;cursor:pointer;transition:all .18s;scroll-snap-align:start;border:1px solid transparent;user-select:none}
+.chip.on{background:var(--pink);color:#fff;box-shadow:0 3px 10px rgba(255,107,138,.32)}
+.chip.off{background:#fff;color:#666;border-color:#E8E8E8}
+.chip.off:hover{border-color:var(--pink);color:var(--pink)}
+.chip .cn{opacity:.55;margin-left:5px;font-weight:500}
+
+.crow{padding:0 18px 12px;display:flex;justify-content:space-between;align-items:center}
+.cnt{font-size:11px;font-weight:600;color:#bbb;letter-spacing:.08em;text-transform:uppercase}
+.srt{font-size:11px;color:#888;font-weight:500;display:flex;align-items:center;gap:5px;cursor:pointer}
+.srt svg{width:13px;height:13px;stroke:#bbb;stroke-width:2;fill:none}
+
+/* ── MASONRY GRID (Pinterest-style) ───────────────────────────────── */
+.mason{column-count:2;column-gap:10px;padding:0 14px;margin-bottom:18px}
+.mcol{display:contents}
+
+/* ── CARD ──────────────────────────────────────────────────────────── */
+.pc{background:#fff;border-radius:20px;overflow:hidden;border:1px solid var(--line);cursor:pointer;transition:transform .22s cubic-bezier(.25,.46,.45,.94),box-shadow .22s,border-color .22s;box-shadow:0 2px 10px rgba(0,0,0,.05);break-inside:avoid;margin-bottom:10px;display:inline-block;width:100%}
+.pc:hover{transform:translateY(-4px);box-shadow:0 14px 32px rgba(0,0,0,.11);border-color:rgba(255,107,138,.22)}
+.pc:hover .pcb{background:var(--pink-deep);box-shadow:0 3px 10px rgba(255,107,138,.4)}
+.pc:hover .pcw svg{stroke:var(--pink)}
 .pc.hidden{display:none}
 
-.pch{padding:12px 12px 6px;display:flex;justify-content:space-between;align-items:flex-start}
-.pcn{font-size:13px;font-weight:600;color:#111;line-height:1.3}
-.pcs{font-size:8.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#ccc;margin-top:3px}
-.pcw{width:28px;height:28px;background:#F8F8F8;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .2s}
+.pch{padding:11px 12px 4px;display:flex;justify-content:space-between;align-items:flex-start;gap:6px}
+.pcn{font-size:12.5px;font-weight:600;color:var(--ink);line-height:1.28;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.pcs{font-size:8.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#bbb;margin-top:3px}
+.pcw{width:26px;height:26px;background:#FAFAFA;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .2s}
 .pcw:hover{background:#FFEAEF}
 .pcw svg{width:12px;height:12px;stroke:#ddd;stroke-width:1.8;fill:none;transition:stroke .2s}
-/* IMAGE */
-.pci{width:100%;background:transparent;padding:0 8px}
-.pshape{width:100%;border-radius:16px;overflow:hidden;display:flex;align-items:center;justify-content:center;transition:filter .22s}
-.pshape img{width:100%;object-fit:contain;display:block;padding:8px;mix-blend-mode:multiply}
-/* NO IMAGE PLACEHOLDER */
-.pshape .noimg{width:100%;display:flex;align-items:center;justify-content:center;font-size:11px;color:rgba(0,0,0,.2);font-weight:500;letter-spacing:.05em}
-/* BADGE */
-.pb{display:inline-block;font-size:8px;font-weight:700;letter-spacing:.08em;padding:2px 8px;border-radius:5px;margin-top:4px}
-.bn{background:#FFF0F4;color:#FF6B8A}
-.bh{background:#FFF4E8;color:#FF8C42}
-.ba{background:#E8F5FF;color:#0068FF}
-.be{background:#F0F0FF;color:#6060CC}
-.bl{background:#F5FFE8;color:#4CAF50}
-.bs{background:#FFF0F0;color:#CC3333}
-/* FOOTER CARD */
-.pcf{padding:9px 12px 12px;display:flex;align-items:center;justify-content:space-between}
-.pcp{font-size:12px;font-weight:700;color:#111}
-.pcb{height:28px;padding:0 12px;border-radius:14px;background:#FF6B8A;display:flex;align-items:center;gap:5px;cursor:pointer;transition:background .2s, box-shadow .2s}
-.pcb span{font-size:9.5px;font-weight:700;color:#fff}
-.pcb svg{width:9px;height:9px;stroke:#fff;stroke-width:2;fill:none}
-/* out of stock */
-.pcb.oos{background:#DDD;cursor:default}
-.pcb.oos span{color:#999}
-.pcb.oos svg{stroke:#999}
-/* BRAND STRIP */
-.bstrip{margin:4px 14px 14px;border-radius:22px;background:linear-gradient(135deg,#FF6B8A 0%,#FF9A6C 50%,#37DEE7 100%);padding:22px 20px;overflow:hidden;position:relative}
-.bdec{position:absolute;width:140px;height:140px;border-radius:50%;background:rgba(255,255,255,.1);right:-30px;top:-30px}
-.bz{position:relative}
-.btag{font-size:9px;font-weight:600;letter-spacing:.18em;color:rgba(255,255,255,.45);text-transform:uppercase;margin-bottom:8px}
-.btitle{font-family:'Playfair Display',serif;font-size:20px;color:#fff;line-height:1.25;margin-bottom:6px}
+
+.pci{padding:2px 8px 0}
+.pshape{width:100%;border-radius:14px;overflow:hidden;display:flex;align-items:center;justify-content:center;position:relative;transition:filter .22s}
+.pshape::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 70%,rgba(0,0,0,.04) 100%);pointer-events:none}
+.pshape img{width:100%;height:100%;object-fit:contain;padding:2px;mix-blend-mode:multiply;transition:transform .35s;transform:scale(1.08)}
+.pc:hover .pshape img{transform:scale(1.15)}
+/* Dragons take more zoom — source images have lots of padding */
+.pc[data-collection="Dragon L"] .pshape img{transform:scale(1.4);padding:0}
+.pc[data-collection="Dragon L"]:hover .pshape img{transform:scale(1.5)}
+.pzoom{position:absolute;bottom:6px;right:6px;width:22px;height:22px;background:rgba(255,255,255,.9);border-radius:50%;display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .2s;pointer-events:none;z-index:2}
+.pzoom svg{width:11px;height:11px;stroke:#666;stroke-width:2;fill:none;stroke-linecap:round}
+.pc:hover .pzoom{opacity:1}
+
+.pcf{padding:8px 12px 12px;display:flex;align-items:center;justify-content:space-between;gap:6px}
+.pcp{font-size:15px;font-weight:800;color:var(--pink);letter-spacing:-.01em}
+.pcp.contact{font-size:11px;font-weight:600;color:#aaa;font-style:italic;letter-spacing:0}
+.pcb{height:30px;padding:0 12px;border-radius:15px;background:var(--pink);display:inline-flex;align-items:center;gap:5px;transition:background .2s,box-shadow .2s;text-decoration:none}
+.pcb span{font-size:10px;font-weight:700;color:#fff;letter-spacing:.02em;white-space:nowrap}
+.pcb svg{width:9px;height:9px;stroke:#fff;stroke-width:2.2;fill:none}
+
+/* ── BRAND STRIP ──────────────────────────────────────────────────── */
+.bstrip{margin:8px 14px 16px;border-radius:22px;background:linear-gradient(135deg,#FF6B8A 0%,#FF9A6C 50%,#37DEE7 100%);padding:24px 22px;overflow:hidden;position:relative;color:#fff}
+.bdec{position:absolute;width:160px;height:160px;border-radius:50%;background:rgba(255,255,255,.1);right:-40px;top:-40px}
+.bz{position:relative;z-index:1}
+.btag{font-size:9.5px;font-weight:600;letter-spacing:.18em;color:rgba(255,255,255,.6);text-transform:uppercase;margin-bottom:10px}
+.btitle{font-family:'Playfair Display',serif;font-size:22px;line-height:1.2;margin-bottom:8px}
 .btitle span{font-style:italic}
-.bsub{font-size:10px;color:rgba(255,255,255,.5);margin-bottom:16px;line-height:1.6}
-.brow{display:flex;border-top:.5px solid rgba(255,255,255,.2);padding-top:14px}
+.bsub{font-size:11px;color:rgba(255,255,255,.7);margin-bottom:18px;line-height:1.55}
+.brow{display:flex;border-top:1px solid rgba(255,255,255,.22);padding-top:14px}
 .bst{flex:1;text-align:center}
-.bsn{font-family:'Playfair Display',serif;font-size:20px;color:#fff}
-.bsl{font-size:9px;color:rgba(255,255,255,.4);letter-spacing:.1em;text-transform:uppercase;margin-top:2px}
-/* FOOTER */
-.foot{background:#111;padding:24px 20px 28px}
-.flog{font-family:'Playfair Display',serif;font-size:17px;color:#fff}
-.flog em{font-style:italic;color:#FF9A6C}
-.fadr{font-size:10px;color:#555;margin:5px 0 16px;line-height:1.6}
-.flnk{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:16px}
-.fl{font-size:10px;color:#555;cursor:pointer;transition:color .15s}
-.fl:hover{color:#999}
-.fsoc{display:flex;gap:8px}
-.fs{width:32px;height:32px;border-radius:50%;border:.5px solid #2A2A2A;display:flex;align-items:center;justify-content:center;transition:border-color .2s;cursor:pointer}
-.fs:hover{border-color:#555}
-.fs svg{width:13px;height:13px;stroke:#555;stroke-width:1.5;fill:none}
-.fcp{font-size:9px;color:#333;margin-top:16px;line-height:1.5}
-/* FLOAT CTA */
-.fbr{position:sticky;bottom:0;background:linear-gradient(to top,rgba(248,248,248,1) 60%,transparent);padding:10px 16px 14px;display:flex;gap:8px;justify-content:center}
-.fb{display:inline-flex;align-items:center;gap:6px;padding:11px 22px;border-radius:24px;font-size:11.5px;font-weight:700;cursor:pointer;border:none;font-family:'Outfit',sans-serif;transition:opacity .15s, transform .15s}
-.fb:hover{opacity:.88;transform:translateY(-1px)}
-.fbz{background:#0068FF;color:#fff}
-.fbm{background:#fff;color:#222;border:1px solid #E8E8E8;box-shadow:0 2px 8px rgba(0,0,0,.06)}
-/* MODAL */
-.modal-bg{display:none;position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:100;align-items:flex-end;justify-content:center}
-.modal-bg.open{display:flex}
-.modal{background:#fff;border-radius:28px 28px 0 0;padding:24px 20px 32px;width:100%;max-width:390px;animation:slideUp .25s cubic-bezier(.25,.46,.45,.94)}
+.bst+.bst{border-left:1px solid rgba(255,255,255,.22)}
+.bsn{font-family:'Playfair Display',serif;font-size:20px;line-height:1.15}
+.bsl{font-size:9px;color:rgba(255,255,255,.65);letter-spacing:.1em;text-transform:uppercase;margin-top:3px}
+
+/* ── FOOTER ────────────────────────────────────────────────────────── */
+.foot{background:#111;padding:28px 22px 32px;color:#fff}
+.flog{font-family:'Playfair Display',serif;font-size:19px}
+.flog em{font-style:italic;color:var(--orange)}
+.fadr{font-size:10.5px;color:#666;margin:6px 0 18px;line-height:1.55}
+.flnk{display:flex;gap:18px;flex-wrap:wrap;margin-bottom:18px}
+.fl{font-size:11px;color:#777;cursor:pointer;transition:color .15s}
+.fl:hover{color:#fff}
+.fsoc{display:flex;gap:10px}
+.fs{width:34px;height:34px;border-radius:50%;border:1px solid #2A2A2A;display:flex;align-items:center;justify-content:center;transition:all .2s;cursor:pointer}
+.fs:hover{border-color:var(--pink);background:rgba(255,107,138,.08)}
+.fs svg{width:14px;height:14px;stroke:#777;stroke-width:1.6;fill:none}
+.fs:hover svg{stroke:#fff}
+.fcp{font-size:9.5px;color:#444;margin-top:18px;line-height:1.55;padding-top:18px;border-top:1px solid #1A1A1A}
+
+/* ── FLOAT CTA ────────────────────────────────────────────────────── */
+.fbr{position:sticky;bottom:0;background:linear-gradient(to top,rgba(248,248,248,1) 65%,rgba(248,248,248,0));padding:12px 16px 16px;display:flex;gap:8px;justify-content:center;z-index:30}
+.fb{display:inline-flex;align-items:center;gap:6px;padding:12px 22px;border-radius:24px;font-size:12px;font-weight:700;transition:all .18s;font-family:inherit}
+.fb:hover{transform:translateY(-1px)}
+.fb{text-decoration:none}
+.fbz{background:linear-gradient(135deg,#f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);color:#fff;box-shadow:0 4px 14px rgba(220,39,67,.32)}
+.fbm{background:#fff;color:#222;border:1px solid #E8E8E8;box-shadow:0 2px 10px rgba(0,0,0,.06)}
+
+/* ── CONTACT MODAL ────────────────────────────────────────────────── */
+.modal-bg{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:100;align-items:flex-end;justify-content:center;backdrop-filter:blur(4px)}
+.modal-bg.open{display:flex;animation:fadeIn .2s}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+.modal{background:#fff;border-radius:24px 24px 0 0;padding:24px 20px 32px;width:100%;max-width:420px;animation:slideUp .28s cubic-bezier(.25,.46,.45,.94)}
 @keyframes slideUp{from{transform:translateY(100%)}to{transform:translateY(0)}}
-.modal-title{font-size:13px;font-weight:700;color:#111;margin-bottom:6px}
-.modal-sub{font-size:11px;color:#aaa;margin-bottom:20px}
+.modal-title{font-size:14px;font-weight:700;margin-bottom:6px}
+.modal-sub{font-size:11.5px;color:#aaa;margin-bottom:18px}
 .modal-btns{display:flex;flex-direction:column;gap:10px}
-.modal-btn{display:flex;align-items:center;gap:12px;padding:14px 18px;border-radius:16px;cursor:pointer;font-family:'Outfit',sans-serif;font-size:13px;font-weight:600;border:none;transition:opacity .15s, transform .15s;text-decoration:none}
-.modal-btn:hover{opacity:.9;transform:translateY(-1px)}
+.modal-btn{display:flex;align-items:center;gap:12px;padding:14px 18px;border-radius:16px;font-size:13px;font-weight:600;transition:all .15s;text-decoration:none}
+.modal-btn:hover{transform:translateY(-1px)}
 .modal-btn-zalo{background:#0068FF;color:#fff}
-.modal-btn-mess{background:#fff;color:#222;border:1.5px solid #E8E8E8;box-shadow:0 2px 8px rgba(0,0,0,.06)}
-.modal-btn svg{width:20px;height:20px;flex-shrink:0}
-.modal-close{position:absolute;top:14px;right:18px;font-size:20px;cursor:pointer;color:#ccc;line-height:1}
+.modal-btn-mess{background:#fff;color:#222;border:1.5px solid #E8E8E8}
+.modal-close{position:absolute;top:14px;right:18px;font-size:22px;cursor:pointer;color:#ccc;line-height:1}
 .modal-inner{position:relative}
-/* EMPTY STATE */
-.empty{display:none;flex-direction:column;align-items:center;justify-content:center;padding:40px 20px;gap:10px;width:100%}
-.empty svg{width:40px;height:40px;stroke:#ddd;stroke-width:1.2;fill:none}
-.empty span{font-size:12px;color:#ccc;font-weight:500}
+
+/* ── LIGHTBOX (FULL IMAGE) ────────────────────────────────────────── */
+.lb{display:none;position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:200;flex-direction:column;align-items:center;justify-content:center;padding:20px;animation:fadeIn .2s}
+.lb.open{display:flex}
+.lb-close{position:absolute;top:18px;right:18px;width:42px;height:42px;background:rgba(255,255,255,.1);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:22px;cursor:pointer;z-index:5;transition:background .2s}
+.lb-close:hover{background:rgba(255,255,255,.2)}
+.lb-img{max-width:92vw;max-height:78vh;object-fit:contain;border-radius:14px;animation:zoomIn .3s cubic-bezier(.25,.46,.45,.94);box-shadow:0 30px 80px rgba(0,0,0,.5);background:#fff;padding:18px}
+@keyframes zoomIn{from{transform:scale(.85);opacity:0}to{transform:scale(1);opacity:1}}
+.lb-info{margin-top:18px;text-align:center;color:#fff;max-width:90vw}
+.lb-name{font-family:'Playfair Display',serif;font-size:20px;font-weight:600;margin-bottom:4px}
+.lb-meta{font-size:11px;color:rgba(255,255,255,.55);letter-spacing:.06em;text-transform:uppercase;margin-bottom:10px}
+.lb-price{font-size:16px;font-weight:700;color:#FFB4C5;margin-bottom:14px}
+.lb-cta{display:inline-flex;align-items:center;gap:6px;padding:11px 22px;background:var(--pink);color:#fff;border-radius:22px;font-size:12px;font-weight:700;text-decoration:none;transition:all .18s}
+.lb-cta:hover{background:var(--pink-deep);transform:translateY(-1px)}
+.lb-nav{position:absolute;top:50%;transform:translateY(-50%);width:46px;height:46px;background:rgba(255,255,255,.12);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .2s;color:#fff;font-size:22px;user-select:none;z-index:4}
+.lb-nav:hover{background:rgba(255,255,255,.22)}
+.lb-prev{left:14px}
+.lb-next{right:14px}
+
+/* ── EMPTY STATE ──────────────────────────────────────────────────── */
+.empty{display:none;flex-direction:column;align-items:center;justify-content:center;padding:50px 20px;gap:12px}
+.empty svg{width:42px;height:42px;stroke:#ddd;stroke-width:1.2;fill:none}
+.empty span{font-size:12px;color:#bbb;font-weight:500}
+
+/* ── DESKTOP (≥768) ───────────────────────────────────────────────── */
+@media(min-width:768px){
+  .hdr{padding:14px 36px}
+  .logo{font-size:26px}
+  .hb{width:42px;height:42px}
+  .hb svg{width:21px;height:21px}
+
+  .hero{margin:18px 36px;min-height:440px;border-radius:30px;grid-template-columns:1.5fr 1fr}
+  .hl{padding:24px;display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:repeat(2,1fr);gap:12px}
+  .hl .hp{position:static !important;width:auto !important;height:auto !important;left:auto !important;top:auto !important;min-height:170px}
+  .hl .hp.extra{display:block}
+  .hl .hp.hidden-desktop{display:none}
+  .hl .hp1{transform:rotate(-2deg)}
+  .hl .hp2{transform:rotate(1.5deg)}
+  .hl .hp3{transform:rotate(-1deg)}
+  .hl .hp4{transform:rotate(2deg)}
+  .hl .hp5{transform:rotate(1deg)}
+  .hl .hp6{transform:rotate(-1.5deg)}
+  .hl .hp7{transform:rotate(2deg)}
+  .hl .hp8{transform:rotate(-2deg)}
+  .hl .hp img{padding:10px}
+  .hr{padding:46px 40px 46px 26px;background:linear-gradient(90deg,rgba(255,238,232,0) 0%,rgba(255,238,232,.6) 18%,rgba(255,238,232,.95) 40%,#FFE0EC 100%)}
+  .hey{font-size:11px;margin-bottom:14px}
+  .hl2{font-size:48px}
+  .htag{font-size:24px;margin-top:20px}
+  .htag strong{font-size:30px}
+  .hadr{font-size:12px;margin-top:16px}
+  .hcta{font-size:13.5px;padding:14px 30px;border-radius:28px;margin-top:24px}
+
+  .sr{padding:6px 36px 8px;gap:12px}
+  .sb2{height:52px;border-radius:26px;padding:0 22px}
+  .sb2 svg{width:18px;height:18px}
+  .sb2 input{font-size:14px}
+  .flt{width:52px;height:52px}
+  .flt svg{width:18px;height:18px}
+
+  .chips{padding:6px 36px 14px;gap:9px}
+  .chip{font-size:12.5px;padding:9px 18px;border-radius:22px}
+
+  .crow{padding:0 38px 16px}
+  .cnt{font-size:12px}
+  .srt{font-size:12px}
+
+  .mason{column-count:3;column-gap:16px;padding:0 36px;margin-bottom:24px}
+  .pc{margin-bottom:16px}
+
+  .pch{padding:14px 14px 4px}
+  .pcn{font-size:14px}
+  .pcs{font-size:9px}
+  .pcp{font-size:17px}
+  .pcb{height:32px;padding:0 14px}
+  .pcb span{font-size:10.5px}
+
+  .bstrip{margin:10px 36px 24px;border-radius:30px;padding:38px 38px}
+  .btag{font-size:11px;margin-bottom:12px}
+  .btitle{font-size:30px;margin-bottom:10px}
+  .bsub{font-size:13px;margin-bottom:22px}
+  .bsn{font-size:26px}
+  .bsl{font-size:10.5px}
+  .bdec{width:260px;height:260px;right:-60px;top:-60px}
+
+  .foot{padding:46px 36px 38px;display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:0 36px;align-items:start}
+  .flog{font-size:23px;grid-column:1;grid-row:1}
+  .fadr{font-size:12px;grid-column:1;grid-row:2;margin:8px 0 0}
+  .flnk{grid-column:2;grid-row:1/3;flex-direction:column;gap:12px;margin:4px 0 0}
+  .fl{font-size:13px}
+  .fsoc{grid-column:3;grid-row:1;justify-content:flex-end}
+  .fs{width:40px;height:40px}
+  .fs svg{width:16px;height:16px}
+  .fcp{grid-column:1/4;grid-row:3;margin-top:30px;font-size:11px;display:flex;justify-content:space-between}
+
+  .fbr{padding:14px 36px 18px;justify-content:flex-end;gap:12px}
+  .fb{font-size:13px;padding:13px 28px;border-radius:28px}
+
+  .modal{border-radius:24px;max-width:460px;padding:32px 28px 36px}
+  .modal-bg{align-items:center}
+
+  .lb-img{max-width:80vw;max-height:75vh;padding:26px}
+  .lb-name{font-size:24px}
+  .lb-price{font-size:18px}
+}
+@media(min-width:1100px){
+  .mason{column-count:4}
+}
 </style>
 </head>
 <body>
-<div class="ph"><div class="sc">
-
-<!-- STATUS BAR -->
-<div class="sb"><span>9:41</span><div class="sb-r"><div class="wi"><div class="wb" style="width:3px;height:4px"></div><div class="wb" style="width:3px;height:6px"></div><div class="wb" style="width:3px;height:8px"></div><div class="wb" style="width:3px;height:10px"></div></div><div class="bat"><div class="bat-f"></div></div></div></div>
 
 <!-- HEADER -->
-<div class="hdr"><div class="logo">Bunnii<em>haus</em></div><div class="hic"><div class="hb"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7.5"/><path d="M19.5 19.5l-2.8-2.8"/></svg></div><div class="hb"><svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h10"/></svg></div></div></div>
+<header class="hdr">
+  <div class="logo">Bunnii<em>haus</em></div>
+  <nav class="hic">
+    <button class="hb" aria-label="Search" onclick="document.getElementById('searchInput').focus()"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7.5"/><path d="M19.5 19.5l-2.8-2.8"/></svg></button>
+    <button class="hb" aria-label="Menu"><svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h10"/></svg></button>
+  </nav>
+</header>
 
 <!-- HERO -->
-<div class="hero">
+<section class="hero">
   <div class="hbl1"></div><div class="hbl2"></div>
-  <div class="hl">
-    <div class="hp" style="left:8px;top:10px;width:86px;height:94px;background:#F5F0EB;transform:rotate(-2deg)"><img src="https://livelykid.com/cdn/shop/files/SMG2R__87608_1200x1200.jpg?v=1776969503" alt="Smudge Rabbit"/></div>
-    <div class="hp" style="left:98px;top:18px;width:82px;height:84px;background:#F0ECFC;transform:rotate(2deg)"><img src="https://www.babycubby.com/cdn/shop/files/BAS3COS_4__88258.jpg?v=1774376595" alt="Zodihop Luxe Bunny"/></div>
-    <div class="hp" style="left:8px;top:109px;width:84px;height:77px;background:#EDEDF4;transform:rotate(1.5deg)"><img src="https://www.babycubby.com/cdn/shop/files/BLNK4BS__77501.jpg?v=1761597705" alt="Blossom Silver Bunny"/></div>
-    <div class="hp" style="left:96px;top:106px;width:86px;height:88px;background:#FFECF3;transform:rotate(-1.5deg)"><img src="https://www.babycubby.com/cdn/shop/files/A2MAR__34730.jpg?v=1774377013" alt="Planet Mars"/></div>
-    <div class="hp" style="left:8px;top:191px;width:82px;height:70px;background:#FDF0E0;transform:rotate(-1deg)"><img src="https://www.babycubby.com/cdn/shop/files/A6POT__82893.jpg?v=1740083561" alt="Amuseables Potato"/></div>
-    <div class="hp" style="left:94px;top:198px;width:84px;height:66px;background:#FFEAF2;transform:rotate(1.5deg)"><img src="https://www.babycubby.com/cdn/shop/files/BLNK4BLU__96676.jpg?v=1761597630" alt="Blossom Blush Bunny"/></div>
-  </div>
+  <div class="hl" id="heroCollage"></div>
   <div class="hr">
     <div class="hey">Authentic Jellycat</div>
     <div class="hl2">Bunnii<em>haus</em></div>
     <div class="htag"><strong>The Gift<br>That Stays.</strong></div>
-    <div class="hadr">207 Hoang Sa,<br>Tan Dinh Dist. HCMC.</div>
-    <div class="hcta">Shop Now →</div>
+    <div class="hadr">207 Hoàng Sa,<br>Quận Tân Định, TP.HCM</div>
+    <a class="hcta" href="https://www.instagram.com/bunniihaus?igsh=MWo1a3Q3MDVycWR1dw==" target="_blank" rel="noopener" style="text-decoration:none">Tư vấn ngay →</a>
   </div>
-</div>
+</section>
+
+<!-- CATALOG -->
+<div id="catalog"></div>
 
 <!-- SEARCH -->
-<div class="sr"><div class="sb2"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7.5"/><path d="M19.5 19.5l-2.8-2.8"/></svg><input id="searchInput" placeholder="Tìm sản phẩm Jellycat..." oninput="filterProducts()"/></div><div class="flt"><svg viewBox="0 0 24 24"><path d="M4 6h16M8 12h8M11 18h2"/></svg></div></div>
+<div class="sr">
+  <div class="sb2">
+    <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7.5"/><path d="M19.5 19.5l-2.8-2.8"/></svg>
+    <input id="searchInput" placeholder="Tìm sản phẩm Jellycat..." oninput="filterProducts()" autocomplete="off"/>
+  </div>
+  <button class="flt" aria-label="Filter"><svg viewBox="0 0 24 24"><path d="M4 6h16M8 12h8M11 18h2"/></svg></button>
+</div>
 
 <!-- CHIPS -->
-<div class="chips" id="chips">
-  <div class="chip on" onclick="setFilter('all',this)">Tất cả</div>
-  <div class="chip off" onclick="setFilter('Smudge',this)">Smudge</div>
-  <div class="chip off" onclick="setFilter('Bashful',this)">Bashful</div>
-  <div class="chip off" onclick="setFilter('Amuseables',this)">Amuseables</div>
-  <div class="chip off" onclick="setFilter('Blush',this)">Blush</div>
-  <div class="chip off" onclick="setFilter('Backpack',this)">Backpack</div>
-  <div class="chip off" onclick="setFilter('Bag Charm',this)">Bag Charm</div>
-  <div class="chip off" onclick="setFilter('Other',this)">Other</div>
-</div>
+<div class="chips" id="chips"></div>
 
 <!-- COUNT -->
-<div class="crow"><span class="cnt" id="countLabel">33 Sản phẩm</span><div class="srt"><svg viewBox="0 0 24 24"><path d="M3 6h18M6 12h12M9 18h6"/></svg>Sắp xếp</div></div>
-
-<!-- MASONRY GRID -->
-<div class="mason" id="masonGrid">
-<div class="mcol" id="col0"></div>
-<div class="mcol" id="col1"></div>
+<div class="crow">
+  <span class="cnt" id="countLabel">0 Sản phẩm</span>
+  <div class="srt"><svg viewBox="0 0 24 24"><path d="M3 6h18M6 12h12M9 18h6"/></svg>Sắp xếp</div>
 </div>
+
+<!-- MASONRY -->
+<div class="mason" id="masonGrid"></div>
 
 <!-- EMPTY STATE -->
 <div class="empty" id="emptyState">
   <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7.5"/><path d="M19.5 19.5l-2.8-2.8"/></svg>
-  <span>Không tìm thấy sản phẩm</span>
+  <span>Không tìm thấy sản phẩm phù hợp</span>
 </div>
 
 <!-- BRAND STRIP -->
-<div class="bstrip"><div class="bdec"></div><div class="bz">
-  <div class="btag">Why Bunniihaus</div>
-  <div class="btitle">Certified Authentic.<br><span>Premium Gifting.</span></div>
-  <div class="bsub">Imported direct from Jellycat UK.<br>Invoice · Original tags · Sealed packaging.</div>
-  <div class="brow">
-    <div class="bst"><div class="bsn">100%</div><div class="bsl">Authentic</div></div>
-    <div class="bst" style="border-left:.5px solid rgba(255,255,255,.2)"><div class="bsn">3K+</div><div class="bsl">Clients</div></div>
-    <div class="bst" style="border-left:.5px solid rgba(255,255,255,.2)"><div class="bsn">Vietnam<br>&amp; Global</div><div class="bsl" style="font-size:8px">Shipping</div></div>
+<section class="bstrip">
+  <div class="bdec"></div>
+  <div class="bz">
+    <div class="btag">Why Bunniihaus?</div>
+    <div class="btitle">Certified Authentic.<br><span>Premium Gifting.</span></div>
+    <div class="bsub">Nhập trực tiếp từ Jellycat<br>Tag gốc · Dustbag.</div>
+    <div class="brow">
+      <div class="bst"><div class="bsn">100%</div><div class="bsl">Authentic</div></div>
+      <div class="bst"><div class="bsn">3K+</div><div class="bsl">Clients</div></div>
+      <div class="bst"><div class="bsn">VN&nbsp;&amp;<br>Global</div><div class="bsl">Shipping</div></div>
+    </div>
   </div>
-</div></div>
+</section>
 
 <!-- FOOTER -->
-<div class="foot">
+<footer class="foot">
   <div class="flog">Bunnii<em>haus</em></div>
-  <div class="fadr">207 Hoang Sa, Tan Dinh Dist. HCMC.<br>The Gift That Stays. · Authentic Jellycat Vietnam</div>
+  <div class="fadr">207 Hoàng Sa, Quận Tân Định, TP.HCM<br>The Gift That Stays. · Authentic Jellycat Vietnam</div>
   <div class="flnk"><span class="fl">Shop</span><span class="fl">About</span><span class="fl">Contact</span><span class="fl">Policy</span></div>
   <div class="fsoc">
-    <div class="fs" onclick="window.open('https://www.facebook.com/profile.php?id=61576813521029')"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></div>
-    <div class="fs" onclick="window.open('https://instagram.com/bunniihaus')"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="#555"/></svg></div>
-    <div class="fs"><svg viewBox="0 0 24 24"><path d="M21 2H3v16l4-4h14V2z"/></svg></div>
+    <a class="fs" href="https://www.facebook.com/profile.php?id=61576813521029" target="_blank" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+    <a class="fs" href="https://instagram.com/bunniihaus" target="_blank" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/></svg></a>
+    <a class="fs" href="#" aria-label="Zalo"><svg viewBox="0 0 24 24"><path d="M21 2H3v16l4-4h14V2z"/></svg></a>
   </div>
   <div class="fcp">© 2025 Bunniihaus · The Gift That Stays.<br>Images © Jellycat Ltd. Used for illustration purposes only.</div>
-</div>
+</footer>
 
 <!-- FLOAT CTA -->
 <div class="fbr">
-  <button class="fb fbz" onclick="openModal()"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect width="24" height="24" rx="5" fill="rgba(255,255,255,.2)"/><path d="M7 9a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v4a1 1 0 0 1-1 1H8.5L6 16V9z" fill="white"/></svg>Chat Zalo</button>
-  <button class="fb fbm" onclick="openModal()"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#FF6B8A" stroke-width="2"><path d="M12 3C6.5 3 2 7.1 2 12.2c0 2.7 1.3 5.2 3.4 6.9V22l3.1-1.7c.8.2 1.6.3 2.5.3 5.5 0 10-4.1 10-9.2C21 7.1 17.5 3 12 3z"/><path d="M8 12l2 2 5-5" stroke-linecap="round" stroke-linejoin="round"/></svg>Messenger</button>
+  <a class="fb fbz" href="https://www.instagram.com/bunniihaus?igsh=MWo1a3Q3MDVycWR1dw==" target="_blank" rel="noopener"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2" fill="#fff" stroke="none"/></svg>Chat Instagram</a>
+  <a class="fb fbm" href="https://www.facebook.com/profile.php?id=61576813521029" target="_blank" rel="noopener"><svg width="15" height="15" viewBox="0 0 24 24" fill="#FF6B8A"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z"/></svg>Chat FB</a>
 </div>
-
-</div></div>
 
 <!-- CONTACT MODAL -->
 <div class="modal-bg" id="modalBg" onclick="closeModalOutside(event)">
   <div class="modal">
     <div class="modal-inner">
       <span class="modal-close" onclick="closeModal()">×</span>
-      <div class="modal-title" id="modalTitle">Liên hệ tư vấn</div>
+      <div class="modal-title" id="modalTitle">Liên hệ Bunniihaus</div>
       <div class="modal-sub" id="modalSub">Chọn kênh bạn muốn nhắn tin</div>
       <div class="modal-btns">
-        <a class="modal-btn modal-btn-zalo" id="btnZalo" href="https://www.facebook.com/profile.php?id=61576813521029" target="_blank">
-          <svg viewBox="0 0 24 24" fill="none"><rect width="24" height="24" rx="5" fill="rgba(255,255,255,.25)"/><text x="4" y="17" font-size="11" font-weight="700" fill="white" font-family="Arial">Zalo</text></svg>
-          Nhắn Zalo
-        </a>
-        <a class="modal-btn modal-btn-mess" id="btnMess" href="https://www.facebook.com/profile.php?id=61576813521029" target="_blank">
-          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#FF6B8A" stroke-width="1.8"><path d="M12 3C6.5 3 2 7.1 2 12.2c0 2.7 1.3 5.2 3.4 6.9V22l3.1-1.7c.8.2 1.6.3 2.5.3 5.5 0 10-4.1 10-9.2C21 7.1 17.5 3 12 3z"/></svg>
-          Nhắn Messenger
-        </a>
+        <a class="modal-btn modal-btn-zalo" href="https://zalo.me/bunniihaus" target="_blank"><svg viewBox="0 0 24 24" fill="none"><rect width="24" height="24" rx="5" fill="rgba(255,255,255,.25)"/><text x="3.5" y="17" font-size="11" font-weight="700" fill="white" font-family="Arial">Zalo</text></svg>Nhắn Zalo</a>
+        <a class="modal-btn modal-btn-mess" href="https://m.me/61576813521029" target="_blank"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#FF6B8A" stroke-width="1.8"><path d="M12 3C6.5 3 2 7.1 2 12.2c0 2.7 1.3 5.2 3.4 6.9V22l3.1-1.7c.8.2 1.6.3 2.5.3 5.5 0 10-4.1 10-9.2C21 7.1 17.5 3 12 3z"/></svg>Nhắn Messenger</a>
       </div>
     </div>
   </div>
 </div>
 
+<!-- LIGHTBOX -->
+<div class="lb" id="lightbox" onclick="closeLightboxOutside(event)">
+  <div class="lb-close" onclick="closeLightbox()">×</div>
+  <div class="lb-nav lb-prev" onclick="lbNav(-1)">‹</div>
+  <div class="lb-nav lb-next" onclick="lbNav(1)">›</div>
+  <img id="lbImg" class="lb-img" alt=""/>
+  <div class="lb-info">
+    <div class="lb-name" id="lbName"></div>
+    <div class="lb-meta" id="lbMeta"></div>
+    <div class="lb-price" id="lbPrice"></div>
+    <a href="#" class="lb-cta" id="lbCta">Tư vấn ngay →</a>
+  </div>
+</div>
+
 <script>
-// ── PRODUCT DATA ──────────────────────────────────────────────────────
 const PRODUCTS = [
-  {id:1,name:"Smudge Rabbit",collection:"Smudge",size:"Medium",price:"890.000đ",badge:"Best Seller",badgeClass:"bh",shapeBg:"#F5F0EB",img:"https://livelykid.com/cdn/shop/files/SMG2R__87608_1200x1200.jpg?v=1776969503",inStock:true,visible:true,order:1},
-  {id:2,name:"Amuseables Potato",collection:"Amuseables",size:"Medium",price:"680.000đ",badge:"",badgeClass:"",shapeBg:"#FDF0E0",img:"https://www.babycubby.com/cdn/shop/files/A6POT__82893.jpg?v=1740083561",inStock:true,visible:true,order:2},
-  {id:3,name:"Zodihop Luxe Bunny",collection:"Bashful",size:"Original",price:"1.350.000đ",badge:"Hot",badgeClass:"bh",shapeBg:"#F0ECFC",img:"https://www.babycubby.com/cdn/shop/files/BAS3COS_4__88258.jpg?v=1774376595",inStock:true,visible:true,order:3},
-  {id:4,name:"Planet Mars",collection:"Bashful",size:"Small",price:"980.000đ",badge:"New",badgeClass:"ba",shapeBg:"#FFECF3",img:"https://www.babycubby.com/cdn/shop/files/A2MAR__34730.jpg?v=1774377013",inStock:true,visible:true,order:4},
-  {id:5,name:"Zyllan Alien",collection:"Amuseables",size:"Medium",price:"880.000đ",badge:"New",badgeClass:"ba",shapeBg:"#E8F5EC",img:"https://www.babycubby.com/cdn/shop/files/AL3GRE__20440.jpg?v=1774376920",inStock:true,visible:true,order:5},
-  {id:6,name:"Blossom Blush Bunny",collection:"Blush",size:"Classic",price:"1.850.000đ",badge:"",badgeClass:"",shapeBg:"#FFEAF2",img:"https://www.babycubby.com/cdn/shop/files/BLNK4BLU__96676.jpg?v=1761597630",inStock:true,visible:true,order:6},
-  {id:7,name:"Blossom Cream Bunny Berry",collection:"Blush",size:"Classic",price:"520.000đ",badge:"",badgeClass:"",shapeBg:"#E8F5E8",img:"https://www.babycubby.com/cdn/shop/files/BLNK4B__34757.jpg?v=1735681509",inStock:true,visible:true,order:7},
-  {id:8,name:"Blossom Silver Bunny",collection:"Blush",size:"Classic",price:"1.200.000đ",badge:"New",badgeClass:"ba",shapeBg:"#E6F4E0",img:"https://www.babycubby.com/cdn/shop/files/BLNK4BS__77501.jpg?v=1761597705",inStock:true,visible:true,order:8},
-  {id:9,name:"Blossom Beige Bunny",collection:"Blush",size:"Classic",price:"780.000đ",badge:"",badgeClass:"",shapeBg:"#FFF8E8",img:"https://www.babycubby.com/cdn/shop/files/BLNK4B__34757.jpg?v=1735681509",inStock:true,visible:true,order:9},
-  {id:10,name:"Original Blossom Cherry Bunny",collection:"Blush",size:"Classic",price:"650.000đ",badge:"",badgeClass:"",shapeBg:"#FFF5E8",img:"https://www.babycubby.com/cdn/shop/files/A4SHMBC_4__50860.jpg?v=1769018706",inStock:true,visible:true,order:10},
-  {id:11,name:"Medium Blossom Blush Bunny",collection:"Blush",size:"Medium",price:"1.850.000đ",badge:"Hot",badgeClass:"bh",shapeBg:"#FFF4E8",img:"https://www.babycubby.com/cdn/shop/files/BLNK4BLU__96676.jpg?v=1761597630",inStock:true,visible:true,order:11},
-  {id:12,name:"Scarlet Huge Bunny",collection:"Blush",size:"Huge",price:"980.000đ",badge:"",badgeClass:"",shapeBg:"#E4F0FF",img:"https://www.babycubby.com/cdn/shop/files/BAS3COS_4__88258.jpg?v=1774376595",inStock:true,visible:true,order:12},
-  {id:13,name:"Willow Huge Bunny",collection:"Blush",size:"Huge",price:"750.000đ",badge:"New",badgeClass:"ba",shapeBg:"#FDF0E0",img:"https://www.babycubby.com/cdn/shop/files/BAS3COS_4__88258.jpg?v=1774376595",inStock:true,visible:true,order:13},
-  {id:14,name:"Curly Huge Bunny",collection:"Blush",size:"Huge",price:"1.850.000đ",badge:"",badgeClass:"",shapeBg:"#EDEDF4",img:"https://www.babycubby.com/cdn/shop/files/BAS3COS_4__88258.jpg?v=1774376595",inStock:true,visible:true,order:14},
-  {id:15,name:"Azure Huge Bunny",collection:"Backpack",size:"Huge",price:"2.200.000đ",badge:"Exclusive",badgeClass:"be",shapeBg:"#FDF2E8",img:"https://www.babycubby.com/cdn/shop/files/BAR4BP_1__98123.jpg?v=1767040279",inStock:true,visible:true,order:15},
-  {id:16,name:"Blossom Blush Bunny Cherry Huge",collection:"Blush",size:"Huge",price:"1.350.000đ",badge:"New",badgeClass:"ba",shapeBg:"#EBF0FC",img:"https://www.babycubby.com/cdn/shop/files/BLNK4BLU__96676.jpg?v=1761597630",inStock:true,visible:true,order:16},
-  {id:17,name:"Blossom Beige Bunny Petal Huge",collection:"Bashful",size:"Huge",price:"1.580.000đ",badge:"",badgeClass:"",shapeBg:"#E6F4E0",img:"https://www.babycubby.com/cdn/shop/files/BLNK4B__34757.jpg?v=1735681509",inStock:true,visible:true,order:17},
-  {id:18,name:"Bear Really Big",collection:"Other",size:"Huge",price:"980.000đ",badge:"",badgeClass:"",shapeBg:"#FDF0E0",img:"https://www.babycubby.com/cdn/shop/files/A6POT_2__71211.jpg?v=1740083561",inStock:true,visible:true,order:18},
-  {id:19,name:"Bashful Bunny With Candy Cane",collection:"Smudge",size:"Small",price:"1.850.000đ",badge:"",badgeClass:"",shapeBg:"#F0ECFC",img:"https://livelykid.com/cdn/shop/files/SMG2R__87608_1200x1200.jpg?v=1776969503",inStock:true,visible:true,order:19},
-  {id:20,name:"Little Bashful Cream Bunny",collection:"Amuseables",size:"Small",price:"2.200.000đ",badge:"Best Seller",badgeClass:"bh",shapeBg:"#FFECF3",img:"https://www.babycubby.com/cdn/shop/files/BAS3COS_4__88258.jpg?v=1774376595",inStock:true,visible:true,order:20},
-  {id:21,name:"Bashful Bunny Peony",collection:"Amuseables",size:"Small",price:"1.350.000đ",badge:"",badgeClass:"",shapeBg:"#E8F5EC",img:"https://www.babycubby.com/cdn/shop/files/BLNK4BLU__96676.jpg?v=1761597630",inStock:true,visible:true,order:21},
-  {id:22,name:"Bashful Bunny With Christmas Tree",collection:"Blush",size:"Small",price:"4.555.555đ",badge:"Hot",badgeClass:"bh",shapeBg:"#FFEAF2",img:"https://www.babycubby.com/cdn/shop/files/BLNK4BLU__96676.jpg?v=1761597630",inStock:true,visible:true,order:22},
-  {id:23,name:"Bashful Carrot Bunny",collection:"Bag Charm",size:"Small",price:"980.000đ",badge:"New",badgeClass:"ba",shapeBg:"#E8F5E8",img:"https://www.babycubby.com/cdn/shop/files/A4SHMBC_4__50860.jpg?v=1769018706",inStock:true,visible:true,order:23},
-  {id:24,name:"Bashful Bunny With Pencil",collection:"Bag Charm",size:"Small",price:"1.850.000đ",badge:"",badgeClass:"",shapeBg:"#E6F4E0",img:"https://www.babycubby.com/cdn/shop/files/A4SHMBC_4__50860.jpg?v=1769018706",inStock:true,visible:true,order:24},
-  {id:25,name:"Blossom Blush Bunny Cherry Small",collection:"Bag Charm",size:"Small",price:"2.200.000đ",badge:"",badgeClass:"",shapeBg:"#FFF8E8",img:"https://www.babycubby.com/cdn/shop/files/BLNK4BLU__96676.jpg?v=1761597630",inStock:true,visible:true,order:25},
-  {id:26,name:"Little Blossom Sage Bunny",collection:"Bag Charm",size:"Small",price:"1.350.000đ",badge:"Best Seller",badgeClass:"bh",shapeBg:"#FFF5E8",img:"https://www.babycubby.com/cdn/shop/files/A2ASP__90847.jpg?v=1769018170",inStock:true,visible:true,order:26},
-  {id:27,name:"Fawn Flufflet Bunny",collection:"Other",size:"Small",price:"4.555.555đ",badge:"",badgeClass:"",shapeBg:"#FFF4E8",img:"https://www.babycubby.com/cdn/shop/files/A6PSC__31773.jpg?v=1774376768",inStock:true,visible:true,order:27},
-  {id:28,name:"Little Bashful Redcurrant Bunny",collection:"Other",size:"Small",price:"980.000đ",badge:"Hot",badgeClass:"bh",shapeBg:"#E4F0FF",img:"https://www.babycubby.com/cdn/shop/files/MUN3SPD__38313.jpg?v=1774376685",inStock:true,visible:true,order:28},
-  {id:29,name:"Little Bashful Saffyre Bunny",collection:"Other",size:"Small",price:"1.850.000đ",badge:"New",badgeClass:"ba",shapeBg:"#FDF0E0",img:"https://www.babycubby.com/cdn/shop/files/MUN3SPD__38313.jpg?v=1774376685",inStock:true,visible:true,order:29},
-  {id:30,name:"Little Bashful Teal Bunny",collection:"Other",size:"Small",price:"2.200.000đ",badge:"",badgeClass:"",shapeBg:"#EDEDF4",img:"https://www.babycubby.com/cdn/shop/files/A4COM__07157.jpg?v=1774377091",inStock:true,visible:true,order:30},
-  {id:31,name:"Little Bashful Allium Bunny",collection:"Other",size:"Small",price:"1.350.000đ",badge:"",badgeClass:"",shapeBg:"#FDF0E0",img:"https://www.babycubby.com/cdn/shop/files/A2ASP_2__41635.jpg?v=1769018173",inStock:true,visible:true,order:31},
-  {id:32,name:"Fluffy Turtle",collection:"Other",size:"Small",price:"4.555.555đ",badge:"",badgeClass:"",shapeBg:"#EDEDF4",img:"https://www.babycubby.com/cdn/shop/files/A6BERS__39066.jpg?v=1774376841",inStock:true,visible:true,order:32},
-  {id:33,name:"Bashful Bunny Peony Small",collection:"Amuseables",size:"Small",price:"1.350.000đ",badge:"",badgeClass:"",shapeBg:"#FFEAF2",img:"https://www.babycubby.com/cdn/shop/files/BLNK4BLU__96676.jpg?v=1761597630",inStock:true,visible:true,order:33},
+  {id:1,name:"Backpack",collection:"Classic",price:"Liên hệ",priceNum:0,shapeBg:"#FFEAF2",img:"https://raw.githubusercontent.com/GinNguyen1406/ZBS-MKT-Dashboard/main/jellycat_images/Backpack.jpg"},
+  {id:2,name:"Beige",collection:"Classic",price:"1050k",priceNum:1050,shapeBg:"#FFF4E8",img:"https://raw.githubusercontent.com/GinNguyen1406/ZBS-MKT-Dashboard/main/jellycat_images/Beige.jpg"},
+  {id:3,name:"Birthday",collection:"Classic",price:"1800k",priceNum:1800,shapeBg:"#E8F5FF",img:"https://raw.githubusercontent.com/GinNguyen1406/ZBS-MKT-Dashboard/main/jellycat_images/Birthday.jpg"},
+  {id:4,name:"Blossom Beige Bunny",collection:"Classic",price:"1250k",priceNum:1250,shapeBg:"#F0ECFC",img:"https://raw.githubusercontent.com/GinNguyen1406/ZBS-MKT-Dashboard/main/jellycat_images/Blossom%20Beige%20Bunny.jpg"},
+  {id:5,name:"Blossom Blush Bunny",collection:"Classic",price:"1550k",priceNum:1550,shapeBg:"#E8F5EC",img:"https://raw.githubusercontent.com/GinNguyen1406/ZBS-MKT-Dashboard/main/jellycat_images/Blossom%20Blush%20Bunny.jpg"},
+  {id:6,name:"Blossom Cream Bunny Berry",collection:"Classic",price:"1250k",priceNum:1250,shapeBg:"#FDF0E0",img:"https://raw.githubusercontent.com/GinNguyen1406/ZBS-MKT-Dashboard/main/jellycat_images/Blossom%20Cream%20Bunny%20Berry.jpg"},
+  {id:7,name:"Blossom Silver Bunny",collection:"Classic",price:"1250k",priceNum:1250,shapeBg:"#F5F0EB",img:"https://raw.githubusercontent.com/GinNguyen1406/ZBS-MKT-Dashboard/main/jellycat_images/Blossom%20Silver%20Bunny.jpg"},
+  {id:8,name:"Blossom Tulip",collection:"Classic",price:"2890k",priceNum:2890,shapeBg:"#EBF0FC",img:"https://raw.githubusercontent.com/GinNguyen1406/ZBS-MKT-Dashboard/main/jellycat_images/Blossom%20Tulip.jpg"},
+  {id:9,name:"Blue",collection:"Classic",price:"1550k",priceNum:1550,shapeBg:"#FFECF3",img:"https://raw.githubusercontent.com/GinNguyen1406/ZBS-MKT-Dashboard/main/jellycat_images/Blue.jpg"},
+  {id:10,name:"Blush",collection:"Classic",price:"1150k",priceNum:1150,shapeBg:"#FDF2E8",img:"https://raw.githubusercontent.com/GinNguyen1406/ZBS-MKT-Dashboard/main/jellycat_images/Blush.jpg"},
+  {id:11,name:"Cream",collection:"Classic",price:"1150k",priceNum:1150,shapeBg:"#E6F4E0",img:"https://raw.githubusercontent.com/GinNguyen1406/ZBS-MKT-Dashboard/main/jellycat_images/Cream.jpg"},
+  {id:12,name:"Dusky Blue",collection:"Classic",price:"2250k",priceNum:2250,shapeBg:"#FFF8E8",img:"https://raw.githubusercontent.com/GinNguyen1406/ZBS-MKT-Dashboard/main/jellycat_images/Dusky%20Blue.jpg"},
+  {id:13,name:"Evey",collection:"Classic",price:"2990k",priceNum:2990,shapeBg:"#FFF5E8",img:"https://raw.githubusercontent.com/GinNguyen1406/ZBS-MKT-Dashboard/main/jellycat_images/Evey.jpg"},
+  {id:14,name:"Hold Heart",collection:"Classic",price:"1750k",priceNum:1750,shapeBg:"#E4F0FF",img:"https://raw.githubusercontent.com/GinNguyen1406/ZBS-MKT-Dashboard/main/jellycat_images/Hold%20Heart.jpg"},
+  {id:15,name:"Inky",collection:"Classic",price:"4900k",priceNum:4900,shapeBg:"#EDEDF4",img:"https://raw.githubusercontent.com/GinNguyen1406/ZBS-MKT-Dashboard/main/jellycat_images/Inky.jpg"},
+  {id:16,name:"Lavender",collection:"Classic",price:"2250k",priceNum:2250,shapeBg:"#FFEAF2",img:"https://raw.githubusercontent.com/GinNguyen1406/ZBS-MKT-Dashboard/main/jellycat_images/Lavender.jpg"},
+  {id:17,name:"Lazulia",collection:"Classic",price:"2100k",priceNum:2100,shapeBg:"#FFF4E8",img:"https://raw.githubusercontent.com/GinNguyen1406/ZBS-MKT-Dashboard/main/jellycat_images/Lazulia.jpg"},
+  {id:18,name:"Lilac",collection:"Classic",price:"1550k",priceNum:1550,shapeBg:"#E8F5FF",img:"https://raw.githubusercontent.com/GinNguyen1406/ZBS-MKT-Dashboard/main/jellycat_images/Lilac.jpg"},
+  {id:19,name:"Mineral",collection:"Classic",price:"1350k",priceNum:1350,shapeBg:"#F0ECFC",img:"https://raw.githubusercontent.com/GinNguyen1406/ZBS-MKT-Dashboard/main/jellycat_images/Mineral.jpg"},
+  {id:20,name:"Moss",collection:"Classic",price:"2250k",priceNum:2250,shapeBg:"#E8F5EC",img:"https://raw.githubusercontent.com/GinNguyen1406/ZBS-MKT-Dashboard/main/jellycat_images/Moss.jpg"},
+  {id:21,name:"Navy",collection:"Classic",price:"3890k",priceNum:3890,shapeBg:"#FDF0E0",img:"https://raw.githubusercontent.com/GinNguyen1406/ZBS-MKT-Dashboard/main/jellycat_images/Navy.jpg"},
+  {id:22,name:"Original Blossom Cherry Bunny",collection:"Classic",price:"980k",priceNum:980,shapeBg:"#F5F0EB",img:"https://raw.githubusercontent.com/GinNguyen1406/ZBS-MKT-Dashboard/main/jellycat_images/Original%20Blossom%20Cherry%20Bunny.jpg"},
+  {id:23,name:"Pink",collection:"Classic",price:"1150k",priceNum:1150,shapeBg:"#EBF0FC",img:"https://raw.githubusercontent.com/GinNguyen1406/ZBS-MKT-Dashboard/main/jellycat_images/Pink.jpg"},
+  {id:24,name:"Silver",collection:"Classic",price:"1150k",priceNum:1150,shapeBg:"#FFECF3",img:"https://raw.githubusercontent.com/GinNguyen1406/ZBS-MKT-Dashboard/main/jellycat_images/Silver.jpg"},
+  {id:25,name:"Smudge Elephant Classic M",collection:"Classic",price:"1550k",priceNum:1550,shapeBg:"#FDF2E8",img:"https://raw.githubusercontent.com/GinNguyen1406/ZBS-MKT-Dashboard/main/jellycat_images/Smudge%20Elephant%20Classic%20M.jpg"},
+  {id:26,name:"Smudge Rabbit Classic M",collection:"Classic",price:"1450k",priceNum:1450,shapeBg:"#E6F4E0",img:"https://raw.githubusercontent.com/GinNguyen1406/ZBS-MKT-Dashboard/main/jellycat_images/Smudge%20Rabbit%20Classic%20M.jpg"},
+  {id:27,name:"Tulip",collection:"Classic",price:"1150k",priceNum:1150,shapeBg:"#FFF8E8",img:"https://raw.githubusercontent.com/GinNguyen1406/ZBS-MKT-Dashboard/main/jellycat_images/Tulip.jpg"},
+  {id:28,name:"Twinkle",collection:"Classic",price:"1800k",priceNum:1800,shapeBg:"#FFF5E8",img:"https://raw.githubusercontent.com/GinNguyen1406/ZBS-MKT-Dashboard/main/jellycat_images/Twinkle.jpg"},
+  {id:29,name:"Viola",collection:"Classic",price:"1350k",priceNum:1350,shapeBg:"#E4F0FF",img:"https://raw.githubusercontent.com/GinNguyen1406/ZBS-MKT-Dashboard/main/jellycat_images/Viola.jpg"},
+  {id:30,name:"Amberley",collection:"Luxe",price:"7500k",priceNum:7500,shapeBg:"#EDEDF4",img:"https://raw.githubusercontent.com/GinNguyen1406/ZBS-MKT-Dashboard/main/jellycat_images/Amberley.jpg"},
+  {id:31,name:"Azure M",collection:"Luxe",price:"2500k",priceNum:2500,shapeBg:"#FFEAF2",img:"https://raw.githubusercontent.com/GinNguyen1406/ZBS-MKT-Dashboard/main/jellycat_images/Azure%20M.jpg"},
+  {id:32,name:"Bashful Luxe Bunny Nimbus",collection:"Luxe",price:"1750k",priceNum:1750,shapeBg:"#FFF4E8",img:"https://raw.githubusercontent.com/GinNguyen1406/ZBS-MKT-Dashboard/main/jellycat_images/Bashful%20Luxe%20Bunny%20Nimbus.jpg"},
+  {id:33,name:"Bashful Luxe Bunny Pine",collection:"Luxe",price:"1450k",priceNum:1450,shapeBg:"#E8F5FF",img:"https://raw.githubusercontent.com/GinNguyen1406/ZBS-MKT-Dashboard/main/jellycat_images/Bashful%20Luxe%20Bunny%20Pine.png"},
+  {id:34,name:"Curly M",collection:"Luxe",price:"2500k",priceNum:2500,shapeBg:"#F0ECFC",img:"https://raw.githubusercontent.com/GinNguyen1406/ZBS-MKT-Dashboard/main/jellycat_images/Curly%20M.jpg"},
+  {id:35,name:"Jupiter",collection:"Luxe",price:"1750k",priceNum:1750,shapeBg:"#E8F5EC",img:"https://raw.githubusercontent.com/GinNguyen1406/ZBS-MKT-Dashboard/main/jellycat_images/Jupiter.jpg"},
+  {id:36,name:"Patchwork Brown",collection:"Luxe",price:"1750k",priceNum:1750,shapeBg:"#FDF0E0",img:"https://raw.githubusercontent.com/GinNguyen1406/ZBS-MKT-Dashboard/main/jellycat_images/Patchwork%20Brown.jpg"},
+  {id:37,name:"Pine M",collection:"Luxe",price:"1750k",priceNum:1750,shapeBg:"#F5F0EB",img:"https://raw.githubusercontent.com/GinNguyen1406/ZBS-MKT-Dashboard/main/jellycat_images/Pine%20M.webp"},
+  {id:38,name:"Rosa",collection:"Luxe",price:"1850k",priceNum:1850,shapeBg:"#EBF0FC",img:"https://raw.githubusercontent.com/GinNguyen1406/ZBS-MKT-Dashboard/main/jellycat_images/Rosa.jpg"},
+  {id:39,name:"Scarley M",collection:"Luxe",price:"1900k",priceNum:1900,shapeBg:"#FFECF3",img:"https://raw.githubusercontent.com/GinNguyen1406/ZBS-MKT-Dashboard/main/jellycat_images/Scarley%20M.jpg"},
+  {id:40,name:"Voi Luxe",collection:"Luxe",price:"1750k",priceNum:1750,shapeBg:"#FDF2E8",img:"https://raw.githubusercontent.com/GinNguyen1406/ZBS-MKT-Dashboard/main/jellycat_images/Voi%20Luxe.jpg"},
+  {id:41,name:"Willow M",collection:"Luxe",price:"1800k",priceNum:1800,shapeBg:"#E6F4E0",img:"https://raw.githubusercontent.com/GinNguyen1406/ZBS-MKT-Dashboard/main/jellycat_images/Willow%20M.jpg"},
+  {id:42,name:"Birdling Blue Jay",collection:"Animal",price:"1150k",priceNum:1150,shapeBg:"#FFF8E8",img:"https://raw.githubusercontent.com/GinNguyen1406/ZBS-MKT-Dashboard/main/jellycat_images/Birdling%20Blue%20Jay.jpg"},
+  {id:43,name:"Birdling Hummingbird",collection:"Animal",price:"1150k",priceNum:1150,shapeBg:"#FFF5E8",img:"https://raw.githubusercontent.com/GinNguyen1406/ZBS-MKT-Dashboard/main/jellycat_images/Birdling%20Hummingbird.jpg"},
+  {id:44,name:"Birdling Robin",collection:"Animal",price:"1150k",priceNum:1150,shapeBg:"#E4F0FF",img:"https://raw.githubusercontent.com/GinNguyen1406/ZBS-MKT-Dashboard/main/jellycat_images/Birdling%20Robin.jpg"},
+  {id:45,name:"Bồ Câu",collection:"Animal",price:"1890k",priceNum:1890,shapeBg:"#EDEDF4",img:"https://raw.githubusercontent.com/GinNguyen1406/ZBS-MKT-Dashboard/main/jellycat_images/B%E1%BB%93%20C%C3%A2u.jpg"},
+  {id:46,name:"Capybara",collection:"Animal",price:"1750k",priceNum:1750,shapeBg:"#FFEAF2",img:"https://raw.githubusercontent.com/GinNguyen1406/ZBS-MKT-Dashboard/main/jellycat_images/Capybara.jpg"},
+  {id:47,name:"Cecile Chicken",collection:"Animal",price:"1490k",priceNum:1490,shapeBg:"#FFF4E8",img:"https://raw.githubusercontent.com/GinNguyen1406/ZBS-MKT-Dashboard/main/jellycat_images/Cecile%20Chicken.jpg"},
+  {id:48,name:"Chó Fudge",collection:"Animal",price:"1250k",priceNum:1250,shapeBg:"#E8F5FF",img:"https://raw.githubusercontent.com/GinNguyen1406/ZBS-MKT-Dashboard/main/jellycat_images/Ch%C3%B3%20Fudge.jpg"},
+  {id:49,name:"Chó Munro",collection:"Animal",price:"1350k",priceNum:1350,shapeBg:"#F0ECFC",img:"https://raw.githubusercontent.com/GinNguyen1406/ZBS-MKT-Dashboard/main/jellycat_images/Ch%C3%B3%20Munro.jpg"},
+  {id:50,name:"Chó Toffee",collection:"Animal",price:"1250k",priceNum:1250,shapeBg:"#E8F5EC",img:"https://raw.githubusercontent.com/GinNguyen1406/ZBS-MKT-Dashboard/main/jellycat_images/Ch%C3%B3%20Toffee.jpg"},
+  {id:51,name:"Cáo Sương",collection:"Animal",price:"1150k",priceNum:1150,shapeBg:"#FDF0E0",img:"https://raw.githubusercontent.com/GinNguyen1406/ZBS-MKT-Dashboard/main/jellycat_images/C%C3%A1o%20S%C6%B0%C6%A1ng.jpg"},
+  {id:52,name:"Cáo Trắng",collection:"Animal",price:"1990k",priceNum:1990,shapeBg:"#F5F0EB",img:"https://raw.githubusercontent.com/GinNguyen1406/ZBS-MKT-Dashboard/main/jellycat_images/C%C3%A1o%20Tr%E1%BA%AFng.jpg"},
+  {id:53,name:"Dorite Vịt",collection:"Animal",price:"1450k",priceNum:1450,shapeBg:"#EBF0FC",img:"https://raw.githubusercontent.com/GinNguyen1406/ZBS-MKT-Dashboard/main/jellycat_images/Dorite%20V%E1%BB%8Bt.jpg"},
+  {id:54,name:"Duck Yummy",collection:"Animal",price:"980k",priceNum:980,shapeBg:"#FFECF3",img:"https://raw.githubusercontent.com/GinNguyen1406/ZBS-MKT-Dashboard/main/jellycat_images/Duck%20Yummy.jpg"},
+  {id:55,name:"Galumphaus Seal",collection:"Animal",price:"2990k",priceNum:2990,shapeBg:"#FDF2E8",img:"https://raw.githubusercontent.com/GinNguyen1406/ZBS-MKT-Dashboard/main/jellycat_images/Galumphaus%20Seal.jpg"},
+  {id:56,name:"Golden Dog",collection:"Animal",price:"1450k",priceNum:1450,shapeBg:"#E6F4E0",img:"https://raw.githubusercontent.com/GinNguyen1406/ZBS-MKT-Dashboard/main/jellycat_images/Golden%20Dog.jpg"},
+  {id:57,name:"Hươu Cao Cổ",collection:"Animal",price:"1450k",priceNum:1450,shapeBg:"#FFF8E8",img:"https://raw.githubusercontent.com/GinNguyen1406/ZBS-MKT-Dashboard/main/jellycat_images/H%C6%B0%C6%A1u%20Cao%20C%E1%BB%95.jpg"},
+  {id:58,name:"Lollie Lamb",collection:"Animal",price:"1150k",priceNum:1150,shapeBg:"#FFF5E8",img:"https://raw.githubusercontent.com/GinNguyen1406/ZBS-MKT-Dashboard/main/jellycat_images/Lollie%20Lamb.jpg"},
+  {id:59,name:"Mặt Trời M",collection:"Animal",price:"1450k",priceNum:1450,shapeBg:"#E4F0FF",img:"https://raw.githubusercontent.com/GinNguyen1406/ZBS-MKT-Dashboard/main/jellycat_images/M%E1%BA%B7t%20Tr%E1%BB%9Di%20M.jpg"},
+  {id:60,name:"Ngựa",collection:"Animal",price:"1990k",priceNum:1990,shapeBg:"#EDEDF4",img:"https://raw.githubusercontent.com/GinNguyen1406/ZBS-MKT-Dashboard/main/jellycat_images/Ng%E1%BB%B1a.jpg"},
+  {id:61,name:"Ong",collection:"Animal",price:"1350k",priceNum:1350,shapeBg:"#FFEAF2",img:"https://raw.githubusercontent.com/GinNguyen1406/ZBS-MKT-Dashboard/main/jellycat_images/Ong.jpg"},
+  {id:62,name:"Penguin L",collection:"Animal",price:"1790k",priceNum:1790,shapeBg:"#FFF4E8",img:"https://raw.githubusercontent.com/GinNguyen1406/ZBS-MKT-Dashboard/main/jellycat_images/Penguin%20L.jpg"},
+  {id:63,name:"Penguin Little",collection:"Animal",price:"980k",priceNum:980,shapeBg:"#E8F5FF",img:"https://raw.githubusercontent.com/GinNguyen1406/ZBS-MKT-Dashboard/main/jellycat_images/Penguin%20Little.jpg"},
+  {id:64,name:"Penguin M",collection:"Animal",price:"1450k",priceNum:1450,shapeBg:"#F0ECFC",img:"https://raw.githubusercontent.com/GinNguyen1406/ZBS-MKT-Dashboard/main/jellycat_images/Penguin%20M.jpg"},
+  {id:65,name:"Penguin Yummy",collection:"Animal",price:"980k",priceNum:980,shapeBg:"#E8F5EC",img:"https://raw.githubusercontent.com/GinNguyen1406/ZBS-MKT-Dashboard/main/jellycat_images/Penguin%20Yummy.jpg"},
+  {id:66,name:"Pig Little",collection:"Animal",price:"980k",priceNum:980,shapeBg:"#FDF0E0",img:"https://raw.githubusercontent.com/GinNguyen1406/ZBS-MKT-Dashboard/main/jellycat_images/Pig%20Little.jpg"},
+  {id:67,name:"Sứa Letty",collection:"Animal",price:"Liên hệ",priceNum:0,shapeBg:"#F5F0EB",img:"https://raw.githubusercontent.com/GinNguyen1406/ZBS-MKT-Dashboard/main/jellycat_images/S%E1%BB%A9a%20Letty.jpg"},
+  {id:68,name:"Zumbleby Alien",collection:"Animal",price:"2150k",priceNum:2150,shapeBg:"#EBF0FC",img:"https://raw.githubusercontent.com/GinNguyen1406/ZBS-MKT-Dashboard/main/jellycat_images/Zumbleby%20Alien.jpg"},
+  {id:69,name:"Dexter",collection:"Dragon L",price:"3900k",priceNum:3900,shapeBg:"#FFECF3",img:"https://raw.githubusercontent.com/GinNguyen1406/ZBS-MKT-Dashboard/main/jellycat_images/Dexter.jpg"},
+  {id:70,name:"Heart",collection:"Dragon L",price:"2850k",priceNum:2850,shapeBg:"#FDF2E8",img:"https://raw.githubusercontent.com/GinNguyen1406/ZBS-MKT-Dashboard/main/jellycat_images/Heart.jpg"},
+  {id:71,name:"Matchaly",collection:"Dragon L",price:"2850k",priceNum:2850,shapeBg:"#E6F4E0",img:"https://raw.githubusercontent.com/GinNguyen1406/ZBS-MKT-Dashboard/main/jellycat_images/Matchaly.jpg"},
+  {id:72,name:"Onyx",collection:"Dragon L",price:"14500k",priceNum:14500,shapeBg:"#FFF8E8",img:"https://raw.githubusercontent.com/GinNguyen1406/ZBS-MKT-Dashboard/main/jellycat_images/Onyx.jpg"},
+  {id:73,name:"Persimon",collection:"Dragon L",price:"4290k",priceNum:4290,shapeBg:"#FFF5E8",img:"https://raw.githubusercontent.com/GinNguyen1406/ZBS-MKT-Dashboard/main/jellycat_images/Persimon.jpg"},
+  {id:74,name:"Sage",collection:"Dragon L",price:"8900k",priceNum:8900,shapeBg:"#E4F0FF",img:"https://raw.githubusercontent.com/GinNguyen1406/ZBS-MKT-Dashboard/main/jellycat_images/Sage.jpg"},
+  {id:75,name:"Snow",collection:"Dragon L",price:"2850k",priceNum:2850,shapeBg:"#EDEDF4",img:"https://raw.githubusercontent.com/GinNguyen1406/ZBS-MKT-Dashboard/main/jellycat_images/Snow.jpg"},
+  {id:76,name:"Bashful Bunny Peony Small",collection:"Small",price:"2000k",priceNum:2000,shapeBg:"#FFEAF2",img:"https://raw.githubusercontent.com/GinNguyen1406/ZBS-MKT-Dashboard/main/jellycat_images/Bashful%20Bunny%20Peony%20Small.jpg"},
+  {id:77,name:"Bashful Bunny With Candy Cane Small",collection:"Small",price:"1750k",priceNum:1750,shapeBg:"#FFF4E8",img:"https://raw.githubusercontent.com/GinNguyen1406/ZBS-MKT-Dashboard/main/jellycat_images/Bashful%20Bunny%20With%20Candy%20Cane%20Small.jpg"},
+  {id:78,name:"Bashful Bunny With Christmas Tree Small",collection:"Small",price:"1750k",priceNum:1750,shapeBg:"#E8F5FF",img:"https://raw.githubusercontent.com/GinNguyen1406/ZBS-MKT-Dashboard/main/jellycat_images/Bashful%20Bunny%20With%20Christmas%20Tree%20Small.jpg"},
+  {id:79,name:"Bashful Bunny With Pencil Small",collection:"Small",price:"1750k",priceNum:1750,shapeBg:"#F0ECFC",img:"https://raw.githubusercontent.com/GinNguyen1406/ZBS-MKT-Dashboard/main/jellycat_images/Bashful%20Bunny%20With%20Pencil%20Small.jpg"},
+  {id:80,name:"Bashful Carrot Bunny Small",collection:"Small",price:"1490k",priceNum:1490,shapeBg:"#E8F5EC",img:"https://raw.githubusercontent.com/GinNguyen1406/ZBS-MKT-Dashboard/main/jellycat_images/Bashful%20Carrot%20Bunny%20Small.jpg"},
+  {id:81,name:"Bear",collection:"Small",price:"950k",priceNum:950,shapeBg:"#FDF0E0",img:"https://raw.githubusercontent.com/GinNguyen1406/ZBS-MKT-Dashboard/main/jellycat_images/Bear.jpg"},
+  {id:82,name:"Blossom Blush Bunny Cherry Small",collection:"Small",price:"980k",priceNum:980,shapeBg:"#F5F0EB",img:"https://raw.githubusercontent.com/GinNguyen1406/ZBS-MKT-Dashboard/main/jellycat_images/Blossom%20Blush%20Bunny%20Cherry%20Small.jpg"},
+  {id:83,name:"Fawn Flufflet Bunny Small",collection:"Small",price:"1050k",priceNum:1050,shapeBg:"#EBF0FC",img:"https://raw.githubusercontent.com/GinNguyen1406/ZBS-MKT-Dashboard/main/jellycat_images/Fawn%20Flufflet%20Bunny%20Small.jpg"},
+  {id:84,name:"Fluffy Turtle Small",collection:"Small",price:"880k",priceNum:880,shapeBg:"#FFECF3",img:"https://raw.githubusercontent.com/GinNguyen1406/ZBS-MKT-Dashboard/main/jellycat_images/Fluffy%20Turtle%20Small.jpg"},
+  {id:85,name:"Little Bashful Allium Bunny Small",collection:"Small",price:"980k",priceNum:980,shapeBg:"#FDF2E8",img:"https://raw.githubusercontent.com/GinNguyen1406/ZBS-MKT-Dashboard/main/jellycat_images/Little%20Bashful%20Allium%20Bunny%20Small.webp"},
+  {id:86,name:"Little Bashful Cream Bunny Small",collection:"Small",price:"880k",priceNum:880,shapeBg:"#E6F4E0",img:"https://raw.githubusercontent.com/GinNguyen1406/ZBS-MKT-Dashboard/main/jellycat_images/Little%20Bashful%20Cream%20Bunny%20Small.jpg"},
+  {id:87,name:"Little Bashful Redcurrant Bunny Small",collection:"Small",price:"980k",priceNum:980,shapeBg:"#FFF8E8",img:"https://raw.githubusercontent.com/GinNguyen1406/ZBS-MKT-Dashboard/main/jellycat_images/Little%20Bashful%20Redcurrant%20Bunny%20Small.png"},
+  {id:88,name:"Little Bashful Saffyre Bunny Small",collection:"Small",price:"980k",priceNum:980,shapeBg:"#FFF5E8",img:"https://raw.githubusercontent.com/GinNguyen1406/ZBS-MKT-Dashboard/main/jellycat_images/Little%20Bashful%20Saffyre%20Bunny%20Small.webp"},
+  {id:89,name:"Little Bashful Teal Bunny Small",collection:"Small",price:"980k",priceNum:980,shapeBg:"#E4F0FF",img:"https://raw.githubusercontent.com/GinNguyen1406/ZBS-MKT-Dashboard/main/jellycat_images/Little%20Bashful%20Teal%20Bunny%20Small.png"},
+  {id:90,name:"Little Blossom Sage Bunny Small",collection:"Small",price:"1900k",priceNum:1900,shapeBg:"#EDEDF4",img:"https://raw.githubusercontent.com/GinNguyen1406/ZBS-MKT-Dashboard/main/jellycat_images/Little%20Blossom%20Sage%20Bunny%20Small.jpg"},
+  {id:91,name:"Unicorn",collection:"Small",price:"950k",priceNum:950,shapeBg:"#FFEAF2",img:"https://raw.githubusercontent.com/GinNguyen1406/ZBS-MKT-Dashboard/main/jellycat_images/Unicorn.jpg"},
+  {id:92,name:"Medium Blossom Blush Bunny",collection:"Medium",price:"2500k",priceNum:2500,shapeBg:"#FFF4E8",img:"https://raw.githubusercontent.com/GinNguyen1406/ZBS-MKT-Dashboard/main/jellycat_images/Medium%20Blossom%20Blush%20Bunny.jpg"},
+  {id:93,name:"Azure Huge Bunny",collection:"Huge",price:"Liên hệ",priceNum:0,shapeBg:"#E8F5FF",img:"https://raw.githubusercontent.com/GinNguyen1406/ZBS-MKT-Dashboard/main/jellycat_images/Azure%20Huge%20Bunny.jpg"},
+  {id:94,name:"Bear Really Big",collection:"Huge",price:"4900k",priceNum:4900,shapeBg:"#F0ECFC",img:"https://raw.githubusercontent.com/GinNguyen1406/ZBS-MKT-Dashboard/main/jellycat_images/Bear%20Really%20Big.jpg"},
+  {id:95,name:"Blossom Beige Bunny Petal Huge",collection:"Huge",price:"3990k",priceNum:3990,shapeBg:"#E8F5EC",img:"https://raw.githubusercontent.com/GinNguyen1406/ZBS-MKT-Dashboard/main/jellycat_images/Blossom%20Beige%20Bunny%20Petal%20Huge.jpg"},
+  {id:96,name:"Blossom Blush Bunny Cherry Huge",collection:"Huge",price:"4500k",priceNum:4500,shapeBg:"#FDF0E0",img:"https://raw.githubusercontent.com/GinNguyen1406/ZBS-MKT-Dashboard/main/jellycat_images/Blossom%20Blush%20Bunny%20Cherry%20Huge.jpg"},
+  {id:97,name:"Curly Huge Bunny",collection:"Huge",price:"5490k",priceNum:5490,shapeBg:"#F5F0EB",img:"https://raw.githubusercontent.com/GinNguyen1406/ZBS-MKT-Dashboard/main/jellycat_images/Curly%20Huge%20Bunny.jpg"},
+  {id:98,name:"Scarlet Huge Bunny",collection:"Huge",price:"3990k",priceNum:3990,shapeBg:"#EBF0FC",img:"https://raw.githubusercontent.com/GinNguyen1406/ZBS-MKT-Dashboard/main/jellycat_images/Scarlet%20Huge%20Bunny.jpg"},
+  {id:99,name:"Willow Huge Bunny",collection:"Huge",price:"4490k",priceNum:4490,shapeBg:"#FFECF3",img:"https://raw.githubusercontent.com/GinNguyen1406/ZBS-MKT-Dashboard/main/jellycat_images/Willow%20Huge%20Bunny.jpg"},
+  {id:100,name:"Amuseables Boiled Egg Graduation",collection:"Food",price:"1100k",priceNum:1100,shapeBg:"#FDF2E8",img:"https://raw.githubusercontent.com/GinNguyen1406/ZBS-MKT-Dashboard/main/jellycat_images/Amuseables%20Boiled%20Egg%20Graduation.jpg"},
+  {id:101,name:"Bánh vòng",collection:"Food",price:"1450k",priceNum:1450,shapeBg:"#E6F4E0",img:"https://raw.githubusercontent.com/GinNguyen1406/ZBS-MKT-Dashboard/main/jellycat_images/B%C3%A1nh%20v%C3%B2ng.jpg"},
+  {id:102,name:"Cà Tím S",collection:"Food",price:"890k",priceNum:890,shapeBg:"#FFF8E8",img:"https://raw.githubusercontent.com/GinNguyen1406/ZBS-MKT-Dashboard/main/jellycat_images/C%C3%A0%20T%C3%ADm%20S.jpg"},
+  {id:103,name:"Cây Thông",collection:"Food",price:"2650k",priceNum:2650,shapeBg:"#FFF5E8",img:"https://raw.githubusercontent.com/GinNguyen1406/ZBS-MKT-Dashboard/main/jellycat_images/C%C3%A2y%20Th%C3%B4ng.png"},
+  {id:104,name:"Dừa",collection:"Food",price:"1350k",priceNum:1350,shapeBg:"#E4F0FF",img:"https://raw.githubusercontent.com/GinNguyen1406/ZBS-MKT-Dashboard/main/jellycat_images/D%E1%BB%ABa.jpg"},
+  {id:105,name:"Espresso",collection:"Food",price:"1150k",priceNum:1150,shapeBg:"#EDEDF4",img:"https://raw.githubusercontent.com/GinNguyen1406/ZBS-MKT-Dashboard/main/jellycat_images/Espresso.jpg"},
+  {id:106,name:"Funguy Bertie",collection:"Food",price:"2990k",priceNum:2990,shapeBg:"#FFEAF2",img:"https://raw.githubusercontent.com/GinNguyen1406/ZBS-MKT-Dashboard/main/jellycat_images/Funguy%20Bertie.jpg"},
+  {id:107,name:"Hambergur",collection:"Food",price:"1450k",priceNum:1450,shapeBg:"#FFF4E8",img:"https://raw.githubusercontent.com/GinNguyen1406/ZBS-MKT-Dashboard/main/jellycat_images/Hambergur.jpg"},
+  {id:108,name:"Hot Dog",collection:"Food",price:"1450k",priceNum:1450,shapeBg:"#E8F5FF",img:"https://raw.githubusercontent.com/GinNguyen1406/ZBS-MKT-Dashboard/main/jellycat_images/Hot%20Dog.jpg"},
+  {id:109,name:"Hướng Dương",collection:"Food",price:"2150k",priceNum:2150,shapeBg:"#F0ECFC",img:"https://raw.githubusercontent.com/GinNguyen1406/ZBS-MKT-Dashboard/main/jellycat_images/H%C6%B0%E1%BB%9Bng%20D%C6%B0%C6%A1ng.jpg"},
+  {id:110,name:"Pancake",collection:"Food",price:"1450k",priceNum:1450,shapeBg:"#E8F5EC",img:"https://raw.githubusercontent.com/GinNguyen1406/ZBS-MKT-Dashboard/main/jellycat_images/Pancake.jpg"},
+  {id:111,name:"Quýt",collection:"Food",price:"1150k",priceNum:1150,shapeBg:"#FDF0E0",img:"https://raw.githubusercontent.com/GinNguyen1406/ZBS-MKT-Dashboard/main/jellycat_images/Qu%C3%BDt.jpg"},
+  {id:112,name:"Trái Bơ M",collection:"Food",price:"1350k",priceNum:1350,shapeBg:"#F5F0EB",img:"https://raw.githubusercontent.com/GinNguyen1406/ZBS-MKT-Dashboard/main/jellycat_images/Tr%C3%A1i%20B%C6%A1%20M.jpg"},
+  {id:113,name:"Trứng Nhà Bác Học",collection:"Food",price:"1250k",priceNum:1250,shapeBg:"#EBF0FC",img:"https://raw.githubusercontent.com/GinNguyen1406/ZBS-MKT-Dashboard/main/jellycat_images/Tr%E1%BB%A9ng%20Nh%C3%A0%20B%C3%A1c%20H%E1%BB%8Dc.jpg"},
+  {id:114,name:"Trứng Phục Sinh",collection:"Food",price:"880k",priceNum:880,shapeBg:"#FFECF3",img:"https://raw.githubusercontent.com/GinNguyen1406/ZBS-MKT-Dashboard/main/jellycat_images/Tr%E1%BB%A9ng%20Ph%E1%BB%A5c%20Sinh.jpg"},
+  {id:115,name:"Trứng Trái Tim",collection:"Food",price:"950k",priceNum:950,shapeBg:"#FDF2E8",img:"https://raw.githubusercontent.com/GinNguyen1406/ZBS-MKT-Dashboard/main/jellycat_images/Tr%E1%BB%A9ng%20Tr%C3%A1i%20Tim.jpg"},
+  {id:116,name:"Xương Rồng",collection:"Food",price:"1690k",priceNum:1690,shapeBg:"#E6F4E0",img:"https://raw.githubusercontent.com/GinNguyen1406/ZBS-MKT-Dashboard/main/jellycat_images/X%C6%B0%C6%A1ng%20R%E1%BB%93ng.jpg"},
+  {id:117,name:"Ăn Thịt Người",collection:"Food",price:"2990k",priceNum:2990,shapeBg:"#FFF8E8",img:"https://raw.githubusercontent.com/GinNguyen1406/ZBS-MKT-Dashboard/main/jellycat_images/%C4%82n%20Th%E1%BB%8Bt%20Ng%C6%B0%E1%BB%9Di.jpg"},
+  {id:118,name:"Đào",collection:"Food",price:"1250k",priceNum:1250,shapeBg:"#FFF5E8",img:"https://raw.githubusercontent.com/GinNguyen1406/ZBS-MKT-Dashboard/main/jellycat_images/%C4%90%C3%A0o.jpg"},
+  {id:119,name:"Aubergine",collection:"Charm",price:"850k",priceNum:850,shapeBg:"#E4F0FF",img:"https://raw.githubusercontent.com/GinNguyen1406/ZBS-MKT-Dashboard/main/jellycat_images/Aubergine.jpg"},
+  {id:120,name:"Avocado",collection:"Charm",price:"950k",priceNum:950,shapeBg:"#EDEDF4",img:"https://raw.githubusercontent.com/GinNguyen1406/ZBS-MKT-Dashboard/main/jellycat_images/Avocado.jpg"},
+  {id:121,name:"Baguette",collection:"Charm",price:"880k",priceNum:880,shapeBg:"#FFEAF2",img:"https://raw.githubusercontent.com/GinNguyen1406/ZBS-MKT-Dashboard/main/jellycat_images/Baguette.jpg"},
+  {id:122,name:"Bartholomew Bear",collection:"Charm",price:"880k",priceNum:880,shapeBg:"#FFF4E8",img:"https://raw.githubusercontent.com/GinNguyen1406/ZBS-MKT-Dashboard/main/jellycat_images/Bartholomew%20Bear.jpg"},
+  {id:123,name:"Bartholomew Bear Decoration",collection:"Charm",price:"950k",priceNum:950,shapeBg:"#E8F5FF",img:"https://raw.githubusercontent.com/GinNguyen1406/ZBS-MKT-Dashboard/main/jellycat_images/Bartholomew%20Bear%20Decoration.jpg"},
+  {id:124,name:"Bashful Beige Decoration New SS",collection:"Charm",price:"950k",priceNum:950,shapeBg:"#F0ECFC",img:"https://raw.githubusercontent.com/GinNguyen1406/ZBS-MKT-Dashboard/main/jellycat_images/Bashful%20Beige%20Decoration%20New%20SS.png"},
+  {id:125,name:"Bashful Beige New SS",collection:"Charm",price:"980k",priceNum:980,shapeBg:"#E8F5EC",img:"https://raw.githubusercontent.com/GinNguyen1406/ZBS-MKT-Dashboard/main/jellycat_images/Bashful%20Beige%20New%20SS.jpg"},
+  {id:126,name:"Bashful Blush New SS",collection:"Charm",price:"980k",priceNum:980,shapeBg:"#FDF0E0",img:"https://raw.githubusercontent.com/GinNguyen1406/ZBS-MKT-Dashboard/main/jellycat_images/Bashful%20Blush%20New%20SS.jpg"},
+  {id:127,name:"Bashful Cream New SS",collection:"Charm",price:"980k",priceNum:980,shapeBg:"#F5F0EB",img:"https://raw.githubusercontent.com/GinNguyen1406/ZBS-MKT-Dashboard/main/jellycat_images/Bashful%20Cream%20New%20SS.jpg"},
+  {id:128,name:"Bashful Puppy Decoration",collection:"Charm",price:"950k",priceNum:950,shapeBg:"#EBF0FC",img:"https://raw.githubusercontent.com/GinNguyen1406/ZBS-MKT-Dashboard/main/jellycat_images/Bashful%20Puppy%20Decoration.jpg"},
+  {id:129,name:"Bashful Silver New SS",collection:"Charm",price:"980k",priceNum:980,shapeBg:"#FFECF3",img:"https://raw.githubusercontent.com/GinNguyen1406/ZBS-MKT-Dashboard/main/jellycat_images/Bashful%20Silver%20New%20SS.jpg"},
+  {id:130,name:"Black Hole",collection:"Charm",price:"1150k",priceNum:1150,shapeBg:"#FDF2E8",img:"https://raw.githubusercontent.com/GinNguyen1406/ZBS-MKT-Dashboard/main/jellycat_images/Black%20Hole.jpg"},
+  {id:131,name:"Blossom Beige Old SS",collection:"Charm",price:"990k",priceNum:990,shapeBg:"#E6F4E0",img:"https://raw.githubusercontent.com/GinNguyen1406/ZBS-MKT-Dashboard/main/jellycat_images/Blossom%20Beige%20Old%20SS.jpg"},
+  {id:132,name:"Blossom Blush Old SS",collection:"Charm",price:"990k",priceNum:990,shapeBg:"#FFF8E8",img:"https://raw.githubusercontent.com/GinNguyen1406/ZBS-MKT-Dashboard/main/jellycat_images/Blossom%20Blush%20Old%20SS.jpg"},
+  {id:133,name:"Blossom Jasmine Bunny",collection:"Charm",price:"980k",priceNum:980,shapeBg:"#FFF5E8",img:"https://raw.githubusercontent.com/GinNguyen1406/ZBS-MKT-Dashboard/main/jellycat_images/Blossom%20Jasmine%20Bunny.jpg"},
+  {id:134,name:"Clyde Capybara",collection:"Charm",price:"980k",priceNum:980,shapeBg:"#E4F0FF",img:"https://raw.githubusercontent.com/GinNguyen1406/ZBS-MKT-Dashboard/main/jellycat_images/Clyde%20Capybara.jpg"},
+  {id:135,name:"Croissant",collection:"Charm",price:"1250k",priceNum:1250,shapeBg:"#EDEDF4",img:"https://raw.githubusercontent.com/GinNguyen1406/ZBS-MKT-Dashboard/main/jellycat_images/Croissant.jpg"},
+  {id:136,name:"Fergus Frog",collection:"Charm",price:"1150k",priceNum:1150,shapeBg:"#FFEAF2",img:"https://raw.githubusercontent.com/GinNguyen1406/ZBS-MKT-Dashboard/main/jellycat_images/Fergus%20Frog.jpg"},
+  {id:137,name:"Little Pig",collection:"Charm",price:"880k",priceNum:880,shapeBg:"#FFF4E8",img:"https://raw.githubusercontent.com/GinNguyen1406/ZBS-MKT-Dashboard/main/jellycat_images/Little%20Pig.jpg"},
+  {id:138,name:"Marshmallow Pink and White",collection:"Charm",price:"880k",priceNum:880,shapeBg:"#E8F5FF",img:"https://raw.githubusercontent.com/GinNguyen1406/ZBS-MKT-Dashboard/main/jellycat_images/Marshmallow%20Pink%20and%20White.jpg"},
+  {id:139,name:"Munro Scottie Dog",collection:"Charm",price:"950k",priceNum:950,shapeBg:"#F0ECFC",img:"https://raw.githubusercontent.com/GinNguyen1406/ZBS-MKT-Dashboard/main/jellycat_images/Munro%20Scottie%20Dog.jpg"},
+  {id:140,name:"Munro Scottie Dog Decoration",collection:"Charm",price:"950k",priceNum:950,shapeBg:"#E8F5EC",img:"https://raw.githubusercontent.com/GinNguyen1406/ZBS-MKT-Dashboard/main/jellycat_images/Munro%20Scottie%20Dog%20Decoration.jpg"},
+  {id:141,name:"Peanut",collection:"Charm",price:"880k",priceNum:880,shapeBg:"#FDF0E0",img:"https://raw.githubusercontent.com/GinNguyen1406/ZBS-MKT-Dashboard/main/jellycat_images/Peanut.jpg"},
+  {id:142,name:"Peanut Penguin",collection:"Charm",price:"950k",priceNum:950,shapeBg:"#F5F0EB",img:"https://raw.githubusercontent.com/GinNguyen1406/ZBS-MKT-Dashboard/main/jellycat_images/Peanut%20Penguin.jpg"},
+  {id:143,name:"Peanut Penguin Decoration",collection:"Charm",price:"950k",priceNum:950,shapeBg:"#EBF0FC",img:"https://raw.githubusercontent.com/GinNguyen1406/ZBS-MKT-Dashboard/main/jellycat_images/Peanut%20Penguin%20Decoration.jpg"},
+  {id:144,name:"Pretzel",collection:"Charm",price:"980k",priceNum:980,shapeBg:"#FFECF3",img:"https://raw.githubusercontent.com/GinNguyen1406/ZBS-MKT-Dashboard/main/jellycat_images/Pretzel.jpg"},
+  {id:145,name:"Siofra Shamrock",collection:"Charm",price:"1150k",priceNum:1150,shapeBg:"#FDF2E8",img:"https://raw.githubusercontent.com/GinNguyen1406/ZBS-MKT-Dashboard/main/jellycat_images/Siofra%20Shamrock.jpg"},
+  {id:146,name:"Smudge Bear",collection:"Charm",price:"880k",priceNum:880,shapeBg:"#E6F4E0",img:"https://raw.githubusercontent.com/GinNguyen1406/ZBS-MKT-Dashboard/main/jellycat_images/Smudge%20Bear.jpg"},
+  {id:147,name:"Smudge Rabbit New SS",collection:"Charm",price:"880k",priceNum:880,shapeBg:"#FFF8E8",img:"https://raw.githubusercontent.com/GinNguyen1406/ZBS-MKT-Dashboard/main/jellycat_images/Smudge%20Rabbit%20New%20SS.jpg"},
+  {id:148,name:"Snow Dragon",collection:"Charm",price:"2500k",priceNum:2500,shapeBg:"#FFF5E8",img:"https://raw.githubusercontent.com/GinNguyen1406/ZBS-MKT-Dashboard/main/jellycat_images/Snow%20Dragon.jpg"},
+  {id:149,name:"Storm Cloud",collection:"Charm",price:"1350k",priceNum:1350,shapeBg:"#E4F0FF",img:"https://raw.githubusercontent.com/GinNguyen1406/ZBS-MKT-Dashboard/main/jellycat_images/Storm%20Cloud.jpg"},
+  {id:150,name:"Toast",collection:"Charm",price:"1450k",priceNum:1450,shapeBg:"#EDEDF4",img:"https://raw.githubusercontent.com/GinNguyen1406/ZBS-MKT-Dashboard/main/jellycat_images/Toast.jpg"},
+  {id:151,name:"Truffle",collection:"Charm",price:"1800k",priceNum:1800,shapeBg:"#FFEAF2",img:"https://raw.githubusercontent.com/GinNguyen1406/ZBS-MKT-Dashboard/main/jellycat_images/Truffle.jpg"},
+  {id:152,name:"Turtle Bag",collection:"Charm",price:"980k",priceNum:980,shapeBg:"#FFF4E8",img:"https://raw.githubusercontent.com/GinNguyen1406/ZBS-MKT-Dashboard/main/jellycat_images/Turtle%20Bag.jpg"},
+  {id:153,name:"Zodihop Luxe",collection:"Charm",price:"1150k",priceNum:1150,shapeBg:"#E8F5FF",img:"https://raw.githubusercontent.com/GinNguyen1406/ZBS-MKT-Dashboard/main/jellycat_images/Zodihop%20Luxe.jpg"},
+  {id:154,name:"Bashful Bunny Gold Medal Ski Outfit",collection:"Other",price:"2050k",priceNum:2050,shapeBg:"#F0ECFC",img:"https://raw.githubusercontent.com/GinNguyen1406/ZBS-MKT-Dashboard/main/jellycat_images/Bashful%20Bunny%20Gold%20Medal%20Ski%20Outfit.jpg"},
+  {id:155,name:"Bashful Fudge Puppy",collection:"Other",price:"1250k",priceNum:1250,shapeBg:"#E8F5EC",img:"https://raw.githubusercontent.com/GinNguyen1406/ZBS-MKT-Dashboard/main/jellycat_images/Bashful%20Fudge%20Puppy.jpg"},
+  {id:156,name:"Dorit Ducking",collection:"Other",price:"1450k",priceNum:1450,shapeBg:"#FDF0E0",img:"https://raw.githubusercontent.com/GinNguyen1406/ZBS-MKT-Dashboard/main/jellycat_images/Dorit%20Ducking.jpg"},
+  {id:157,name:"Fran Pancakes",collection:"Other",price:"1450k",priceNum:1450,shapeBg:"#F5F0EB",img:"https://raw.githubusercontent.com/GinNguyen1406/ZBS-MKT-Dashboard/main/jellycat_images/Fran%20Pancakes.jpg"},
+  {id:158,name:"Zumblebi Alien",collection:"Other",price:"2150k",priceNum:2150,shapeBg:"#EBF0FC",img:"https://raw.githubusercontent.com/GinNguyen1406/ZBS-MKT-Dashboard/main/jellycat_images/Zumblebi%20Alien.jpg"}
 ];
 
-// card heights alternate for masonry feel
-const HEIGHTS = [140,110,160,120,150,105,135,115,155,125];
+// ── HERO COLLAGE (6 grid mobile, 8 grid desktop) ─────────────
+const COLLAGE_BG = ['#F5F0EB','#F0ECFC','#FFECF3','#FFEAF2','#E8F5EC','#FDF0E0','#EBF0FC','#FFF4E8'];
 
-function badgeHTML(p){
-  if(!p.badge) return '';
-  return `<div class="pb ${p.badgeClass}">${p.badge}</div>`;
+(function buildHero(){
+  const wrap = document.getElementById('heroCollage');
+  if(!wrap) return;
+  const pool = PRODUCTS.filter(p => /jpg|webp|png/i.test(p.img));
+  const picks = [];
+  while(picks.length < 8 && pool.length){
+    const idx = Math.floor(Math.random()*pool.length);
+    picks.push(pool.splice(idx,1)[0]);
+  }
+  wrap.innerHTML = picks.map((p,i)=>{
+    const bg = COLLAGE_BG[i % COLLAGE_BG.length];
+    const cls = `hp hp${i+1}` + (i >= 6 ? ' extra' : '');
+    return `<div class="${cls}" style="background:${bg}"><img src="${p.img}" alt="${p.name}" loading="lazy"/></div>`;
+  }).join('');
+})();
+
+// ── CHIPS ────────────────────────────────────────────────────
+const ALL_COLS = [...new Set(PRODUCTS.map(p=>p.collection))];
+const COL_ORDER = ['Classic','Luxe','Animal','Dragon L','Small','Medium','Huge','Food','Charm','Other'];
+const orderedCols = COL_ORDER.filter(c => ALL_COLS.includes(c)).concat(ALL_COLS.filter(c => !COL_ORDER.includes(c)));
+(function buildChips(){
+  const wrap = document.getElementById('chips');
+  let html = `<div class="chip on" data-col="all" onclick="setFilter('all',this)">Tất cả <span class="cn">${PRODUCTS.length}</span></div>`;
+  orderedCols.forEach(c=>{
+    const n = PRODUCTS.filter(p=>p.collection===c).length;
+    html += `<div class="chip off" data-col="${c}" onclick="setFilter('${c}',this)">${c} <span class="cn">${n}</span></div>`;
+  });
+  wrap.innerHTML = html;
+})();
+
+// ── CARD HEIGHTS (Pinterest staggered feel) ─────────────────
+const HEIGHTS = [180,130,210,150,175,120,200,140,165,225,135,190,155,110,170];
+// Deterministic shuffle per product id so layout is stable but irregular
+function pickHeight(p){
+  const seed = (p.id * 9301 + 49297) % 233280;
+  return HEIGHTS[seed % HEIGHTS.length];
 }
 
-function buildCard(p){
-  const h = HEIGHTS[p.id % HEIGHTS.length];
-  const imgContent = p.img
-    ? `<img src="${p.img}" alt="${p.name}" style="height:${h-8}px"/>`
-    : `<div class="noimg" style="height:${h}px">${p.name.split(' ').slice(0,2).join(' ')}</div>`;
-  const ctaBtn = p.inStock
-    ? `<div class="pcb" onclick="openModal('${p.name}')"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg><span>Tư vấn</span></div>`
-    : `<div class="pcb oos"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg><span>Hết hàng</span></div>`;
+const INSTA_URL = 'https://www.instagram.com/bunniihaus?igsh=MWo1a3Q3MDVycWR1dw==';
+const FB_URL = 'https://www.facebook.com/profile.php?id=61576813521029';
+
+function buildCard(p, idx){
+  const h = pickHeight(p);
+  const priceClass = p.priceNum > 0 ? 'pcp' : 'pcp contact';
+  const priceTxt = p.priceNum > 0 ? p.price : 'Liên hệ';
   return `<div class="pc" data-collection="${p.collection}" data-name="${p.name.toLowerCase()}" data-id="${p.id}">
-    <div class="pch"><div><div class="pcn">${p.name}</div><div class="pcs">Jellycat · ${p.size}</div>${badgeHTML(p)}</div>
-    <div class="pcw"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div></div>
-    <div class="pci"><div class="pshape" style="height:${h}px;background:${p.shapeBg}">${imgContent}</div></div>
-    <div class="pcf"><span class="pcp">${p.price}</span>${ctaBtn}</div>
+    <div class="pch">
+      <div style="min-width:0;flex:1">
+        <div class="pcn">${p.name}</div>
+        <div class="pcs">Jellycat · ${p.collection}</div>
+      </div>
+      <div class="pcw" onclick="event.stopPropagation()" aria-label="Wishlist"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+    </div>
+    <div class="pci" onclick="openLightbox(${p.id})">
+      <div class="pshape" style="height:${h}px;background:${p.shapeBg}">
+        <img src="${p.img}" alt="${p.name}" loading="lazy"/>
+        <div class="pzoom"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7.5"/><path d="M19.5 19.5l-2.8-2.8M11 8v6M8 11h6"/></svg></div>
+      </div>
+    </div>
+    <div class="pcf">
+      <span class="${priceClass}">${priceTxt}</span>
+      <a class="pcb" href="${INSTA_URL}" target="_blank" rel="noopener" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg><span>Tư vấn ngay</span></a>
+    </div>
   </div>`;
 }
 
-// ── RENDER + FILTER ───────────────────────────────────────────────────
+// ── RENDER + FILTER ─────────────────────────────────────────
 let currentFilter = 'all';
+let currentList = [];
 
 function renderProducts(list){
-  const col0 = document.getElementById('col0');
-  const col1 = document.getElementById('col1');
-  col0.innerHTML = '';
-  col1.innerHTML = '';
+  currentList = list;
+  const grid = document.getElementById('masonGrid');
   if(list.length === 0){
-    document.getElementById('emptyState').style.display = 'flex';
-    document.getElementById('masonGrid').style.display = 'none';
+    grid.innerHTML='';
+    document.getElementById('emptyState').style.display='flex';
+    grid.style.display='none';
   } else {
-    document.getElementById('emptyState').style.display = 'none';
-    document.getElementById('masonGrid').style.display = 'flex';
-    list.forEach((p,i) => {
-      const html = buildCard(p);
-      (i%2===0 ? col0 : col1).insertAdjacentHTML('beforeend', html);
-    });
+    document.getElementById('emptyState').style.display='none';
+    grid.style.display='';
+    grid.innerHTML = list.map((p,i)=>buildCard(p,i)).join('');
   }
   document.getElementById('countLabel').textContent = list.length + ' Sản phẩm';
 }
@@ -378,25 +648,26 @@ function getFilteredList(){
   const search = document.getElementById('searchInput').value.toLowerCase().trim();
   return PRODUCTS.filter(p => {
     const matchFilter = currentFilter==='all' || p.collection===currentFilter;
-    const matchSearch = !search || p.name.toLowerCase().includes(search);
+    const matchSearch = !search || p.name.toLowerCase().includes(search) || p.collection.toLowerCase().includes(search);
     return matchFilter && matchSearch;
-  }).sort((a,b)=>a.order-b.order);
+  });
 }
 
 function setFilter(col, el){
   currentFilter = col;
-  document.querySelectorAll('.chip').forEach(c=>{c.className='chip off'});
+  document.querySelectorAll('.chip').forEach(c=>c.className='chip off');
   el.className = 'chip on';
   renderProducts(getFilteredList());
+  document.getElementById('catalog').scrollIntoView({behavior:'smooth'});
 }
 
 function filterProducts(){
   renderProducts(getFilteredList());
 }
 
-// ── MODAL ─────────────────────────────────────────────────────────────
+// ── CONTACT MODAL ───────────────────────────────────────────
 function openModal(productName){
-  const modal = document.getElementById('modalBg');
+  const m = document.getElementById('modalBg');
   if(productName){
     document.getElementById('modalTitle').textContent = 'Tư vấn: ' + productName;
     document.getElementById('modalSub').textContent = 'Chọn kênh bạn muốn nhắn tin';
@@ -404,16 +675,77 @@ function openModal(productName){
     document.getElementById('modalTitle').textContent = 'Liên hệ Bunniihaus';
     document.getElementById('modalSub').textContent = 'Chọn kênh bạn muốn nhắn tin';
   }
-  modal.classList.add('open');
+  m.classList.add('open');
+  document.body.style.overflow='hidden';
 }
 function closeModal(){
   document.getElementById('modalBg').classList.remove('open');
+  document.body.style.overflow='';
 }
 function closeModalOutside(e){
   if(e.target===document.getElementById('modalBg')) closeModal();
 }
 
-// ── INIT ──────────────────────────────────────────────────────────────
+// ── LIGHTBOX ────────────────────────────────────────────────
+let lbIndex = 0;
+
+function openLightbox(productId){
+  const list = currentList;
+  lbIndex = list.findIndex(p=>p.id===productId);
+  if(lbIndex<0) lbIndex=0;
+  showLightbox();
+  document.getElementById('lightbox').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function showLightbox(){
+  const p = currentList[lbIndex];
+  if(!p) return;
+  const img = document.getElementById('lbImg');
+  img.src = p.img;
+  img.alt = p.name;
+  document.getElementById('lbName').textContent = p.name;
+  document.getElementById('lbMeta').textContent = 'Jellycat · ' + p.collection;
+  document.getElementById('lbPrice').textContent = p.priceNum>0 ? p.price : 'Liên hệ';
+  const cta = document.getElementById('lbCta');
+  cta.onclick = (e)=>{e.preventDefault();closeLightbox();openModal(p.name);};
+}
+function closeLightbox(){
+  document.getElementById('lightbox').classList.remove('open');
+  document.body.style.overflow='';
+}
+function closeLightboxOutside(e){
+  if(e.target.id==='lightbox') closeLightbox();
+}
+function lbNav(delta){
+  event.stopPropagation();
+  lbIndex = (lbIndex + delta + currentList.length) % currentList.length;
+  showLightbox();
+}
+
+// Keyboard nav for lightbox
+document.addEventListener('keydown', (e)=>{
+  const lb = document.getElementById('lightbox');
+  if(!lb.classList.contains('open')) return;
+  if(e.key==='Escape') closeLightbox();
+  else if(e.key==='ArrowLeft') { lbIndex = (lbIndex - 1 + currentList.length) % currentList.length; showLightbox(); }
+  else if(e.key==='ArrowRight') { lbIndex = (lbIndex + 1) % currentList.length; showLightbox(); }
+});
+
+// Swipe support for lightbox (mobile)
+(function(){
+  let startX = 0;
+  const lb = document.getElementById('lightbox');
+  lb.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, {passive:true});
+  lb.addEventListener('touchend', e => {
+    const dx = e.changedTouches[0].clientX - startX;
+    if(Math.abs(dx) > 40){
+      lbIndex = (lbIndex + (dx<0?1:-1) + currentList.length) % currentList.length;
+      showLightbox();
+    }
+  });
+})();
+
+// ── INIT ────────────────────────────────────────────────────
 renderProducts(getFilteredList());
 </script>
 </body>
