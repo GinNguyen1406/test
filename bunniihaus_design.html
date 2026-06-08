@@ -239,18 +239,25 @@ button{font-family:inherit;border:none;background:none;cursor:pointer}
 
   .mason{column-count:3;column-gap:20px;padding:0 72px;margin-bottom:24px}
   .pc{margin-bottom:20px}
-  /* Desktop: ignore mobile JS heights; use aspect-ratio for taller, square-ish shapes */
-  .pshape{height:auto !important;aspect-ratio:1/1}
-  .pc:nth-child(4n+2) .pshape{aspect-ratio:5/6}
-  .pc:nth-child(4n+3) .pshape{aspect-ratio:6/5}
-  .pc:nth-child(4n)   .pshape{aspect-ratio:7/8}
+  /* Desktop: ignore mobile JS heights; staggered aspect-ratios for Pinterest feel */
+  .pshape{height:auto !important;aspect-ratio:4/5}
+  .pc:nth-child(7n+1) .pshape{aspect-ratio:1/1}
+  .pc:nth-child(7n+2) .pshape{aspect-ratio:3/4}
+  .pc:nth-child(7n+3) .pshape{aspect-ratio:5/4}
+  .pc:nth-child(7n+4) .pshape{aspect-ratio:4/5}
+  .pc:nth-child(7n+5) .pshape{aspect-ratio:2/3}
+  .pc:nth-child(7n+6) .pshape{aspect-ratio:6/5}
+  .pc:nth-child(7n)   .pshape{aspect-ratio:5/6}
 
-  .pch{padding:14px 14px 4px}
-  .pcn{font-size:14px}
-  .pcs{font-size:9px}
-  .pcp{font-size:17px}
-  .pcb{height:32px;padding:0 14px}
-  .pcb span{font-size:10.5px}
+  .pch{padding:16px 16px 4px}
+  .pcn{font-size:18px;line-height:1.25}
+  .pcs{font-size:10px}
+  .pcp{font-size:22px;font-weight:900;letter-spacing:-.02em}
+  .pcp.contact{font-size:14px}
+  .pcf{padding:10px 16px 14px}
+  .pcb{height:40px;padding:0 18px;border-radius:20px}
+  .pcb span{font-size:13.5px}
+  .pcb svg{width:11px;height:11px}
 
   .bstrip{margin:10px 36px 24px;border-radius:30px;padding:38px 38px}
   .btag{font-size:11px;margin-bottom:12px}
