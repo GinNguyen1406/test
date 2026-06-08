@@ -57,7 +57,7 @@ button{font-family:inherit;border:none;background:none;cursor:pointer}
 .hcta:hover{background:var(--pink-deep);transform:translateY(-1px)}
 
 /* ── SEARCH & CHIPS ────────────────────────────────────────────────── */
-.sr{display:flex;gap:8px;align-items:center;padding:6px 16px 8px}
+.sr{display:flex;gap:8px;align-items:center;padding:6px 20px 8px}
 .sb2{flex:1;height:44px;background:#fff;border:1px solid var(--line);border-radius:22px;display:flex;align-items:center;gap:10px;padding:0 16px;transition:border-color .18s,box-shadow .18s}
 .sb2:focus-within{border-color:var(--pink);box-shadow:0 0 0 3px rgba(255,107,138,.12)}
 .sb2 svg{width:16px;height:16px;stroke:#bbb;stroke-width:1.8;fill:none;flex-shrink:0}
@@ -67,7 +67,7 @@ button{font-family:inherit;border:none;background:none;cursor:pointer}
 .flt:hover{transform:scale(1.05)}
 .flt svg{width:16px;height:16px;stroke:#fff;stroke-width:1.8;fill:none;stroke-linecap:round}
 
-.chips{display:flex;gap:7px;padding:10px 16px;overflow-x:auto;scroll-snap-type:x mandatory;position:sticky;top:62px;z-index:45;background:rgba(248,248,248,.94);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line);transition:box-shadow .2s}
+.chips{display:flex;gap:7px;padding:10px 20px;overflow-x:auto;scroll-snap-type:x mandatory;position:sticky;top:62px;z-index:45;background:rgba(248,248,248,.94);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line);transition:box-shadow .2s}
 .chips.stuck{box-shadow:0 4px 14px rgba(0,0,0,.06)}
 .chips::-webkit-scrollbar{display:none}
 .chip{white-space:nowrap;font-size:11.5px;font-weight:700;padding:8px 16px;border-radius:20px;cursor:pointer;transition:all .18s;scroll-snap-align:start;border:1px solid transparent;user-select:none}
@@ -76,13 +76,13 @@ button{font-family:inherit;border:none;background:none;cursor:pointer}
 .chip.off:hover{border-color:var(--pink);color:var(--pink)}
 .chip .cn{opacity:.55;margin-left:5px;font-weight:500}
 
-.crow{padding:0 18px 12px;display:flex;justify-content:space-between;align-items:center}
+.crow{padding:0 20px 12px;display:flex;justify-content:space-between;align-items:center}
 .cnt{font-size:11px;font-weight:600;color:#bbb;letter-spacing:.08em;text-transform:uppercase}
 .srt{font-size:11px;color:#888;font-weight:500;display:flex;align-items:center;gap:5px;cursor:pointer}
 .srt svg{width:13px;height:13px;stroke:#bbb;stroke-width:2;fill:none}
 
 /* ── MASONRY GRID (Pinterest-style) ───────────────────────────────── */
-.mason{column-count:2;column-gap:10px;padding:0 14px;margin-bottom:18px}
+.mason{column-count:2;column-gap:12px;padding:0 20px;margin-bottom:18px}
 .mcol{display:contents}
 
 /* ── CARD ──────────────────────────────────────────────────────────── */
@@ -102,11 +102,11 @@ button{font-family:inherit;border:none;background:none;cursor:pointer}
 .pci{padding:2px 8px 0}
 .pshape{width:100%;border-radius:14px;overflow:hidden;display:flex;align-items:center;justify-content:center;position:relative;transition:filter .22s}
 .pshape::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 70%,rgba(0,0,0,.04) 100%);pointer-events:none}
-.pshape img{width:100%;height:100%;object-fit:contain;padding:2px;mix-blend-mode:multiply;transition:transform .35s;transform:scale(1.08)}
-.pc:hover .pshape img{transform:scale(1.15)}
+.pshape img{width:100%;height:100%;object-fit:contain;padding:2px;mix-blend-mode:multiply;transition:transform .5s cubic-bezier(.25,.46,.45,.94);transform:scale(1.08)}
+.pc:hover .pshape img{transform:scale(1.55)}
 /* Dragons take more zoom — source images have lots of padding */
 .pc[data-collection="Dragon L"] .pshape img{transform:scale(1.4);padding:0}
-.pc[data-collection="Dragon L"]:hover .pshape img{transform:scale(1.5)}
+.pc[data-collection="Dragon L"]:hover .pshape img{transform:scale(1.9)}
 .pzoom{position:absolute;bottom:6px;right:6px;width:22px;height:22px;background:rgba(255,255,255,.9);border-radius:50%;display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .2s;pointer-events:none;z-index:2}
 .pzoom svg{width:11px;height:11px;stroke:#666;stroke-width:2;fill:none;stroke-linecap:round}
 .pc:hover .pzoom{opacity:1}
@@ -223,22 +223,22 @@ button{font-family:inherit;border:none;background:none;cursor:pointer}
   .hadr{font-size:12px;margin-top:16px}
   .hcta{font-size:13.5px;padding:14px 30px;border-radius:28px;margin-top:24px}
 
-  .sr{padding:6px 36px 8px;gap:12px}
+  .sr{padding:6px 48px 8px;gap:12px}
   .sb2{height:52px;border-radius:26px;padding:0 22px}
   .sb2 svg{width:18px;height:18px}
   .sb2 input{font-size:14px}
   .flt{width:52px;height:52px}
   .flt svg{width:18px;height:18px}
 
-  .chips{padding:12px 36px;gap:9px;top:70px}
+  .chips{padding:12px 48px;gap:9px;top:70px}
   .chip{font-size:12.5px;padding:9px 18px;border-radius:22px}
 
-  .crow{padding:0 38px 16px}
+  .crow{padding:0 48px 16px}
   .cnt{font-size:12px}
   .srt{font-size:12px}
 
-  .mason{column-count:3;column-gap:16px;padding:0 36px;margin-bottom:24px}
-  .pc{margin-bottom:16px}
+  .mason{column-count:3;column-gap:18px;padding:0 48px;margin-bottom:24px}
+  .pc{margin-bottom:18px}
 
   .pch{padding:14px 14px 4px}
   .pcn{font-size:14px}
