@@ -223,22 +223,27 @@ button{font-family:inherit;border:none;background:none;cursor:pointer}
   .hadr{font-size:12px;margin-top:16px}
   .hcta{font-size:13.5px;padding:14px 30px;border-radius:28px;margin-top:24px}
 
-  .sr{padding:6px 48px 8px;gap:12px}
+  .sr{padding:6px 72px 8px;gap:12px}
   .sb2{height:52px;border-radius:26px;padding:0 22px}
   .sb2 svg{width:18px;height:18px}
   .sb2 input{font-size:14px}
   .flt{width:52px;height:52px}
   .flt svg{width:18px;height:18px}
 
-  .chips{padding:12px 48px;gap:9px;top:70px}
+  .chips{padding:12px 72px;gap:9px;top:70px}
   .chip{font-size:12.5px;padding:9px 18px;border-radius:22px}
 
-  .crow{padding:0 48px 16px}
+  .crow{padding:0 72px 16px}
   .cnt{font-size:12px}
   .srt{font-size:12px}
 
-  .mason{column-count:3;column-gap:18px;padding:0 48px;margin-bottom:24px}
-  .pc{margin-bottom:18px}
+  .mason{column-count:3;column-gap:20px;padding:0 72px;margin-bottom:24px}
+  .pc{margin-bottom:20px}
+  /* Desktop: ignore mobile JS heights; use aspect-ratio for taller, square-ish shapes */
+  .pshape{height:auto !important;aspect-ratio:1/1}
+  .pc:nth-child(4n+2) .pshape{aspect-ratio:5/6}
+  .pc:nth-child(4n+3) .pshape{aspect-ratio:6/5}
+  .pc:nth-child(4n)   .pshape{aspect-ratio:7/8}
 
   .pch{padding:14px 14px 4px}
   .pcn{font-size:14px}
