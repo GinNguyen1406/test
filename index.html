@@ -245,15 +245,17 @@ button{font-family:inherit;border:none;background:none;cursor:pointer}
 
   .mason{column-count:3;column-gap:20px;padding:0 72px;margin-bottom:24px}
   .pc{margin-bottom:20px}
-  /* Desktop: ignore mobile JS heights; staggered aspect-ratios for Pinterest feel */
+  /* Desktop: ignore mobile JS heights; wide-spread aspect-ratios for true Pinterest stagger */
   .pshape{height:auto !important;aspect-ratio:4/5}
-  .pc:nth-child(7n+1) .pshape{aspect-ratio:1/1}
-  .pc:nth-child(7n+2) .pshape{aspect-ratio:3/4}
-  .pc:nth-child(7n+3) .pshape{aspect-ratio:5/4}
-  .pc:nth-child(7n+4) .pshape{aspect-ratio:4/5}
-  .pc:nth-child(7n+5) .pshape{aspect-ratio:2/3}
-  .pc:nth-child(7n+6) .pshape{aspect-ratio:6/5}
-  .pc:nth-child(7n)   .pshape{aspect-ratio:5/6}
+  .pc:nth-child(9n+1) .pshape{aspect-ratio:3/4}
+  .pc:nth-child(9n+2) .pshape{aspect-ratio:1/1}
+  .pc:nth-child(9n+3) .pshape{aspect-ratio:2/3}
+  .pc:nth-child(9n+4) .pshape{aspect-ratio:5/4}
+  .pc:nth-child(9n+5) .pshape{aspect-ratio:4/5}
+  .pc:nth-child(9n+6) .pshape{aspect-ratio:7/9}
+  .pc:nth-child(9n+7) .pshape{aspect-ratio:1/1}
+  .pc:nth-child(9n+8) .pshape{aspect-ratio:3/5}
+  .pc:nth-child(9n)   .pshape{aspect-ratio:6/5}
 
   .pch{padding:16px 16px 4px}
   .pcn{font-size:18px;line-height:1.25}
