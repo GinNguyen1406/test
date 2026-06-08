@@ -17,7 +17,7 @@
 }
 html{scroll-behavior:smooth}
 body{background:var(--bg);font-family:var(--font-vn);color:var(--ink);min-height:100vh;-webkit-font-smoothing:antialiased}
-img{max-width:100%;display:block}
+img{max-width:100%;display:block;-webkit-user-drag:none;-khtml-user-drag:none;-moz-user-drag:none;-o-user-drag:none;user-drag:none;-webkit-touch-callout:none;user-select:none;-webkit-user-select:none;pointer-events:auto}
 button{font-family:inherit;border:none;background:none;cursor:pointer}
 
 /* ── HEADER ─────────────────────────────────────────────────────────── */
@@ -763,6 +763,15 @@ document.addEventListener('keydown', (e)=>{
   }, {threshold:0});
   io.observe(sentinel);
 })();
+
+// ── IMAGE PROTECTION ────────────────────────────────────────
+// Deter casual download attempts (right-click, drag-save, long-press)
+document.addEventListener('contextmenu', e => {
+  if(e.target.tagName === 'IMG') e.preventDefault();
+});
+document.addEventListener('dragstart', e => {
+  if(e.target.tagName === 'IMG') e.preventDefault();
+});
 
 // ── INIT ────────────────────────────────────────────────────
 renderProducts(getFilteredList());
