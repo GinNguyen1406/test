@@ -330,8 +330,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="hey">Authentic Jellycat</div>
     <div class="hl2">Bunnii<em>haus</em></div>
     <div class="htag"><strong>The Gift<br>That Stays.</strong></div>
-    <div class="hadr">207 Hoàng Sa, Tân Định, TP.HCM<br>Liên hệ: <a href="tel:0946961372" style="color:inherit;text-decoration:none;font-weight:600">094 696 13 72</a> khi đến</div>
-    <a class="hcta" href="https://www.instagram.com/bunniihaus?igsh=MWo1a3Q3MDVycWR1dw==" target="_blank" rel="noopener" style="text-decoration:none">Tư vấn ngay →</a>
+    <div class="hadr">207 Hoàng Sa, Tân Định, TP.HCM<br>Liên hệ: <a href="tel:0946961372" style="color:inherit;text-decoration:none;font-weight:600" onclick="trackEvent('cta_phone_call',{cta_location:'hero'})">094 696 13 72</a> khi đến</div>
+    <a class="hcta" href="https://www.instagram.com/bunniihaus?igsh=MWo1a3Q3MDVycWR1dw==" target="_blank" rel="noopener" style="text-decoration:none" onclick="trackEvent('cta_hero_click',{cta_destination:'instagram'})">Tư vấn ngay →</a>
   </div>
 </section>
 
@@ -382,7 +382,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- FOOTER -->
 <footer class="foot">
   <div class="flog">Bunnii<em>haus</em></div>
-  <div class="fadr">207 Hoàng Sa, Tân Định, TP.HCM<br>Liên hệ: <a href="tel:0946961372" style="color:#aaa;text-decoration:none;font-weight:600">094 696 13 72</a> khi đến<br>The Gift That Stays. · Authentic Jellycat Vietnam</div>
+  <div class="fadr">207 Hoàng Sa, Tân Định, TP.HCM<br>Liên hệ: <a href="tel:0946961372" style="color:#aaa;text-decoration:none;font-weight:600" onclick="trackEvent('cta_phone_call',{cta_location:'footer'})">094 696 13 72</a> khi đến<br>The Gift That Stays. · Authentic Jellycat Vietnam</div>
   <div class="flnk"><span class="fl">Shop</span><span class="fl">About</span><span class="fl">Contact</span><span class="fl">Policy</span></div>
   <div class="fsoc">
     <a class="fs" href="https://www.facebook.com/profile.php?id=61576813521029" target="_blank" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
@@ -394,8 +394,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <!-- FLOAT CTA -->
 <div class="fbr">
-  <a class="fb fbz" href="https://www.instagram.com/bunniihaus?igsh=MWo1a3Q3MDVycWR1dw==" target="_blank" rel="noopener"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2" fill="#fff" stroke="none"/></svg>Chat Instagram</a>
-  <a class="fb fbm" href="https://www.facebook.com/profile.php?id=61576813521029" target="_blank" rel="noopener"><svg width="15" height="15" viewBox="0 0 24 24" fill="#FF6B8A"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z"/></svg>Chat FB</a>
+  <a class="fb fbz" href="https://www.instagram.com/bunniihaus?igsh=MWo1a3Q3MDVycWR1dw==" target="_blank" rel="noopener" onclick="trackEvent('cta_chat_instagram',{cta_location:'floating_bar'})"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2" fill="#fff" stroke="none"/></svg>Chat Instagram</a>
+  <a class="fb fbm" href="https://www.facebook.com/profile.php?id=61576813521029" target="_blank" rel="noopener" onclick="trackEvent('cta_chat_facebook',{cta_location:'floating_bar'})"><svg width="15" height="15" viewBox="0 0 24 24" fill="#FF6B8A"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z"/></svg>Chat FB</a>
 </div>
 
 <!-- CONTACT MODAL -->
@@ -632,6 +632,12 @@ function pickHeight(p){
 const INSTA_URL = 'https://www.instagram.com/bunniihaus?igsh=MWo1a3Q3MDVycWR1dw==';
 const FB_URL = 'https://www.facebook.com/profile.php?id=61576813521029';
 
+// ── GA4 / GTM EVENT TRACKING ────────────────────────────────
+window.dataLayer = window.dataLayer || [];
+function trackEvent(name, params){
+  window.dataLayer.push(Object.assign({event:name}, params || {}));
+}
+
 function buildCard(p, idx){
   const h = pickHeight(p);
   const priceClass = p.priceNum > 0 ? 'pcp' : 'pcp contact';
@@ -652,7 +658,7 @@ function buildCard(p, idx){
     </div>
     <div class="pcf">
       <span class="${priceClass}">${priceTxt}</span>
-      <a class="pcb" href="${INSTA_URL}" target="_blank" rel="noopener" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg><span>Tư vấn ngay</span></a>
+      <a class="pcb" href="${INSTA_URL}" target="_blank" rel="noopener" onclick="event.stopPropagation();trackEvent('cta_consult_click',{product_name:'${p.name.replace(/'/g,"\\'")}',product_collection:'${p.collection}',product_price:${p.priceNum},cta_location:'card'})"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg><span>Tư vấn ngay</span></a>
     </div>
   </div>`;
 }
@@ -691,10 +697,17 @@ function setFilter(col, el){
   el.className = 'chip on';
   renderProducts(getFilteredList());
   document.getElementById('catalog').scrollIntoView({behavior:'smooth'});
+  trackEvent('filter_collection', {collection_name: col, result_count: currentList.length});
 }
 
+let searchDebounceTimer;
 function filterProducts(){
   renderProducts(getFilteredList());
+  clearTimeout(searchDebounceTimer);
+  searchDebounceTimer = setTimeout(()=>{
+    const q = document.getElementById('searchInput').value.trim();
+    if(q.length >= 2) trackEvent('search_product', {search_term: q, result_count: currentList.length});
+  }, 800);
 }
 
 // ── CONTACT MODAL ───────────────────────────────────────────
@@ -728,6 +741,8 @@ function openLightbox(productId){
   showLightbox();
   document.getElementById('lightbox').classList.add('open');
   document.body.style.overflow='hidden';
+  const p = currentList[lbIndex];
+  if(p) trackEvent('view_product', {product_id:p.id, product_name:p.name, product_collection:p.collection, product_price:p.priceNum});
 }
 function showLightbox(){
   const p = currentList[lbIndex];
