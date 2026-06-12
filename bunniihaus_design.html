@@ -652,7 +652,7 @@ const PRODUCTS = [
   {id:74,name:"Sage",collection:"Dragon L",price:"8900k",priceNum:8900,shapeBg:"#E4F0FF",img:"img/Sage.webp"},
   {id:75,name:"Snow",collection:"Dragon L",price:"2950k",priceNum:2950,shapeBg:"#EDEDF4",img:"img/Snow.webp"},
   {id:159,name:"Sky Dragon",collection:"Dragon L",price:"2850k",priceNum:2850,shapeBg:"#E4F0FF",img:"img/Sky%20Dragon.webp"},
-  {id:160,name:"Snow Huge",collection:"Dragon L",price:"8400k",priceNum:8400,shapeBg:"#EDEDF4",img:"img/Snow.webp"},
+  {id:160,name:"Snow Huge",collection:"Dragon L",label:"Dragon Huge",price:"8400k",priceNum:8400,shapeBg:"#EDEDF4",img:"img/Snow.webp"},
   {id:76,name:"Bashful Bunny Peony Small",collection:"Small",price:"2000k",priceNum:2000,shapeBg:"#FFEAF2",img:"img/Bashful%20Bunny%20Peony%20Small.webp"},
   {id:77,name:"Bashful Bunny With Candy Cane Small",collection:"Small",price:"1750k",priceNum:1750,shapeBg:"#FFF4E8",img:"img/Bashful%20Bunny%20With%20Candy%20Cane%20Small.webp"},
   {id:78,name:"Bashful Bunny With Christmas Tree Small",collection:"Small",price:"1890k",priceNum:1890,shapeBg:"#E8F5FF",img:"img/Bashful%20Bunny%20With%20Christmas%20Tree%20Small.webp"},
@@ -796,7 +796,7 @@ function buildCard(p, idx){
     <div class="pch">
       <div style="min-width:0;flex:1">
         <div class="pcn">${p.name}</div>
-        <div class="pcs">Jellycat · ${p.collection}</div>
+        <div class="pcs">Jellycat · ${p.label || p.collection}</div>
       </div>
       <div class="pcw" onclick="event.stopPropagation()" aria-label="Wishlist"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
     </div>
@@ -901,7 +901,7 @@ function showLightbox(){
   img.src = p.img;
   img.alt = p.name;
   document.getElementById('lbName').textContent = p.name;
-  document.getElementById('lbMeta').textContent = 'Jellycat · ' + p.collection;
+  document.getElementById('lbMeta').textContent = 'Jellycat · ' + (p.label || p.collection);
   document.getElementById('lbPrice').textContent = p.priceNum>0 ? p.price : 'Liên hệ';
   const cta = document.getElementById('lbCta');
   cta.onclick = (e)=>{e.preventDefault();closeLightbox();openModal(p.name);};
