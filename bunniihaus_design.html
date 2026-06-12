@@ -668,7 +668,7 @@ const PRODUCTS = [
   {id:89,name:"Little Bashful Teal Bunny Small",collection:"Small",price:"980k",priceNum:980,shapeBg:"#E4F0FF",img:"img/Little%20Bashful%20Teal%20Bunny%20Small.webp"},
   {id:90,name:"Little Blossom Sage Bunny Small",collection:"Small",price:"2350k",priceNum:2350,shapeBg:"#EDEDF4",img:"img/Little%20Blossom%20Sage%20Bunny%20Small.webp"},
   {id:91,name:"Unicorn",collection:"Small",price:"950k",priceNum:950,shapeBg:"#FFEAF2",img:"img/Unicorn.webp"},
-  {id:92,name:"Medium Blossom Blush Bunny",collection:"Medium",price:"2990k",priceNum:2990,shapeBg:"#FFF4E8",img:"img/Medium%20Blossom%20Blush%20Bunny.webp"},
+  {id:92,name:"Medium Blossom Blush Bunny",collection:"Classic",price:"2990k",priceNum:2990,shapeBg:"#FFF4E8",img:"img/Medium%20Blossom%20Blush%20Bunny.webp"},
   {id:93,name:"Azure Huge Bunny",collection:"Huge",price:"Liên hệ",priceNum:0,shapeBg:"#E8F5FF",img:"img/Azure%20Huge%20Bunny.webp"},
   {id:94,name:"Bear Really Big",collection:"Huge",price:"4900k",priceNum:4900,shapeBg:"#F0ECFC",img:"img/Bear%20Really%20Big.webp"},
   {id:95,name:"Blossom Beige Bunny Petal Huge",collection:"Huge",price:"3990k",priceNum:3990,shapeBg:"#E8F5EC",img:"img/Blossom%20Beige%20Bunny%20Petal%20Huge.webp"},
@@ -758,7 +758,7 @@ const COLLAGE_BG = ['#F5F0EB','#F0ECFC','#FFECF3','#FFEAF2','#E8F5EC','#FDF0E0',
 
 // ── CHIPS ────────────────────────────────────────────────────
 const ALL_COLS = [...new Set(PRODUCTS.map(p=>p.collection))];
-const COL_ORDER = ['Classic','Luxe','Animal','Dragon L','Small','Medium','Huge','Food','Charm','Other'];
+const COL_ORDER = ['Classic','Luxe','Animal','Dragon L','Small','Huge','Food','Charm','Other'];
 const orderedCols = COL_ORDER.filter(c => ALL_COLS.includes(c)).concat(ALL_COLS.filter(c => !COL_ORDER.includes(c)));
 (function buildChips(){
   const wrap = document.getElementById('chips');
