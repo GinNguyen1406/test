@@ -731,11 +731,11 @@ const PRODUCTS = [
   {id:151,name:"Truffle",collection:"Charm",price:"1800k",priceNum:1800,shapeBg:"#FFEAF2",img:"img/Truffle.webp"},
   {id:152,name:"Turtle Bag",collection:"Charm",price:"980k",priceNum:980,shapeBg:"#FFF4E8",img:"img/Turtle%20Bag.webp"},
   {id:153,name:"Zodihop Luxe",collection:"Charm",price:"1150k",priceNum:1150,shapeBg:"#E8F5FF",img:"img/Zodihop%20Luxe.webp"},
-  {id:154,name:"Bashful Bunny Gold Medal Ski Outfit",collection:"Other",price:"2050k",priceNum:2050,shapeBg:"#F0ECFC",img:"img/Bashful%20Bunny%20Gold%20Medal%20Ski%20Outfit.webp"},
-  {id:155,name:"Bashful Fudge Puppy",collection:"Other",price:"1250k",priceNum:1250,shapeBg:"#E8F5EC",img:"img/Bashful%20Fudge%20Puppy.webp"},
-  {id:156,name:"Dorit Ducking",collection:"Other",price:"1450k",priceNum:1450,shapeBg:"#FDF0E0",img:"img/Dorit%20Ducking.webp"},
-  {id:157,name:"Fran Pancakes",collection:"Other",price:"1450k",priceNum:1450,shapeBg:"#F5F0EB",img:"img/Fran%20Pancakes.webp"},
-  {id:158,name:"Zumblebi Alien",collection:"Other",price:"2150k",priceNum:2150,shapeBg:"#EBF0FC",img:"img/Zumblebi%20Alien.webp"}
+  {id:154,name:"Bashful Bunny Gold Medal Ski Outfit",collection:"Animal",price:"2050k",priceNum:2050,shapeBg:"#F0ECFC",img:"img/Bashful%20Bunny%20Gold%20Medal%20Ski%20Outfit.webp"},
+  {id:155,name:"Bashful Fudge Puppy",collection:"Animal",price:"1250k",priceNum:1250,shapeBg:"#E8F5EC",img:"img/Bashful%20Fudge%20Puppy.webp"},
+  {id:156,name:"Dorit Ducking",collection:"Animal",price:"1450k",priceNum:1450,shapeBg:"#FDF0E0",img:"img/Dorit%20Ducking.webp"},
+  {id:157,name:"Fran Pancakes",collection:"Food",price:"1450k",priceNum:1450,shapeBg:"#F5F0EB",img:"img/Fran%20Pancakes.webp"},
+  {id:158,name:"Zumblebi Alien",collection:"Animal",price:"2150k",priceNum:2150,shapeBg:"#EBF0FC",img:"img/Zumblebi%20Alien.webp"}
 ];
 
 // ── HERO COLLAGE (6 grid mobile, 8 grid desktop) ─────────────
@@ -759,7 +759,7 @@ const COLLAGE_BG = ['#F5F0EB','#F0ECFC','#FFECF3','#FFEAF2','#E8F5EC','#FDF0E0',
 
 // ── CHIPS ────────────────────────────────────────────────────
 const ALL_COLS = [...new Set(PRODUCTS.map(p=>p.collection))];
-const COL_ORDER = ['Classic','Luxe','Animal','Dragon L','Small','Huge','Food','Charm','Other'];
+const COL_ORDER = ['Classic','Luxe','Animal','Dragon L','Small','Huge','Food','Charm'];
 const orderedCols = COL_ORDER.filter(c => ALL_COLS.includes(c)).concat(ALL_COLS.filter(c => !COL_ORDER.includes(c)));
 (function buildChips(){
   const wrap = document.getElementById('chips');
