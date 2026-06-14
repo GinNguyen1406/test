@@ -162,6 +162,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,500;1,600&family=Outfit:wght@300;400;500;600;700;800&family=Be+Vietnam+Pro:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <link href="https://fonts.cdnfonts.com/css/svn-gilroy" rel="stylesheet">
+<!-- LCP: preload featured hero image so it paints fast -->
+<link rel="preload" as="image" href="img/Azure%20Huge%20Bunny.webp" fetchpriority="high">
 <style>
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 :root{
@@ -747,11 +749,16 @@ const PRODUCTS = [
 // ── HERO COLLAGE (6 grid mobile, 8 grid desktop) ─────────────
 const COLLAGE_BG = ['#F5F0EB','#F0ECFC','#FFECF3','#FFEAF2','#E8F5EC','#FDF0E0','#EBF0FC','#FFF4E8'];
 
+// LCP-critical: first hero tile is deterministic + preloaded in <head>
+const HERO_FEATURED = 'img/Azure%20Huge%20Bunny.webp';
 (function buildHero(){
   const wrap = document.getElementById('heroCollage');
   if(!wrap) return;
   const pool = PRODUCTS.filter(p => /jpg|webp|png/i.test(p.img));
   const picks = [];
+  // Pin the featured (preloaded) product as the first tile for a fast LCP
+  const fIdx = pool.findIndex(p => p.img === HERO_FEATURED);
+  if(fIdx >= 0) picks.push(pool.splice(fIdx,1)[0]);
   while(picks.length < 8 && pool.length){
     const idx = Math.floor(Math.random()*pool.length);
     picks.push(pool.splice(idx,1)[0]);
@@ -759,7 +766,12 @@ const COLLAGE_BG = ['#F5F0EB','#F0ECFC','#FFECF3','#FFEAF2','#E8F5EC','#FDF0E0',
   wrap.innerHTML = picks.map((p,i)=>{
     const bg = COLLAGE_BG[i % COLLAGE_BG.length];
     const cls = `hp hp${i+1}` + (i >= 6 ? ' extra' : '');
-    return `<div class="${cls}" style="background:${bg}"><img src="${p.img}" alt="${p.name}" loading="lazy" decoding="async"/></div>`;
+    // First 6 tiles are above the fold → load eagerly; #1 gets high priority
+    const eager = i < 6;
+    const attrs = eager
+      ? `loading="eager" fetchpriority="${i===0?'high':'auto'}" decoding="async"`
+      : `loading="lazy" decoding="async"`;
+    return `<div class="${cls}" style="background:${bg}"><img src="${p.img}" alt="${p.name}" ${attrs}/></div>`;
   }).join('');
 })();
 
