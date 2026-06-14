@@ -485,7 +485,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- HERO -->
 <section class="hero">
   <div class="hbl1"></div><div class="hbl2"></div>
-  <div class="hl" id="heroCollage"></div>
+  <div class="hl" id="heroCollage"><div class="hp hp1" style="background:#F5F0EB"><img src="img/Azure%20Huge%20Bunny.webp" alt="Bashful Azure Bunny Jellycat" width="200" height="200" fetchpriority="high" decoding="async"/></div></div>
   <div class="hr">
     <div class="hey">Authentic Jellycat</div>
     <div class="hl2">Bunnii<em>haus</em></div>
@@ -755,30 +755,26 @@ const PRODUCTS = [
 // ── HERO COLLAGE (6 grid mobile, 8 grid desktop) ─────────────
 const COLLAGE_BG = ['#F5F0EB','#F0ECFC','#FFECF3','#FFEAF2','#E8F5EC','#FDF0E0','#EBF0FC','#FFF4E8'];
 
-// LCP-critical: first hero tile is deterministic + preloaded in <head>
+// LCP-critical: first hero tile (hp1) is rendered statically in HTML + preloaded.
+// buildHero only APPENDS the remaining tiles so the LCP element is never re-rendered.
 const HERO_FEATURED = 'img/Azure%20Huge%20Bunny.webp';
 (function buildHero(){
   const wrap = document.getElementById('heroCollage');
   if(!wrap) return;
-  const pool = PRODUCTS.filter(p => /jpg|webp|png/i.test(p.img));
+  const pool = PRODUCTS.filter(p => /jpg|webp|png/i.test(p.img) && p.img !== HERO_FEATURED);
   const picks = [];
-  // Pin the featured (preloaded) product as the first tile for a fast LCP
-  const fIdx = pool.findIndex(p => p.img === HERO_FEATURED);
-  if(fIdx >= 0) picks.push(pool.splice(fIdx,1)[0]);
-  while(picks.length < 8 && pool.length){
+  while(picks.length < 7 && pool.length){
     const idx = Math.floor(Math.random()*pool.length);
     picks.push(pool.splice(idx,1)[0]);
   }
-  wrap.innerHTML = picks.map((p,i)=>{
+  const html = picks.map((p,k)=>{
+    const i = k + 1; // featured static tile is index 0
     const bg = COLLAGE_BG[i % COLLAGE_BG.length];
     const cls = `hp hp${i+1}` + (i >= 6 ? ' extra' : '');
-    // First 6 tiles are above the fold → load eagerly; #1 gets high priority
-    const eager = i < 6;
-    const attrs = eager
-      ? `loading="eager" fetchpriority="${i===0?'high':'auto'}" decoding="async"`
-      : `loading="lazy" decoding="async"`;
+    const attrs = i < 6 ? 'loading="eager" decoding="async"' : 'loading="lazy" decoding="async"';
     return `<div class="${cls}" style="background:${bg}"><img src="${p.img}" alt="${p.name}" ${attrs}/></div>`;
   }).join('');
+  wrap.insertAdjacentHTML('beforeend', html);
 })();
 
 // ── CHIPS ────────────────────────────────────────────────────
