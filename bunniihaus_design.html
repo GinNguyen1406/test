@@ -136,7 +136,7 @@
       "name": "Giá Jellycat tại Bunniihaus bao nhiêu?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Giá Jellycat tại Bunniihaus dao động từ 300.000₫ (dòng Charm nhỏ) đến khoảng 4.500.000₫ (dòng Huge/Big Size). Các dòng phổ biến: Classic Small ~890K, Classic Medium ~1.250K, Amuseable ~1.450K, Dragon L ~2.850K."
+        "text": "Giá Jellycat tại Bunniihaus dao động từ 300.000₫ (dòng Charm nhỏ) đến khoảng 4.500.000₫ (dòng Huge/Big Size). Các dòng phổ biến: Classic Small ~890K, Classic Medium ~1.250K, Amuseable ~1.450K, Dragon ~2.850K."
       }
     },
     {
@@ -273,8 +273,10 @@ button{font-family:inherit;border:none;background:none;cursor:pointer}
 .pshape img{width:100%;height:100%;object-fit:contain;padding:2px;mix-blend-mode:multiply;transition:transform .5s cubic-bezier(.25,.46,.45,.94);transform:scale(1.08)}
 .pc:hover .pshape img{transform:scale(1.55)}
 /* Dragons take more zoom — source images have lots of padding */
-.pc[data-collection="Dragon L"] .pshape img{transform:scale(1.4);padding:0}
-.pc[data-collection="Dragon L"]:hover .pshape img{transform:scale(1.9)}
+.pc[data-collection="Dragon"] .pshape img{transform:scale(1.4);padding:0}
+.pc[data-collection="Dragon"]:hover .pshape img{transform:scale(1.9)}
+.pc[data-name="onyx"] .pshape img{transform:scale(0.95) !important;padding:8px !important}
+.pc[data-name="onyx"]:hover .pshape img{transform:scale(1.2) !important}
 .pzoom{position:absolute;bottom:6px;right:6px;width:22px;height:22px;background:rgba(255,255,255,.9);border-radius:50%;display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .2s;pointer-events:none;z-index:2}
 .pzoom svg{width:11px;height:11px;stroke:#666;stroke-width:2;fill:none;stroke-linecap:round}
 .pc:hover .pzoom{opacity:1}
@@ -609,7 +611,7 @@ const PRODUCTS = [
   {id:13,name:"Evey",collection:"Classic M",price:"2990k",priceNum:2990,shapeBg:"#FFF5E8",img:"img/Evey.webp"},
   {id:14,name:"Hold Heart",collection:"Classic M",price:"2150k",priceNum:2150,shapeBg:"#E4F0FF",img:"img/Hold%20Heart.webp"},
   {id:15,name:"Inky",collection:"Classic M",price:"5500k",priceNum:5500,shapeBg:"#EDEDF4",img:"img/Inky.webp"},
-  {id:17,name:"Lazulia",collection:"Dragon L",price:"2850k",priceNum:2850,shapeBg:"#FFF4E8",img:"img/Lazulia.webp"},
+  {id:17,name:"Lazulia",collection:"Dragon",price:"2850k",priceNum:2850,shapeBg:"#FFF4E8",img:"img/Lazulia.webp"},
   {id:18,name:"Lilac",collection:"Classic M",price:"1790k",priceNum:1790,shapeBg:"#E8F5FF",img:"img/Lilac.webp"},
   {id:19,name:"Mineral",collection:"Classic M",price:"1890k",priceNum:1890,shapeBg:"#F0ECFC",img:"img/Mineral.webp"},
   {id:20,name:"Moss",collection:"Classic M",price:"2250k",priceNum:2250,shapeBg:"#E8F5EC",img:"img/Moss.webp"},
@@ -637,7 +639,7 @@ const PRODUCTS = [
   {id:42,name:"Birdling Blue Jay",collection:"Animal",price:"1150k",priceNum:1150,shapeBg:"#FFF8E8",img:"img/Birdling%20Blue%20Jay.webp"},
   {id:43,name:"Birdling Hummingbird",collection:"Animal",price:"1150k",priceNum:1150,shapeBg:"#FFF5E8",img:"img/Birdling%20Hummingbird.webp"},
   {id:44,name:"Birdling Robin",collection:"Animal",price:"1150k",priceNum:1150,shapeBg:"#E4F0FF",img:"img/Birdling%20Robin.webp"},
-  {id:45,name:"Bồ Câu",collection:"Animal",price:"1890k",priceNum:1890,shapeBg:"#EDEDF4",img:"img/B%E1%BB%93%20C%C3%A2u.webp"},
+  {id:45,name:"Bồ Câu",collection:"Animal",price:"1790k",priceNum:1790,shapeBg:"#EDEDF4",img:"img/B%E1%BB%93%20C%C3%A2u.webp"},
   {id:46,name:"Capybara",collection:"Animal",price:"1890k",priceNum:1890,shapeBg:"#FFEAF2",img:"img/Capybara.webp"},
   {id:47,name:"Cecile Chicken",collection:"Animal",price:"1550k",priceNum:1550,shapeBg:"#FFF4E8",img:"img/Cecile%20Chicken.webp"},
   {id:48,name:"Chó Fudge",collection:"Animal",price:"1450k",priceNum:1450,shapeBg:"#E8F5FF",img:"img/Ch%C3%B3%20Fudge.webp"},
@@ -660,15 +662,15 @@ const PRODUCTS = [
   {id:66,name:"Pig Little",collection:"Animal",price:"980k",priceNum:980,shapeBg:"#FDF0E0",img:"img/Pig%20Little.webp"},
   {id:67,name:"Sứa Letty",collection:"Animal",price:"Liên hệ",priceNum:0,shapeBg:"#F5F0EB",img:"img/S%E1%BB%A9a%20Letty.webp"},
   {id:68,name:"Zumbleby Alien",collection:"Animal",price:"2150k",priceNum:2150,shapeBg:"#EBF0FC",img:"img/Zumbleby%20Alien.webp"},
-  {id:69,name:"Dexter",collection:"Dragon L",price:"3900k",priceNum:3900,shapeBg:"#FFECF3",img:"img/Dexter.webp"},
-  {id:70,name:"Heart",collection:"Dragon L",price:"2950k",priceNum:2950,shapeBg:"#FDF2E8",img:"img/Heart.webp"},
-  {id:71,name:"Matchaly",collection:"Dragon L",price:"2850k",priceNum:2850,shapeBg:"#E6F4E0",img:"img/Matchaly.webp"},
-  {id:72,name:"Onyx",collection:"Dragon L",price:"18000k",priceNum:18000,shapeBg:"#FFF8E8",img:"img/Onyx.webp"},
-  {id:73,name:"Persimon",collection:"Dragon L",price:"4290k",priceNum:4290,shapeBg:"#FFF5E8",img:"img/Persimon.webp"},
-  {id:74,name:"Sage",collection:"Dragon L",price:"8900k",priceNum:8900,shapeBg:"#E4F0FF",img:"img/Sage.webp"},
-  {id:75,name:"Snow",collection:"Dragon L",price:"2950k",priceNum:2950,shapeBg:"#EDEDF4",img:"img/Snow.webp"},
-  {id:159,name:"Sky Dragon",collection:"Dragon L",price:"2850k",priceNum:2850,shapeBg:"#E4F0FF",img:"img/Sky%20Dragon.webp"},
-  {id:160,name:"Snow Huge",collection:"Dragon L",label:"Dragon Huge",price:"8400k",priceNum:8400,shapeBg:"#EDEDF4",img:"img/Snow.webp"},
+  {id:69,name:"Dexter",collection:"Dragon",price:"3900k",priceNum:3900,shapeBg:"#FFECF3",img:"img/Dexter.webp"},
+  {id:70,name:"Heart",collection:"Dragon",price:"2950k",priceNum:2950,shapeBg:"#FDF2E8",img:"img/Heart.webp"},
+  {id:71,name:"Matchaly",collection:"Dragon",price:"2850k",priceNum:2850,shapeBg:"#E6F4E0",img:"img/Matchaly.webp"},
+  {id:72,name:"Onyx",collection:"Dragon",price:"18000k",priceNum:18000,shapeBg:"#FFF8E8",img:"img/Onyx.webp"},
+  {id:73,name:"Persimon",collection:"Dragon",price:"4290k",priceNum:4290,shapeBg:"#FFF5E8",img:"img/Persimon.webp"},
+  {id:74,name:"Sage",collection:"Dragon",price:"8900k",priceNum:8900,shapeBg:"#E4F0FF",img:"img/Sage.webp"},
+  {id:75,name:"Snow",collection:"Dragon",price:"2950k",priceNum:2950,shapeBg:"#EDEDF4",img:"img/Snow.webp"},
+  {id:159,name:"Sky Dragon",collection:"Dragon",price:"2850k",priceNum:2850,shapeBg:"#E4F0FF",img:"img/Sky%20Dragon.webp"},
+  {id:160,name:"Snow Huge",collection:"Dragon",label:"Dragon Huge",price:"8400k",priceNum:8400,shapeBg:"#EDEDF4",img:"img/Snow.webp"},
   {id:76,name:"Bashful Bunny Peony Small",collection:"Small",price:"2000k",priceNum:2000,shapeBg:"#FFEAF2",img:"img/Bashful%20Bunny%20Peony%20Small.webp"},
   {id:77,name:"Bashful Bunny With Candy Cane Small",collection:"Small",price:"1750k",priceNum:1750,shapeBg:"#FFF4E8",img:"img/Bashful%20Bunny%20With%20Candy%20Cane%20Small.webp"},
   {id:78,name:"Bashful Bunny With Christmas Tree Small",collection:"Small",price:"1890k",priceNum:1890,shapeBg:"#E8F5FF",img:"img/Bashful%20Bunny%20With%20Christmas%20Tree%20Small.webp"},
@@ -687,13 +689,13 @@ const PRODUCTS = [
   {id:91,name:"Unicorn",collection:"Small",price:"950k",priceNum:950,shapeBg:"#FFEAF2",img:"img/Unicorn.webp"},
   {id:92,name:"Medium Blossom Blush Bunny",collection:"Classic M",price:"2990k",priceNum:2990,shapeBg:"#FFF4E8",img:"img/Medium%20Blossom%20Blush%20Bunny.webp"},
   {id:93,name:"Azure Huge Bunny",collection:"Huge",price:"Liên hệ",priceNum:0,shapeBg:"#E8F5FF",img:"img/Azure%20Huge%20Bunny.webp"},
-  {id:94,name:"Bear Really Big",collection:"Huge",price:"4900k",priceNum:4900,shapeBg:"#F0ECFC",img:"img/Bear%20Really%20Big.webp"},
+  {id:94,name:"Bear Really Big",collection:"Huge",price:"5950k",priceNum:5950,shapeBg:"#F0ECFC",img:"img/Bear%20Really%20Big.webp"},
   {id:95,name:"Blossom Beige Bunny Petal Huge",collection:"Huge",price:"3990k",priceNum:3990,shapeBg:"#E8F5EC",img:"img/Blossom%20Beige%20Bunny%20Petal%20Huge.webp"},
   {id:96,name:"Blossom Blush Bunny Cherry Huge",collection:"Huge",price:"4400k",priceNum:4400,shapeBg:"#FDF0E0",img:"img/Blossom%20Blush%20Bunny%20Cherry%20Huge.webp"},
   {id:97,name:"Curly Huge Bunny",collection:"Huge",price:"5490k",priceNum:5490,shapeBg:"#F5F0EB",img:"img/Curly%20Huge%20Bunny.webp"},
   {id:98,name:"Scarlet Huge Bunny",collection:"Huge",price:"4500k",priceNum:4500,shapeBg:"#EBF0FC",img:"img/Scarlet%20Huge%20Bunny.webp"},
   {id:99,name:"Willow Huge Bunny",collection:"Huge",price:"5250k",priceNum:5250,shapeBg:"#FFECF3",img:"img/Willow%20Huge%20Bunny.webp"},
-  {id:100,name:"Amuseables Boiled Egg Graduation",collection:"Food",price:"1150k",priceNum:1150,shapeBg:"#FDF2E8",img:"img/Amuseables%20Boiled%20Egg%20Graduation.webp"},
+  {id:100,name:"Amuseables Boiled Egg Graduation",collection:"Food",price:"1550k",priceNum:1550,shapeBg:"#FDF2E8",img:"img/Amuseables%20Boiled%20Egg%20Graduation.webp"},
   {id:101,name:"Bánh vòng",collection:"Food",price:"1450k",priceNum:1450,shapeBg:"#E6F4E0",img:"img/B%C3%A1nh%20v%C3%B2ng.webp"},
   {id:102,name:"Cà Tím S",collection:"Food",price:"890k",priceNum:890,shapeBg:"#FFF8E8",img:"img/C%C3%A0%20T%C3%ADm%20S.webp"},
   {id:103,name:"Cây Thông",collection:"Food",price:"2890k",priceNum:2890,shapeBg:"#FFF5E8",img:"img/C%C3%A2y%20Th%C3%B4ng.webp"},
@@ -703,11 +705,11 @@ const PRODUCTS = [
   {id:107,name:"Hambergur",collection:"Food",price:"1550k",priceNum:1550,shapeBg:"#FFF4E8",img:"img/Hambergur.webp"},
   {id:108,name:"Hot Dog",collection:"Food",price:"1450k",priceNum:1450,shapeBg:"#E8F5FF",img:"img/Hot%20Dog.webp"},
   {id:109,name:"Hướng Dương",collection:"Food",price:"2350k",priceNum:2350,shapeBg:"#F0ECFC",img:"img/H%C6%B0%E1%BB%9Bng%20D%C6%B0%C6%A1ng.webp"},
-  {id:110,name:"Pancake",collection:"Food",price:"1550k",priceNum:1550,shapeBg:"#E8F5EC",img:"img/Pancake.webp"},
+  {id:110,name:"Pancake",collection:"Food",price:"1690k",priceNum:1690,shapeBg:"#E8F5EC",img:"img/Pancake.webp"},
   {id:111,name:"Quýt",collection:"Food",price:"1190k",priceNum:1190,shapeBg:"#FDF0E0",img:"img/Qu%C3%BDt.webp"},
   {id:112,name:"Trái Bơ M",collection:"Food",price:"1350k",priceNum:1350,shapeBg:"#F5F0EB",img:"img/Tr%C3%A1i%20B%C6%A1%20M.webp"},
-  {id:113,name:"Trứng Nhà Bác Học",collection:"Food",price:"1350k",priceNum:1350,shapeBg:"#EBF0FC",img:"img/Tr%E1%BB%A9ng%20Nh%C3%A0%20B%C3%A1c%20H%E1%BB%8Dc.webp"},
-  {id:114,name:"Trứng Phục Sinh",collection:"Food",price:"950k",priceNum:950,shapeBg:"#FFECF3",img:"img/Tr%E1%BB%A9ng%20Ph%E1%BB%A5c%20Sinh.webp"},
+  {id:113,name:"Amuseables Boiled Egg 'Scientist'",collection:"Food",price:"1350k",priceNum:1350,shapeBg:"#EBF0FC",img:"img/Amuseables%20Boiled%20Egg%20Scientist.webp"},
+  {id:114,name:"Amuseables Bunny Egg",collection:"Food",price:"950k",priceNum:950,shapeBg:"#FFECF3",img:"img/Amuseables%20Bunny%20Egg.webp"},
   {id:115,name:"Trứng Trái Tim",collection:"Food",price:"1050k",priceNum:1050,shapeBg:"#FDF2E8",img:"img/Tr%E1%BB%A9ng%20Tr%C3%A1i%20Tim.webp"},
   {id:116,name:"Xương Rồng",collection:"Food",price:"1750k",priceNum:1750,shapeBg:"#E6F4E0",img:"img/X%C6%B0%C6%A1ng%20R%E1%BB%93ng.webp"},
   {id:117,name:"Ăn Thịt Người",collection:"Food",price:"2990k",priceNum:2990,shapeBg:"#FFF8E8",img:"img/%C4%82n%20Th%E1%BB%8Bt%20Ng%C6%B0%E1%BB%9Di.webp"},
@@ -724,9 +726,9 @@ const PRODUCTS = [
   {id:128,name:"Bashful Puppy Decoration",collection:"Charm",price:"950k",priceNum:950,shapeBg:"#EBF0FC",img:"img/Bashful%20Puppy%20Decoration.webp"},
   {id:129,name:"Bashful Silver New SS",collection:"Charm",price:"980k",priceNum:980,shapeBg:"#FFECF3",img:"img/Bashful%20Silver%20New%20SS.webp"},
   {id:130,name:"Black Hole",collection:"Charm",price:"1150k",priceNum:1150,shapeBg:"#FDF2E8",img:"img/Black%20Hole.webp"},
-  {id:131,name:"Blossom Beige Old SS",collection:"Charm",price:"1050k",priceNum:1050,shapeBg:"#E6F4E0",img:"img/Blossom%20Beige%20Old%20SS.webp"},
-  {id:132,name:"Blossom Blush Old SS",collection:"Charm",price:"1050k",priceNum:1050,shapeBg:"#FFF8E8",img:"img/Blossom%20Blush%20Old%20SS.webp"},
-  {id:133,name:"Blossom Jasmine Bunny",collection:"Charm",price:"1050k",priceNum:1050,shapeBg:"#FFF5E8",img:"img/Blossom%20Jasmine%20Bunny.webp"},
+  {id:131,name:"Blossom Beige Old SS",collection:"Charm",price:"1090k",priceNum:1090,shapeBg:"#E6F4E0",img:"img/Blossom%20Beige%20Old%20SS.webp"},
+  {id:132,name:"Blossom Blush Old SS",collection:"Charm",price:"1090k",priceNum:1090,shapeBg:"#FFF8E8",img:"img/Blossom%20Blush%20Old%20SS.webp"},
+  {id:133,name:"Blossom Jasmine Bunny",collection:"Charm",price:"1090k",priceNum:1090,shapeBg:"#FFF5E8",img:"img/Blossom%20Jasmine%20Bunny.webp"},
   {id:134,name:"Clyde Capybara",collection:"Charm",price:"1050k",priceNum:1050,shapeBg:"#E4F0FF",img:"img/Clyde%20Capybara.webp"},
   {id:135,name:"Croissant",collection:"Charm",price:"1250k",priceNum:1250,shapeBg:"#EDEDF4",img:"img/Croissant.webp"},
   {id:136,name:"Fergus Frog",collection:"Charm",price:"1150k",priceNum:1150,shapeBg:"#FFEAF2",img:"img/Fergus%20Frog.webp"},
@@ -750,7 +752,6 @@ const PRODUCTS = [
   {id:154,name:"Bashful Bunny Gold Medal Ski Outfit",collection:"Animal",price:"2050k",priceNum:2050,shapeBg:"#F0ECFC",img:"img/Bashful%20Bunny%20Gold%20Medal%20Ski%20Outfit.webp"},
   {id:155,name:"Bashful Fudge Puppy",collection:"Animal",price:"1250k",priceNum:1250,shapeBg:"#E8F5EC",img:"img/Bashful%20Fudge%20Puppy.webp"},
   {id:156,name:"Dorit Ducking",collection:"Animal",price:"1450k",priceNum:1450,shapeBg:"#FDF0E0",img:"img/Dorit%20Ducking.webp"},
-  {id:157,name:"Fran Pancakes",collection:"Food",price:"1450k",priceNum:1450,shapeBg:"#F5F0EB",img:"img/Fran%20Pancakes.webp"},
   {id:158,name:"Zumblebi Alien",collection:"Animal",price:"2150k",priceNum:2150,shapeBg:"#EBF0FC",img:"img/Zumblebi%20Alien.webp"},
   {id:164,name:"Bánh vòng",collection:"Food",price:"1450k",priceNum:1450,shapeBg:"#FFEAF2",img:"img/B%C3%A1nh%20v%C3%B2ng.webp"},
   {id:165,name:"Amuseable light bulb",collection:"Charm",price:"Liên hệ",priceNum:0,shapeBg:"#FFF4E8",img:"img/Amuseable%20light%20bulb.webp"},
@@ -764,7 +765,7 @@ const PRODUCTS = [
   {id:173,name:"Duck",collection:"Animal",price:"1350k",priceNum:1350,shapeBg:"#FFF4E8",img:"img/Duck.webp"},
   {id:174,name:"Zillyan Alien",collection:"Animal",price:"2150k",priceNum:2150,shapeBg:"#E4F0FF",img:"img/Zillyan%20Alien.webp"},
   {id:175,name:"Heart Charm",collection:"Charm",price:"1350k",priceNum:1350,shapeBg:"#E6F4E0",img:"img/Heart%20Charm.webp"},
-  {id:176,name:"Rosa Dragon",collection:"Dragon L",label:"Dragon Huge",price:"12500k",priceNum:12500,shapeBg:"#FDF2E8",img:"img/Rosa%20Dragon.webp"}
+  {id:176,name:"Rosa Dragon",collection:"Dragon",label:"Dragon Huge",price:"12500k",priceNum:12500,shapeBg:"#FDF2E8",img:"img/Rosa%20Dragon.webp"}
 ];
 
 // ── HERO COLLAGE (6 grid mobile, 8 grid desktop) ─────────────
@@ -794,7 +795,7 @@ const HERO_FEATURED = 'img/Azure%20Huge%20Bunny.webp';
 
 // ── CHIPS ────────────────────────────────────────────────────
 const ALL_COLS = [...new Set(PRODUCTS.map(p=>p.collection))];
-const COL_ORDER = ['Classic M','Classic L','Luxe','Animal','Dragon L','Small','Huge','Food','Charm'];
+const COL_ORDER = ['Classic M','Classic L','Luxe','Animal','Dragon','Small','Huge','Food','Charm'];
 const orderedCols = COL_ORDER.filter(c => ALL_COLS.includes(c)).concat(ALL_COLS.filter(c => !COL_ORDER.includes(c)));
 (function buildChips(){
   const wrap = document.getElementById('chips');
