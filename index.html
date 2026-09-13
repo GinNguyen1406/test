@@ -997,6 +997,7 @@ function renderSubChips(){
   let html = `<div class="subchip ${currentSubFilter==='all'?'on':'off'}" onclick="setSubFilter('all',this)">Tất cả <span style="opacity:.7">${allCount}</span></div>`;
   BUNNY_SIZES.forEach(sz => {
     const cnt = bunnies.filter(p => (p.label||'')===sz).length;
+    if(cnt === 0) return;
     const cls = currentSubFilter===sz ? 'on' : 'off';
     html += `<div class="subchip ${cls}" onclick="setSubFilter('${sz}',this)">${sz} <span style="opacity:.7">${cnt}</span></div>`;
   });
