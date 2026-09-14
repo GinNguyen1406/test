@@ -545,7 +545,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="bz">
     <div class="btag">Why Bunniihaus?</div>
     <div class="btitle">Certified Authentic.<br><span>Premium Gifting.</span></div>
-    <div class="bsub">Nhập khẩu trực tiếp<br>Tag gốc · Dustbag.</div>
+    <div class="bsub">Tag gốc · Dustbag.</div>
     <div class="brow">
       <div class="bst"><div class="bsn">100%</div><div class="bsl">Authentic</div></div>
       <div class="bst"><div class="bsn">3K+</div><div class="bsl">Clients</div></div>
@@ -696,7 +696,7 @@ const PRODUCTS = [
   {id:89,name:"Yummy Penguin",collection:"Animal",price:"1150k",priceNum:1150,shapeBg:"#FFFAF0",img:"img/Yummy%20Penguin.webp"},
   {id:90,name:"Amuseables Watering Can",collection:"Animal",price:"2250k",priceNum:2250,shapeBg:"#FFF7F9",img:"img/Amuseables%20Watering%20Can.webp"},
   {id:91,name:"Amuseables Pammie Palm Tree",collection:"Plants",price:"2850k",priceNum:2850,shapeBg:"#FFFAF5",img:"img/Amuseables%20Pammie%20Palm%20Tree.webp"},
-  {id:92,name:"Amuseables Dragon Fruit",collection:"Dragon",price:"1390k",priceNum:1390,shapeBg:"#FFFDFB",img:"img/Amuseables%20Dragon%20Fruit.webp"},
+  {id:92,name:"Amuseables Dragon Fruit",collection:"Plants",price:"1390k",priceNum:1390,shapeBg:"#FFFDFB",img:"img/Amuseables%20Dragon%20Fruit.webp"},
   {id:93,name:"Amuseables Pair of Olives",collection:"Plants",price:"1650k",priceNum:1650,shapeBg:"#FFF9F0",img:"img/Amuseables%20Pair%20Of%20Olives.webp"},
   {id:94,name:"Amuseables Asparagus",collection:"Plants",price:"1850k",priceNum:1850,shapeBg:"#FFF5F7",img:"img/Amuseables%20Asparagus.webp"},
   {id:95,name:"Amuseables Happy Raindrop",collection:"Animal",price:"1190k",priceNum:1190,shapeBg:"#FFFCEF",img:"img/Amuseables%20Happy%20Raindrop.webp"},
@@ -881,7 +881,7 @@ const COL_ORDER = ['Bunny','Dragon','Bear','Bag','Animal','Plants','Food','Keych
 const orderedCols = COL_ORDER.filter(c => ALL_COLS.includes(c)).concat(ALL_COLS.filter(c => !COL_ORDER.includes(c)));
 (function buildChips(){
   const wrap = document.getElementById('chips');
-  let html = `<div class="chip on" data-col="all" onclick="setFilter('all',this)">Tất cả <span class="cn">${PRODUCTS.length}</span></div>`;
+  let html = `<div class="chip on" data-col="all" onclick="setFilter('all',this)">All <span class="cn">${PRODUCTS.length}</span></div>`;
   orderedCols.forEach(c=>{
     const n = PRODUCTS.filter(p=>p.collection===c).length;
     html += `<div class="chip off" data-col="${c}" onclick="setFilter('${c}',this)">${c} <span class="cn">${n}</span></div>`;
@@ -972,13 +972,17 @@ function renderProducts(list){
 }
 
 let currentSubFilter = 'all';
-const BUNNY_SIZES = ['Small','Medium','Large','Huge','Really Big'];
+const SUB_SIZES = {
+  Bunny: ['Small','Medium','Large','Huge','Really Big'],
+  Dragon: ['Large','Huge']
+};
 
 function getFilteredList(){
   const search = document.getElementById('searchInput').value.toLowerCase().trim();
+  const hasSub = SUB_SIZES[currentFilter];
   return PRODUCTS.filter(p => {
     const matchFilter = currentFilter==='all' || p.collection===currentFilter;
-    const matchSub = currentFilter!=='Bunny' || currentSubFilter==='all' || (p.label||'')===currentSubFilter;
+    const matchSub = !hasSub || currentSubFilter==='all' || (p.label||'')===currentSubFilter;
     const matchSearch = !search || p.name.toLowerCase().includes(search) || p.collection.toLowerCase().includes(search);
     return matchFilter && matchSub && matchSearch;
   });
@@ -986,17 +990,18 @@ function getFilteredList(){
 
 function renderSubChips(){
   const sub = document.getElementById('subchips');
-  if(currentFilter !== 'Bunny'){
+  const sizes = SUB_SIZES[currentFilter];
+  if(!sizes){
     sub.classList.remove('open');
     sub.innerHTML = '';
     currentSubFilter = 'all';
     return;
   }
-  const bunnies = PRODUCTS.filter(p => p.collection==='Bunny');
-  const allCount = bunnies.length;
-  let html = `<div class="subchip ${currentSubFilter==='all'?'on':'off'}" onclick="setSubFilter('all',this)">Tất cả <span style="opacity:.7">${allCount}</span></div>`;
-  BUNNY_SIZES.forEach(sz => {
-    const cnt = bunnies.filter(p => (p.label||'')===sz).length;
+  const items = PRODUCTS.filter(p => p.collection===currentFilter);
+  const allCount = items.length;
+  let html = `<div class="subchip ${currentSubFilter==='all'?'on':'off'}" onclick="setSubFilter('all',this)">All <span style="opacity:.7">${allCount}</span></div>`;
+  sizes.forEach(sz => {
+    const cnt = items.filter(p => (p.label||'')===sz).length;
     if(cnt === 0) return;
     const cls = currentSubFilter===sz ? 'on' : 'off';
     html += `<div class="subchip ${cls}" onclick="setSubFilter('${sz}',this)">${sz} <span style="opacity:.7">${cnt}</span></div>`;
