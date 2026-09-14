@@ -259,7 +259,8 @@ button{font-family:inherit;border:none;background:none;cursor:pointer}
 .mcol{display:contents}
 
 /* ── CARD ──────────────────────────────────────────────────────────── */
-.pc{background:#fff;border-radius:20px;overflow:hidden;border:1px solid var(--line);cursor:pointer;transition:transform .22s cubic-bezier(.25,.46,.45,.94),box-shadow .28s,border-color .22s;box-shadow:0 6px 18px rgba(0,0,0,.08),0 2px 6px rgba(0,0,0,.05);break-inside:avoid;margin-bottom:10px;display:inline-block;width:100%}
+.pc{background:#fff;border-radius:20px;overflow:hidden;border:1px solid var(--line);cursor:pointer;transition:transform .22s cubic-bezier(.25,.46,.45,.94),box-shadow .28s,border-color .22s;box-shadow:0 6px 18px rgba(0,0,0,.08),0 2px 6px rgba(0,0,0,.05);width:100%;display:flex;flex-direction:column}
+.pshape{aspect-ratio:1/1;height:auto !important}
 .pc:hover{transform:translateY(-5px);box-shadow:0 22px 44px rgba(0,0,0,.16),0 6px 14px rgba(0,0,0,.08);border-color:rgba(255,107,138,.28)}
 /* Alternate shadow tint for staggered depth feel */
 .pc:nth-child(3n+1){box-shadow:0 8px 22px rgba(0,0,0,.09),0 2px 6px rgba(0,0,0,.05)}
@@ -424,18 +425,9 @@ button{font-family:inherit;border:none;background:none;cursor:pointer}
   .srt{font-size:12px}
 
   .mason{grid-template-columns:repeat(3,1fr);gap:20px;padding:0 72px;margin-bottom:24px}
-  .pc{margin-bottom:20px}
-  /* Desktop: ignore mobile JS heights; wide-spread aspect-ratios for true Pinterest stagger */
-  .pshape{height:auto !important;aspect-ratio:4/5}
-  .pc:nth-child(9n+1) .pshape{aspect-ratio:3/4}
-  .pc:nth-child(9n+2) .pshape{aspect-ratio:1/1}
-  .pc:nth-child(9n+3) .pshape{aspect-ratio:2/3}
-  .pc:nth-child(9n+4) .pshape{aspect-ratio:5/4}
-  .pc:nth-child(9n+5) .pshape{aspect-ratio:4/5}
-  .pc:nth-child(9n+6) .pshape{aspect-ratio:7/9}
-  .pc:nth-child(9n+7) .pshape{aspect-ratio:1/1}
-  .pc:nth-child(9n+8) .pshape{aspect-ratio:3/5}
-  .pc:nth-child(9n)   .pshape{aspect-ratio:6/5}
+  .pc{margin-bottom:0}
+  /* Desktop: uniform aspect-ratio for even Grid heights */
+  .pshape{height:auto !important;aspect-ratio:1/1}
 
   .pch{padding:16px 16px 4px}
   .pcn{font-size:18px;line-height:1.25}
@@ -939,7 +931,7 @@ function buildCard(p, idx){
       <div class="pcw" onclick="event.stopPropagation()" aria-label="Wishlist"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
     </div>
     <div class="pci" onclick="openLightbox(${p.id})">
-      <div class="pshape" style="height:${h}px;background:${p.shapeBg}">
+      <div class="pshape" style="background:${p.shapeBg}">
         <img src="${p.img}" alt="${p.name}" loading="lazy" decoding="async"/>
         <div class="pzoom"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7.5"/><path d="M19.5 19.5l-2.8-2.8M11 8v6M8 11h6"/></svg></div>
       </div>
