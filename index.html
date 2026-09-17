@@ -253,6 +253,12 @@ button{font-family:inherit;border:none;background:none;cursor:pointer}
 .cnt{font-size:11px;font-weight:600;color:#bbb;letter-spacing:.08em;text-transform:uppercase}
 .srt{font-size:11px;color:#888;font-weight:500;display:flex;align-items:center;gap:5px;cursor:pointer}
 .srt svg{width:13px;height:13px;stroke:#bbb;stroke-width:2;fill:none}
+.sortbox{display:flex;gap:6px}
+.sortbtn{font-size:10.5px;font-weight:600;padding:5px 10px;border-radius:12px;cursor:pointer;transition:all .18s;user-select:none;border:1px solid #E8E8E8;background:#fff;color:#777;display:flex;align-items:center;gap:4px;white-space:nowrap}
+.sortbtn.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.sortbtn:hover{border-color:#bbb}
+.sortbtn svg{width:11px;height:11px;stroke:currentColor;stroke-width:2.2;fill:none}
+@media(min-width:768px){.sortbtn{font-size:12px;padding:6px 12px}.sortbtn svg{width:13px;height:13px}}
 
 /* ── MASONRY GRID (Pinterest-style) ───────────────────────────────── */
 .mason{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;padding:0 20px;margin-bottom:18px;align-items:start}
@@ -520,6 +526,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- COUNT -->
 <div class="crow">
   <span class="cnt" id="countLabel">0 Sản phẩm</span>
+  <div class="sortbox">
+    <div class="sortbtn" onclick="setSort('asc',this)"><svg viewBox="0 0 24 24"><path d="M6 18l6-12 6 12"/></svg>Giá tăng</div>
+    <div class="sortbtn" onclick="setSort('desc',this)"><svg viewBox="0 0 24 24"><path d="M6 6l6 12 6-12"/></svg>Giá giảm</div>
+  </div>
 </div>
 
 <!-- MASONRY -->
@@ -969,15 +979,35 @@ const SUB_SIZES = {
   Dragon: ['Large','Huge']
 };
 
+let currentSort = null;  // null | 'asc' | 'desc'
+
 function getFilteredList(){
   const search = document.getElementById('searchInput').value.toLowerCase().trim();
   const hasSub = SUB_SIZES[currentFilter];
-  return PRODUCTS.filter(p => {
+  let list = PRODUCTS.filter(p => {
     const matchFilter = currentFilter==='all' || p.collection===currentFilter;
     const matchSub = !hasSub || currentSubFilter==='all' || (p.label||'')===currentSubFilter;
     const matchSearch = !search || p.name.toLowerCase().includes(search) || p.collection.toLowerCase().includes(search);
     return matchFilter && matchSub && matchSearch;
   });
+  if(currentSort){
+    // priceNum=0 means "Liên hệ" — push to end regardless of direction
+    list = [...list].sort((a,b)=>{
+      if(!a.priceNum && !b.priceNum) return 0;
+      if(!a.priceNum) return 1;
+      if(!b.priceNum) return -1;
+      return currentSort==='asc' ? a.priceNum-b.priceNum : b.priceNum-a.priceNum;
+    });
+  }
+  return list;
+}
+
+function setSort(dir, el){
+  currentSort = currentSort===dir ? null : dir;  // toggle off if clicking active
+  document.querySelectorAll('.sortbtn').forEach(b=>b.classList.remove('on'));
+  if(currentSort) el.classList.add('on');
+  renderProducts(getFilteredList());
+  trackEvent('sort_price', {direction: currentSort || 'default'});
 }
 
 function renderSubChips(){
