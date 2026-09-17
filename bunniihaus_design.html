@@ -258,7 +258,8 @@ button{font-family:inherit;border:none;background:none;cursor:pointer}
 .sortbtn.on{background:var(--orange);color:#fff;border-color:var(--orange);box-shadow:0 3px 10px rgba(255,154,108,.4)}
 .sortbtn:hover{background:rgba(255,154,108,.1)}
 .sortbtn.on:hover{background:var(--orange)}
-.sortbtn svg{width:11px;height:11px;stroke:currentColor;stroke-width:2.2;fill:none}
+.sortbtn svg{width:10px;height:10px;fill:#0068FF;stroke:none}
+.sortbtn.on svg{fill:#fff}
 @media(min-width:768px){.sortbtn{font-size:12px;padding:6px 12px}.sortbtn svg{width:13px;height:13px}}
 
 /* ── MASONRY GRID (Pinterest-style) ───────────────────────────────── */
@@ -528,8 +529,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div class="crow">
   <span class="cnt" id="countLabel">0 Sản phẩm</span>
   <div class="sortbox">
-    <div class="sortbtn" onclick="setSort('asc',this)"><svg viewBox="0 0 24 24"><path d="M6 18l6-12 6 12"/></svg>Giá tăng</div>
-    <div class="sortbtn" onclick="setSort('desc',this)"><svg viewBox="0 0 24 24"><path d="M6 6l6 12 6-12"/></svg>Giá giảm</div>
+    <div class="sortbtn" onclick="setSort('asc',this)"><svg viewBox="0 0 24 24"><path d="M12 4 L22 20 L2 20 Z"/></svg>Giá tăng</div>
+    <div class="sortbtn" onclick="setSort('desc',this)"><svg viewBox="0 0 24 24"><path d="M12 20 L22 4 L2 4 Z"/></svg>Giá giảm</div>
   </div>
 </div>
 
