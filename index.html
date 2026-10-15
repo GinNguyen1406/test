@@ -2,6 +2,7 @@
 <html lang="vi">
 <head>
 <meta charset="UTF-8">
+<base href="/">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=5">
 <title>Bunniihaus — Jellycat Authentic TP.HCM | Thú Bông Cao Cấp Nhập Khẩu</title>
 
@@ -248,6 +249,7 @@ button{font-family:inherit;border:none;background:none;cursor:pointer}
 }
 .chip.off:hover{border-color:var(--pink);color:var(--pink)}
 .chip .cn{opacity:.55;margin-left:5px;font-weight:500}
+a.chip,a.subchip{text-decoration:none;-webkit-touch-callout:default}
 
 .crow{padding:0 20px 12px;display:flex;justify-content:space-between;align-items:center}
 .cnt{font-size:11px;font-weight:600;color:#bbb;letter-spacing:.08em;text-transform:uppercase}
@@ -565,7 +567,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="fsoc">
     <a class="fs" href="https://www.facebook.com/profile.php?id=61576813521029" target="_blank" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
     <a class="fs" href="https://instagram.com/bunniihaus" target="_blank" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/></svg></a>
-    <a class="fs" href="#" aria-label="Zalo"><svg viewBox="0 0 24 24"><path d="M21 2H3v16l4-4h14V2z"/></svg></a>
+    <a class="fs" href="https://zalo.me/bunniihaus" target="_blank" rel="noopener" aria-label="Zalo"><svg viewBox="0 0 24 24"><path d="M21 2H3v16l4-4h14V2z"/></svg></a>
   </div>
   <div class="fcp">© 2025 Bunniihaus · The Gift That Stays.<br>Images used for illustration purposes only.</div>
 </footer>
@@ -927,15 +929,17 @@ const HERO_FEATURED = 'img/Azure%20Huge%20Bunny.webp';
 })();
 
 // ── CHIPS ────────────────────────────────────────────────────
+// URL per group: /bunny, /dragon, /bunny/huge, /bunny/really-big
+const slugify = s => s.toLowerCase().trim().replace(/\s+/g,'-');
 const ALL_COLS = [...new Set(PRODUCTS.map(p=>p.collection))];
 const COL_ORDER = ['Bunny','Dragon','Bear','Smudge','Bag','Animal','Plants','Food','Keycharm'];
 const orderedCols = COL_ORDER.filter(c => ALL_COLS.includes(c)).concat(ALL_COLS.filter(c => !COL_ORDER.includes(c)));
 (function buildChips(){
   const wrap = document.getElementById('chips');
-  let html = `<div class="chip on" data-col="all" onclick="setFilter('all',this)">All <span class="cn">${PRODUCTS.length}</span></div>`;
+  let html = `<a class="chip on" data-col="all" href="/" onclick="setFilter('all',this);return false">All <span class="cn">${PRODUCTS.length}</span></a>`;
   orderedCols.forEach(c=>{
     const n = PRODUCTS.filter(p=>p.collection===c).length;
-    html += `<div class="chip off" data-col="${c}" onclick="setFilter('${c}',this)">${c} <span class="cn">${n}</span></div>`;
+    html += `<a class="chip off" data-col="${c}" href="/${slugify(c)}" onclick="setFilter('${c}',this);return false">${c} <span class="cn">${n}</span></a>`;
   });
   wrap.innerHTML = html;
 })();
@@ -964,7 +968,7 @@ function showToast(html){
 function consultProduct(id, location){
   const p = PRODUCTS.find(x=>x.id===id);
   if(!p){ window.open(INSTA_URL,'_blank'); return; }
-  const link = window.location.origin + window.location.pathname + '?p=' + id;
+  const link = window.location.origin + '/?p=' + id;
   const msg = 'Tôi cần mua sản phẩm này từ Website: ' + p.name + ' (' + (p.priceNum>0?p.price:'Liên hệ') + ') — ' + link;
   try { navigator.clipboard && navigator.clipboard.writeText(msg); } catch(e){}
   showToast('Đã sao chép tin nhắn! <b>Dán (Paste)</b> vào khung chat Instagram để gửi nhé 💬');
@@ -1070,12 +1074,12 @@ function renderSubChips(){
   }
   const items = PRODUCTS.filter(p => p.collection===currentFilter);
   const allCount = items.length;
-  let html = `<div class="subchip ${currentSubFilter==='all'?'on':'off'}" onclick="setSubFilter('all',this)">All <span style="opacity:.7">${allCount}</span></div>`;
+  let html = `<a class="subchip ${currentSubFilter==='all'?'on':'off'}" href="/${slugify(currentFilter)}" onclick="setSubFilter('all',this);return false">All <span style="opacity:.7">${allCount}</span></a>`;
   sizes.forEach(sz => {
     const cnt = items.filter(p => (p.label||'')===sz).length;
     if(cnt === 0) return;
     const cls = currentSubFilter===sz ? 'on' : 'off';
-    html += `<div class="subchip ${cls}" onclick="setSubFilter('${sz}',this)">${sz} <span style="opacity:.7">${cnt}</span></div>`;
+    html += `<a class="subchip ${cls}" href="/${slugify(currentFilter)}/${slugify(sz)}" onclick="setSubFilter('${sz}',this);return false">${sz} <span style="opacity:.7">${cnt}</span></a>`;
   });
   sub.innerHTML = html;
   sub.classList.add('open');
@@ -1087,6 +1091,7 @@ function setSubFilter(sz, el){
   document.querySelectorAll('#subchips .subchip').forEach(c => c.classList.add('off'));
   el.classList.remove('off'); el.classList.add('on');
   renderProducts(getFilteredList());
+  syncUrl();
   trackEvent('filter_bunny_size', {size: sz, result_count: currentList.length});
 }
 
@@ -1097,9 +1102,49 @@ function setFilter(col, el){
   el.className = 'chip on';
   renderSubChips();
   renderProducts(getFilteredList());
+  syncUrl();
   document.getElementById('catalog').scrollIntoView({behavior:'smooth'});
   trackEvent('filter_collection', {collection_name: col, result_count: currentList.length});
 }
+
+// ── URL ROUTING (/bunny, /bunny/huge) ───────────────────────
+const BASE_TITLE = document.title;
+function filterPath(){
+  if(currentFilter==='all') return '/';
+  let path = '/' + slugify(currentFilter);
+  if(SUB_SIZES[currentFilter] && currentSubFilter!=='all') path += '/' + slugify(currentSubFilter);
+  return path;
+}
+function updateHead(){
+  const path = filterPath();
+  let label = currentFilter==='all' ? '' : currentFilter + (currentSubFilter!=='all' ? ' ' + currentSubFilter : '');
+  document.title = label ? label + ' — Bunniihaus | Jellycat Authentic TP.HCM' : BASE_TITLE;
+  const canon = document.querySelector('link[rel="canonical"]');
+  if(canon) canon.href = 'https://bunniihaus.info' + path;
+}
+function syncUrl(){
+  const path = filterPath();
+  if(location.pathname !== path) history.pushState(null, '', path);
+  updateHead();
+}
+// Read /<group>[/<size>] from URL and apply filter (no history push)
+function applyRoute(){
+  const parts = location.pathname.split('/').filter(Boolean).map(x=>decodeURIComponent(x).toLowerCase());
+  const col = parts[0] ? orderedCols.find(c => slugify(c)===parts[0]) : null;
+  const sizes = col && SUB_SIZES[col];
+  const sz = sizes && parts[1] ? sizes.find(x => slugify(x)===parts[1] && PRODUCTS.some(p => p.collection===col && p.label===x)) : null;
+  currentFilter = col || 'all';
+  currentSubFilter = sz || 'all';
+  document.querySelectorAll('.chip').forEach(c => c.className = 'chip ' + (c.dataset.col===currentFilter ? 'on' : 'off'));
+  renderSubChips();
+  renderProducts(getFilteredList());
+  // Unknown path (/abc) or bad size → normalise URL
+  const path = filterPath();
+  if(location.pathname !== path) history.replaceState(null, '', path + location.search);
+  updateHead();
+  return !!col;
+}
+window.addEventListener('popstate', applyRoute);
 
 let searchDebounceTimer;
 function filterProducts(){
@@ -1215,12 +1260,23 @@ document.addEventListener('dragstart', e => {
 });
 
 // ── INIT ────────────────────────────────────────────────────
-renderProducts(getFilteredList());
+if(applyRoute() && !new URLSearchParams(location.search).get('p')){
+  // Shared group link → jump straight to the catalog
+  requestAnimationFrame(()=>document.getElementById('catalog').scrollIntoView());
+}
 
 // Deep-link: ?p=<id> opens that product's lightbox on load
 (function(){
   const pid = parseInt(new URLSearchParams(window.location.search).get('p'), 10);
   if(pid && PRODUCTS.some(p=>p.id===pid)){
+    if(!currentList.some(p=>p.id===pid)){
+      const allChip = document.querySelector('.chip[data-col="all"]');
+      currentFilter = 'all'; currentSubFilter = 'all';
+      document.querySelectorAll('.chip').forEach(c=>c.className='chip off');
+      allChip.className = 'chip on';
+      renderSubChips(); renderProducts(getFilteredList());
+      history.replaceState(null, '', '/' + location.search); updateHead();
+    }
     setTimeout(()=>openLightbox(pid), 300);
   }
 })();
