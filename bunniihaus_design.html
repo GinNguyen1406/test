@@ -193,19 +193,29 @@ button{font-family:inherit;border:none;background:none;cursor:pointer}
 .hb svg{width:19px;height:19px;stroke:#222;stroke-width:1.6;fill:none;stroke-linecap:round;stroke-linejoin:round}
 
 /* ── HERO ───────────────────────────────────────────────────────────── */
-.hero{margin:14px;border-radius:24px;overflow:hidden;background:#FBF8F5;border:1px solid var(--line);position:relative;display:flex;flex-direction:column-reverse}
-.hl{position:relative;padding:0 16px 16px;display:grid;grid-template-columns:2fr 1fr;grid-template-rows:1fr 1fr;gap:10px}
-.hp{aspect-ratio:1/1;border-radius:16px;overflow:hidden;background:var(--card-bg);box-shadow:inset 0 0 0 1px rgba(0,0,0,.035);display:flex;align-items:center;justify-content:center}
-.hp.hp1{grid-row:1/3;aspect-ratio:auto}
-.hp img{width:100%;height:100%;object-fit:contain;padding:8%;mix-blend-mode:multiply;transition:transform .6s cubic-bezier(.25,.46,.45,.94)}
-.hp:hover img{transform:scale(1.04)}
-.hr{padding:26px 22px 22px;display:flex;flex-direction:column;justify-content:center;position:relative;z-index:2}
+.hero{margin:14px;border-radius:24px;overflow:hidden;background:linear-gradient(140deg,#FFEEE8 0%,#FFE0EC 45%,#D8F4F0 100%);position:relative;display:grid;grid-template-columns:1fr 1fr;gap:0;align-items:center}
+.hbl1{position:absolute;width:160px;height:160px;border-radius:50%;background:var(--orange);opacity:.12;top:-40px;left:38%;pointer-events:none;filter:blur(8px)}
+.hbl2{position:absolute;width:110px;height:110px;border-radius:50%;background:var(--cyan);opacity:.16;bottom:-25px;left:26%;pointer-events:none;filter:blur(8px)}
+.hl{position:relative;overflow:hidden;padding:12px;display:grid;grid-template-columns:1fr 1fr;gap:8px;align-self:stretch;align-content:center}
+.hp{aspect-ratio:1/1;border-radius:14px;overflow:hidden;box-shadow:0 3px 14px rgba(0,0,0,.08);background:#fff;transition:transform .4s cubic-bezier(.25,.46,.45,.94);display:flex;align-items:center;justify-content:center}
+.hp:hover{transform:scale(1.06) rotate(0deg) !important;z-index:5;box-shadow:0 12px 30px rgba(0,0,0,.18)}
+.hp img{width:100%;height:100%;object-fit:contain;padding:8px;mix-blend-mode:multiply}
+/* hide extras 7-8 on mobile */
+.hp.extra{display:none}
+/* mobile rotations for first 6 */
+.hp.hp1{transform:rotate(-1.5deg)}
+.hp.hp2{transform:rotate(1.5deg)}
+.hp.hp3{transform:rotate(1deg)}
+.hp.hp4{transform:rotate(-1deg)}
+.hp.hp5{transform:rotate(-2deg)}
+.hp.hp6{transform:rotate(2deg)}
+.hr{padding:24px 18px 26px 6px;display:flex;flex-direction:column;justify-content:center;position:relative;z-index:2}
 .hey{font-size:9.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--pink);font-weight:700;margin-bottom:10px}
 .hl2{font-family:'Playfair Display',serif;font-size:26px;color:#1A1A1A;line-height:1}
 .hl2 em{font-style:italic;color:var(--pink)}
 .htag{font-family:'Playfair Display',serif;font-size:15px;color:var(--ink);margin-top:14px;line-height:1.25;font-style:italic}
 .htag strong{font-style:normal;font-weight:700;color:var(--pink);display:block;font-size:18px}
-.hadr{font-size:10.5px;color:#999;margin-top:12px;line-height:1.6}
+.hadr{font-size:10px;color:#aaa;margin-top:12px;line-height:1.55}
 .hcta{margin-top:16px;background:var(--pink);color:#fff;font-size:11.5px;font-weight:700;padding:10px 20px;border-radius:22px;display:inline-flex;align-items:center;gap:6px;align-self:flex-start;transition:all .18s;box-shadow:0 4px 14px rgba(255,107,138,.32)}
 .hcta:hover{background:var(--pink-deep);transform:translateY(-1px)}
 
@@ -390,9 +400,21 @@ a.chip,a.subchip{text-decoration:none;-webkit-touch-callout:default}
   .hb{width:42px;height:42px}
   .hb svg{width:21px;height:21px}
 
-  .hero{margin:18px 72px;border-radius:30px;display:grid;grid-template-columns:1fr 1.25fr;align-items:center}
-  .hl{padding:28px 28px 28px 0;gap:14px;order:2}
-  .hr{padding:56px 40px 56px 56px;order:1}
+  .hero{margin:18px 36px;min-height:440px;border-radius:30px;grid-template-columns:1.5fr 1fr}
+  .hl{padding:24px;display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:repeat(2,1fr);gap:12px}
+  .hl .hp{position:static !important;width:auto !important;height:auto !important;left:auto !important;top:auto !important;min-height:170px}
+  .hl .hp.extra{display:block}
+  .hl .hp.hidden-desktop{display:none}
+  .hl .hp1{transform:rotate(-2deg)}
+  .hl .hp2{transform:rotate(1.5deg)}
+  .hl .hp3{transform:rotate(-1deg)}
+  .hl .hp4{transform:rotate(2deg)}
+  .hl .hp5{transform:rotate(1deg)}
+  .hl .hp6{transform:rotate(-1.5deg)}
+  .hl .hp7{transform:rotate(2deg)}
+  .hl .hp8{transform:rotate(-2deg)}
+  .hl .hp img{padding:10px}
+  .hr{padding:46px 40px 46px 26px;background:linear-gradient(90deg,rgba(255,238,232,0) 0%,rgba(255,238,232,.6) 18%,rgba(255,238,232,.95) 40%,#FFE0EC 100%)}
   .hey{font-size:11px;margin-bottom:14px}
   .hl2{font-size:48px}
   .htag{font-size:24px;margin-top:20px}
@@ -481,7 +503,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hl" id="heroCollage"><div class="hp hp1"><img src="img/Azure%20Huge%20Bunny.webp" alt="Bashful Azure Bunny Jellycat" width="200" height="200" fetchpriority="high" decoding="async"/></div></div>
+  <div class="hbl1"></div><div class="hbl2"></div>
+  <div class="hl" id="heroCollage"><div class="hp hp1" style="background:#FFF7F9"><img src="img/Azure%20Huge%20Bunny.webp" alt="Bashful Azure Bunny Jellycat" width="200" height="200" fetchpriority="high" decoding="async"/></div></div>
   <div class="hr">
     <div class="hey">Authentic</div>
     <div class="hl2">Bunnii<em>haus</em></div>
@@ -965,6 +988,7 @@ const PRODUCTS = [
 ];
 
 // ── HERO COLLAGE (6 grid mobile, 8 grid desktop) ─────────────
+const COLLAGE_BG = ['#FFF7F9','#FFFAF5','#FFFDFB','#FFF9F0','#FFF5F7','#FFFCEF','#FFF8F2','#FFFBFA'];
 
 // LCP-critical: first hero tile (hp1) is rendered statically in HTML + preloaded.
 // buildHero only APPENDS the remaining tiles so the LCP element is never re-rendered.
@@ -972,15 +996,18 @@ const HERO_FEATURED = 'img/Azure%20Huge%20Bunny.webp';
 (function buildHero(){
   const wrap = document.getElementById('heroCollage');
   if(!wrap) return;
-  const pool = PRODUCTS.filter(p => /jpg|webp|png/i.test(p.img) && p.img !== HERO_FEATURED && /Huge|Large/.test(p.label||'') && p.collection !== 'Dragon');
+  const pool = PRODUCTS.filter(p => /jpg|webp|png/i.test(p.img) && p.img !== HERO_FEATURED);
   const picks = [];
-  while(picks.length < 2 && pool.length){
+  while(picks.length < 7 && pool.length){
     const idx = Math.floor(Math.random()*pool.length);
     picks.push(pool.splice(idx,1)[0]);
   }
   const html = picks.map((p,k)=>{
     const i = k + 1; // featured static tile is index 0
-    return `<div class="hp hp${i+1}"><img src="${p.img}" alt="${p.name}" loading="eager" decoding="async"/></div>`;
+    const bg = COLLAGE_BG[i % COLLAGE_BG.length];
+    const cls = `hp hp${i+1}` + (i >= 6 ? ' extra' : '');
+    const attrs = i < 6 ? 'loading="eager" decoding="async"' : 'loading="lazy" decoding="async"';
+    return `<div class="${cls}" style="background:${bg}"><img src="${p.img}" alt="${p.name}" ${attrs}/></div>`;
   }).join('');
   wrap.insertAdjacentHTML('beforeend', html);
 })();
