@@ -497,14 +497,15 @@ a.chip,a.subchip{text-decoration:none;-webkit-touch-callout:default}
 .cnt{font-weight:800;color:#999;letter-spacing:.04em}
 .sortbtn{font-weight:500;text-transform:uppercase;letter-spacing:.04em}
 .lb-name{font-family:var(--font-vn);font-weight:600;letter-spacing:-.015em;line-height:1.15}
-.lb-cta,.fb{font-weight:500;text-transform:uppercase;letter-spacing:.04em}
+.lb-cta{font-weight:500}
+.fb{font-weight:500;text-transform:uppercase;letter-spacing:.04em}
 @media(min-width:768px){
   .chip{font-size:15px}
   .pcn{font-size:19.2px;line-height:1.1}
   .pcp{font-size:20px}
   .pcf{padding-left:16px;padding-right:16px}
   .pcb{padding:0 18px;gap:5px}
-  .pcb span{font-size:12.5px;text-transform:uppercase;letter-spacing:.04em}
+  .pcb span{font-size:12.5px}
   .cnt{font-size:13px}
   .lb-name{font-size:26px}
 }
@@ -634,7 +635,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="lb-name" id="lbName"></div>
     <div class="lb-meta" id="lbMeta"></div>
     <div class="lb-price" id="lbPrice"></div>
-    <a href="#" class="lb-cta" id="lbCta">Tư vấn ngay →</a>
+    <a href="#" class="lb-cta" id="lbCta">Order →</a>
   </div>
 </div>
 
@@ -1127,7 +1128,7 @@ function buildCard(p, idx){
     </div>
     <div class="pcf">
       <span class="${priceClass}">${priceTxt}</span>
-      <a class="pcb" href="${INSTA_URL}" target="_blank" rel="noopener" onclick="event.preventDefault();event.stopPropagation();consultProduct(${p.id},'card')"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg><span>Tư vấn ngay</span></a>
+      <a class="pcb" href="${INSTA_URL}" target="_blank" rel="noopener" onclick="event.preventDefault();event.stopPropagation();consultProduct(${p.id},'card')"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg><span>Order</span></a>
     </div>
   </div>`;
 }
