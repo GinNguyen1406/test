@@ -66,14 +66,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;1,500&family=Inter+Tight:wght@300;400;500&family=Inter:wght@300;400;500;600&display=swap" onload="this.onload=null;this.rel='stylesheet'">
 <noscript><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;1,500&family=Inter+Tight:wght@300;400;500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"></noscript>
-<link rel="preload" as="image" href="img/Azure%20Huge%20Bunny.webp" fetchpriority="high">
+<link rel="preload" as="image" href="img/home/Azure%20Huge%20Bunny.webp" fetchpriority="high">
 <style>
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 :root{
   --ivory:#FFFDF8; --sand:#F6F1EA; --blush:#FBEDEF; --rose:#F7DCE2;
   --ink:#1F1A1B; --soft:#4A4244; --mute:#8A8082; --line:rgba(31,26,27,.12);
   --pink:#FF6B8A; --pink-deep:#E85578;
-  --studio:radial-gradient(circle at 50% 42%,#FFFFFF 0%,#FBFAF8 55%,#F2F0EC 100%);
+  --studio:#FFFFFF;
   --logo:'Cormorant Garamond',Georgia,serif;
   --display:'Inter Tight','Inter',system-ui,sans-serif;
   --sans:'Inter',system-ui,-apple-system,sans-serif;
@@ -131,7 +131,7 @@ button{font-family:inherit;border:none;background:none;cursor:pointer;color:inhe
 .stage::after{content:'';position:absolute;left:12%;right:12%;bottom:13%;height:6%;border-radius:50%;background:radial-gradient(closest-side,rgba(122,60,72,.16),transparent);filter:blur(4px)}
 .slide{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:8% 0 20%;opacity:0;transition:opacity 1.2s ease}
 .slide.on{opacity:1}
-.slide img{width:100%;height:100%;object-fit:contain;mix-blend-mode:multiply;transform:scale(.97);transition:transform 6s ease}
+.slide img{width:100%;height:100%;object-fit:contain;transform:scale(.97);transition:transform 6s ease}
 .slide.on img{transform:scale(1.02)}
 .cap{position:absolute;left:22px;right:22px;bottom:20px;display:flex;justify-content:space-between;align-items:flex-end;gap:12px;z-index:2}
 .cap-t{font-size:12px;color:var(--soft);line-height:1.5}
@@ -149,10 +149,12 @@ button{font-family:inherit;border:none;background:none;cursor:pointer;color:inhe
 @keyframes tk{to{transform:translateX(-50%)}}
 
 /* ── COLLECTIONS ── */
-.cols{display:grid;grid-template-columns:repeat(2,1fr);gap:22px 12px}
+.cols{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;margin:0 calc(var(--gut)*-1);padding:0 var(--gut);scroll-padding:0 var(--gut)}
+.cols::-webkit-scrollbar{display:none}
+.cols .ct{flex:0 0 40vw;scroll-snap-align:start}
 .ct{display:block}
-.ct-img{aspect-ratio:1/1;border-radius:20px;overflow:hidden;background:var(--studio);box-shadow:inset 0 0 0 1px rgba(0,0,0,.035);display:flex;align-items:center;justify-content:center}
-.ct-img img{width:100%;height:100%;object-fit:contain;padding:12%;mix-blend-mode:multiply;transition:transform .7s cubic-bezier(.2,.8,.2,1)}
+.ct-img{aspect-ratio:1/1;border-radius:20px;overflow:hidden;background:var(--studio);box-shadow:inset 0 0 0 1px rgba(0,0,0,.06);display:flex;align-items:center;justify-content:center}
+.ct-img img{width:100%;height:100%;object-fit:contain;padding:12%;transition:transform .7s cubic-bezier(.2,.8,.2,1)}
 .ct:hover .ct-img img{transform:scale(1.06)}
 .ct-row{display:flex;justify-content:space-between;align-items:baseline;margin-top:12px;gap:8px}
 .ct-name{font-family:var(--display);font-size:19px;font-weight:400;letter-spacing:-.025em}
@@ -165,8 +167,8 @@ button{font-family:inherit;border:none;background:none;cursor:pointer;color:inhe
 
 /* ── PRODUCT CARD ── */
 .pcard{display:block;flex:0 0 auto}
-.pimg{aspect-ratio:1/1;border-radius:20px;overflow:hidden;background:var(--studio);box-shadow:inset 0 0 0 1px rgba(0,0,0,.035);display:flex;align-items:center;justify-content:center;position:relative}
-.pimg img{width:100%;height:100%;object-fit:contain;padding:10%;mix-blend-mode:multiply;transition:transform .7s cubic-bezier(.2,.8,.2,1)}
+.pimg{aspect-ratio:1/1;border-radius:20px;overflow:hidden;background:var(--studio);box-shadow:inset 0 0 0 1px rgba(0,0,0,.06);display:flex;align-items:center;justify-content:center;position:relative}
+.pimg img{width:100%;height:100%;object-fit:contain;padding:10%;transition:transform .7s cubic-bezier(.2,.8,.2,1)}
 .pcard:hover .pimg img{transform:scale(1.06)}
 .ptag{position:absolute;top:12px;left:12px;font-size:10px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--pink-deep)}
 .pname{font-size:14.5px;font-weight:400;line-height:1.3;margin-top:12px;letter-spacing:-.01em}
@@ -193,7 +195,7 @@ button{font-family:inherit;border:none;background:none;cursor:pointer;color:inhe
 .excl-list::-webkit-scrollbar{display:none}
 .xcard{flex:0 0 auto;width:62vw;max-width:260px;scroll-snap-align:start;background:#fff;border-radius:22px;padding:10px 10px 18px;box-shadow:0 1px 0 rgba(122,30,62,.04),0 14px 34px -18px rgba(122,30,62,.28);transition:transform .4s cubic-bezier(.2,.8,.2,1),box-shadow .4s}
 .xcard:hover{transform:translateY(-6px);box-shadow:0 1px 0 rgba(122,30,62,.04),0 24px 44px -18px rgba(122,30,62,.38)}
-.xcard .pimg{border-radius:16px;background:radial-gradient(circle at 50% 45%,#FFFFFF 0%,#FFF9FA 60%,#FCEFF2 100%);box-shadow:none}
+.xcard .pimg{border-radius:16px;background:#fff;box-shadow:none}
 .xcard .pimg img{padding:12%}
 .xcard-body{padding:14px 8px 0}
 .origin{display:block;font-size:10.5px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--pink-deep);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
@@ -209,6 +211,7 @@ button{font-family:inherit;border:none;background:none;cursor:pointer;color:inhe
 .tab.on{background:var(--ink);border-color:var(--ink);color:var(--ivory)}
 .tab.on small{color:rgba(255,253,248,.6)}
 .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:26px 12px}
+.grid .pcard:nth-child(n+5){display:none}
 .budget-foot{margin-top:40px;display:flex;justify-content:center}
 
 /* ── SIZE GUIDE ── */
@@ -221,7 +224,7 @@ button{font-family:inherit;border:none;background:none;cursor:pointer;color:inhe
 .rline{position:absolute;left:0;right:0;border-top:1px dashed rgba(31,26,27,.14);font-size:10px;color:var(--mute);pointer-events:none}
 .rline span{position:absolute;right:0;top:-16px;letter-spacing:.06em}
 .sz{position:relative;flex:0 0 auto;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%}
-.sz img{width:auto;max-width:none;mix-blend-mode:multiply;transition:translate .4s}
+.sz img{width:auto;max-width:none;transition:translate .4s}
 .sz:hover img{translate:0 -6px}
 .sz-lb{position:absolute;bottom:-60px;text-align:center;width:100%}
 .sz-lb b{display:block;font-family:var(--display);font-weight:400;font-size:17px;letter-spacing:-.02em;line-height:1.1}
@@ -309,7 +312,8 @@ button{font-family:inherit;border:none;background:none;cursor:pointer;color:inhe
   .hero .wrap{grid-template-columns:1.1fr .9fr;gap:64px;align-items:center}
   .stage{order:0;aspect-ratio:4/5;max-height:76vh;width:100%}
   .slide{padding:10% 9% 18%}
-  .cols{grid-template-columns:repeat(5,1fr);gap:34px 18px}
+  .cols{display:grid;grid-template-columns:repeat(5,1fr);gap:34px 18px;overflow:visible;margin:0;padding:0}
+  .cols .ct{flex:none}
   .rail .pcard{width:300px;max-width:none}
   .rail-nav{display:flex}
   .rail{padding-left:max(var(--gut),calc((100vw - var(--max))/2 + var(--gut)));scroll-padding-left:max(var(--gut),calc((100vw - var(--max))/2 + var(--gut)))}
@@ -318,6 +322,7 @@ button{font-family:inherit;border:none;background:none;cursor:pointer;color:inhe
   .excl-list{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;overflow:visible;margin:0;padding:0}
   .xcard{width:auto;max-width:none}
   .grid{grid-template-columns:repeat(4,1fr);gap:40px 18px}
+  .grid .pcard:nth-child(n+5){display:block}
   .size .wrap{padding-top:128px;padding-bottom:110px}
   .ruler-in{gap:12px}
   .rv-head{grid-template-columns:1fr auto;align-items:end}
@@ -364,9 +369,9 @@ button{font-family:inherit;border:none;background:none;cursor:pointer;color:inhe
 <section class="hero">
   <div class="wrap">
     <div>
-      <div class="eyebrow"><b>Authentic Jellycat</b> · District 1, Saigon</div>
+      <div class="eyebrow"><b>100% Authentic</b> · District 1, Saigon</div>
       <h1>The gift<br>that <span>stays.</span></h1>
-      <p class="lead">A curated Jellycat boutique in the heart of Saigon — from the classic Bashful Bunny to rare exclusives sourced from London and New York.</p>
+      <p class="lead">A curated plush boutique in the heart of Saigon — from the classic Bashful Bunny to rare pieces hunted down abroad.</p>
       <div class="hero-ctas">
         <a class="btn btn-ink" href="/shop" onclick="trackEvent('cta_hero_click',{cta_destination:'shop'})">Shop the collection <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         <a class="btn btn-line" href="https://ig.me/m/bunniihaus" target="_blank" rel="noopener" onclick="trackEvent('cta_hero_click',{cta_destination:'instagram'})">Chat with us</a>
@@ -379,10 +384,10 @@ button{font-family:inherit;border:none;background:none;cursor:pointer;color:inhe
     </div>
     <a class="stage" id="stage" href="/shop" aria-label="Featured pieces">
       <span class="stage-tag">Featured</span>
-      <div class="slide on" data-name="Bashful Luxe Bunny Azure" data-meta="Huge · Bunny"><img src="img/Azure%20Huge%20Bunny.webp" alt="Bashful Luxe Bunny Azure" fetchpriority="high"></div>
-      <div class="slide" data-name="Bartholomew Bear 'Bumblebee'" data-meta="Bear"><img src="img/Bartholomew%20Bear%20Bumblebee.webp" alt="Bartholomew Bear Bumblebee" loading="lazy"></div>
-      <div class="slide" data-name="Blossom Tulip Pink Bunny" data-meta="Medium · Bunny"><img src="img/Blossom%20Tulip%20Pink%20Bunny.webp" alt="Blossom Tulip Pink Bunny" loading="lazy"></div>
-      <div class="slide" data-name="Liberty Mirabelle Bunny" data-meta="Liberty London exclusive"><img src="img/Liberty%20Mirabelle%20Bunny.webp?v=3" alt="Liberty Mirabelle Bunny" loading="lazy"></div>
+      <div class="slide on" data-name="Bashful Luxe Bunny Azure" data-meta="Huge · Bunny"><img src="img/home/Azure%20Huge%20Bunny.webp" alt="Bashful Luxe Bunny Azure" fetchpriority="high"></div>
+      <div class="slide" data-name="Bartholomew Bear 'Bumblebee'" data-meta="Bear"><img src="img/home/Bartholomew%20Bear%20Bumblebee.webp" alt="Bartholomew Bear Bumblebee" loading="lazy"></div>
+      <div class="slide" data-name="Blossom Tulip Pink Bunny" data-meta="Medium · Bunny"><img src="img/home/Blossom%20Tulip%20Pink%20Bunny.webp" alt="Blossom Tulip Pink Bunny" loading="lazy"></div>
+      <div class="slide" data-name="Liberty Mirabelle Bunny" data-meta="Liberty London exclusive"><img src="img/home/Liberty%20Mirabelle%20Bunny.webp" alt="Liberty Mirabelle Bunny" loading="lazy"></div>
       <div class="cap"><div class="cap-t" id="capT"><b>Bashful Luxe Bunny Azure</b>Huge · Bunny</div><div class="dots" id="dots"><i class="on"></i><i></i><i></i><i></i></div></div>
     </a>
   </div>
@@ -391,8 +396,8 @@ button{font-family:inherit;border:none;background:none;cursor:pointer;color:inhe
 <!-- ── TICKER ──────────────────────────────────────────────── -->
 <div class="ticker" aria-hidden="true">
   <div class="tk">
-    <span>100% Authentic Jellycat</span><span>Original tags &amp; dust bags</span><span>Exclusives from London &amp; New York</span><span>Nationwide &amp; international shipping</span><span>207 Hoang Sa, District 1</span>
-    <span>100% Authentic Jellycat</span><span>Original tags &amp; dust bags</span><span>Exclusives from London &amp; New York</span><span>Nationwide &amp; international shipping</span><span>207 Hoang Sa, District 1</span>
+    <span>100% Authentic</span><span>Original tags &amp; dust bags</span><span>Exclusives from London &amp; New York</span><span>Nationwide &amp; international shipping</span><span>207 Hoang Sa, District 1</span>
+    <span>100% Authentic</span><span>Original tags &amp; dust bags</span><span>Exclusives from London &amp; New York</span><span>Nationwide &amp; international shipping</span><span>207 Hoang Sa, District 1</span>
   </div>
 </div>
 
@@ -433,8 +438,8 @@ button{font-family:inherit;border:none;background:none;cursor:pointer;color:inhe
 <section class="excl" id="exclusive">
   <div class="wrap">
     <div class="excl-head rv">
-      <div><div class="eyebrow"><b>03</b> — Rare finds</div><h2 class="h2">From London<br>&amp; New York</h2></div>
-      <p class="lead">Pieces sold only at Selfridges, Liberty London and FAO Schwarz in New York. Made in small numbers — brought home to Saigon for you.</p>
+      <div><div class="eyebrow"><b>03</b> — The rare edit</div><h2 class="h2">Hunted down,<br>hard to find</h2></div>
+      <p class="lead">We go looking so you don’t have to — store exclusives, limited runs and special editions sought out in select markets abroad, then brought home to Saigon.</p>
     </div>
     <div class="excl-list rv" id="exclList"></div>
   </div>
@@ -444,7 +449,7 @@ button{font-family:inherit;border:none;background:none;cursor:pointer;color:inhe
 <section class="sec" id="budget">
   <div class="wrap">
     <div class="sec-head rv">
-      <div><div class="eyebrow"><b>04</b> — Gifts by budget</div><h2 class="h2">A perfect gift<br>for every budget</h2></div>
+      <div><div class="eyebrow"><b>04</b> — Gift guide</div><h2 class="h2">Something lovely,<br>at every price</h2></div>
     </div>
     <div class="tabs rv" id="tabs"></div>
     <div class="grid" id="budgetGrid"></div>
@@ -458,10 +463,10 @@ button{font-family:inherit;border:none;background:none;cursor:pointer;color:inhe
     <div class="rv">
       <div class="eyebrow"><b>05</b> — Size guide</div>
       <h2 class="h2">How big is a<br>Bashful Bunny?</h2>
-      <p class="lead" style="margin-top:20px">One bunny, five sizes. Tap a size to see what’s in store.</p>
+      <p class="lead" style="margin-top:20px">The five Bashful Bunny sizes we carry at Bunniihaus. Tap a size to see what’s available right now.</p>
     </div>
     <div class="ruler rv"><div class="ruler-in" id="ruler"></div></div>
-    <p class="size-note">Seated height, per Jellycat specifications. May vary by ±2 cm.</p>
+    <p class="size-note">Approximate seated height; may vary by ±2 cm.</p>
   </div>
 </section>
 
@@ -509,7 +514,7 @@ button{font-family:inherit;border:none;background:none;cursor:pointer;color:inhe
 <footer class="foot">
   <div class="wrap">
     <div class="foot-top">
-      <div><div class="logo">Bunnii<em>haus</em></div><p class="foot-tag">The gift that stays. An authentic Jellycat boutique in District 1, Saigon.</p></div>
+      <div><div class="logo">Bunnii<em>haus</em></div><p class="foot-tag">The gift that stays. A curated plush boutique in District 1, Saigon.</p></div>
       <div class="foot-cols">
         <div><h4>Visit</h4><ul><li>207 Hoang Sa, District 1</li><li>9:00 – 21:00 daily</li><li><a href="tel:+84817700205" onclick="trackEvent('cta_phone_call',{cta_location:'home_footer'})">+84 81 770 02 05</a></li></ul></div>
         <div><h4>Shop</h4><ul><li><a href="/shop">All products</a></li><li><a href="/bunny">Bunnies</a></li><li><a href="/dragon">Dragons</a></li><li><a href="/bear">Bears</a></li></ul></div>
@@ -526,8 +531,8 @@ button{font-family:inherit;border:none;background:none;cursor:pointer;color:inhe
   <div class="dock-links" id="dockLinks">
     <a href="#collections">Collections</a>
     <a href="#new">New in</a>
-    <a href="#exclusive">Exclusives</a>
-    <a href="#budget">By budget</a>
+    <a href="#exclusive">Rare edit</a>
+    <a href="#budget">Gift guide</a>
     <a href="#size">Size guide</a>
     <a href="#reviews">Reviews</a>
     <a href="#visit">Visit</a>
@@ -543,7 +548,8 @@ function trackEvent(name, params){ window.dataLayer.push(Object.assign({event:na
 
 // ── HELPERS (same display rules as /shop) ───────────────────
 function displayName(p){
-  return p.label && p.name.endsWith(' — ' + p.label) ? p.name.slice(0, -(' — ' + p.label).length) : p.name;
+  const n = p.label && p.name.endsWith(' — ' + p.label) ? p.name.slice(0, -(' — ' + p.label).length) : p.name;
+  return n.replace(/\s*jellycat\s*/ig, ' ').trim();   // no brand name in Home copy
 }
 function fmtPrice(p){
   return p.priceNum > 0 ? String(p.priceNum).replace(/\B(?=(\d{3})+(?!\d))/g, '.') + 'k' : 'Contact us';
@@ -554,7 +560,7 @@ const ORIGIN = {'Selfridges Exclusive':'Selfridges','Liberty Exclusive':'Liberty
 const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 function card(p, tag){
   return `<a class="pcard" href="/shop?p=${p.id}" data-pid="${p.id}">
-    <div class="pimg">${tag ? `<span class="ptag">${esc(tag)}</span>` : ''}<img src="${p.img}" alt="${esc(p.name)}" loading="lazy" decoding="async"></div>
+    <div class="pimg">${tag ? `<span class="ptag">${esc(tag)}</span>` : ''}<img src="${p.img}" alt="${esc(displayName(p))}" loading="lazy" decoding="async"></div>
     <div class="pname">${esc(displayName(p))}</div>
     <div class="pmeta"><span>${esc(p.label || COL_EN[p.collection] || p.collection)}</span><span class="pprice">${fmtPrice(p)}</span></div>
   </a>`;
@@ -586,7 +592,7 @@ function renderNew(P){
 }
 function renderExclusive(P){
   document.getElementById('exclList').innerHTML = P.filter(p => p.badge).map(p => `<a class="xcard" href="/shop?p=${p.id}" data-pid="${p.id}">
-    <div class="pimg"><img src="${p.img}" alt="${esc(p.name)}" loading="lazy" decoding="async"></div>
+    <div class="pimg"><img src="${p.img}" alt="${esc(displayName(p))}" loading="lazy" decoding="async"></div>
     <div class="xcard-body"><span class="origin">${esc(ORIGIN[p.badge] || p.badge)}</span><div class="pname">${esc(displayName(p))}</div><div class="xsz">${esc(p.label || COL_EN[p.collection] || p.collection)}</div></div>
   </a>`).join('');
 }
@@ -632,14 +638,14 @@ function renderSize(){
   let lines = '';
   for(let cm = 10; cm <= 70; cm += 10) lines += `<div class="rline" style="bottom:${70 + cm / 67 * max}px"><span>${cm} cm</span></div>`;
   ruler.innerHTML = lines + SIZES.map(([n,cm,slug]) =>
-    `<a class="sz" href="/bunny/${slug}" onclick="trackEvent('filter_bunny_size',{size:'${n}',result_count:0})"><img src="img/Size%20Guide%20Bunny.webp" alt="Bashful Bunny ${n}" style="height:${Math.round(cm / 67 * max)}px" loading="lazy"><div class="sz-lb"><b>${n}</b><span>${cm} CM</span></div></a>`).join('');
+    `<a class="sz" href="/bunny/${slug}" onclick="trackEvent('filter_bunny_size',{size:'${n}',result_count:0})"><img src="img/home/Size%20Guide%20Bunny.webp" alt="Bashful Bunny ${n}" style="height:${Math.round(cm / 67 * max)}px" loading="lazy"><div class="sz-lb"><b>${n}</b><span>${cm} CM</span></div></a>`).join('');
 }
 
 // ── REVIEWS: verbatim 5-star Google Maps reviews (Nov 2026) ──
 const REVIEWS = [
-  ['Khiết Lâm', '4 months ago', 'I accidentally found this shop on TikTok and Instagram and now I’ve bought 2 jellycat babies just in one month because of the experience and product quality they provided. It’s just a small shop in D1 but the decoration is really cozy and lovely. The staff is also very welcomed and enthusiastic with what they sell. They also gave us a small gift for my baby. I will come back for sure!'],
-  ['Matthias Ong', 'Local Guide · 4 months ago', 'Came across this shop on tiktok, at L1 above a cafe but contains many different jellycats both new and retired. Recommend if you are looking for something!'],
-  ['Darius Ren', '3 months ago', 'Amazing collection of jelly cats here, it’s on the first story and there’s a cute cafe at the entrance of the building'],
+  ['Khiết Lâm', '4 months ago', 'I accidentally found this shop on TikTok and Instagram and now I’ve bought 2 [plush] babies just in one month because of the experience and product quality they provided. It’s just a small shop in D1 but the decoration is really cozy and lovely. The staff is also very welcomed and enthusiastic with what they sell. They also gave us a small gift for my baby. I will come back for sure!'],
+  ['Matthias Ong', 'Local Guide · 4 months ago', 'Came across this shop on tiktok, at L1 above a cafe but contains many different [plushies] both new and retired. Recommend if you are looking for something!'],
+  ['Darius Ren', '3 months ago', 'Amazing collection of [plushies] here, it’s on the first story and there’s a cute cafe at the entrance of the building'],
   ['nhan ngo tue', '3 months ago', 'there are plenty of options of dragons, bunnies, and bears w reasonable price compare to the others.'],
 ];
 function renderReviews(){
@@ -651,11 +657,11 @@ function renderReviews(){
 
 // ── FAQ (visible + JSON-LD) ─────────────────────────────────
 const FAQ = [
-  ['Is everything at Bunniihaus authentic Jellycat?', 'Yes. Every piece is genuine Jellycat with its original tags and dust bag. You’re welcome to visit us at 207 Hoang Sa, District 1 and see for yourself.'],
-  ['Where can I buy Jellycat in Ho Chi Minh City?', 'Bunniihaus at 207 Hoang Sa, Tan Dinh Ward, District 1 carries 350+ designs — Bashful Bunny, Dragons, Bartholomew Bear, Amuseables, Smudge and rare exclusives. Call +84 81 770 02 05.'],
-  ['How much does Jellycat cost at Bunniihaus?', 'From under ₫1,000,000 for bag charms and Small sizes to over ₫10,000,000 for Really Big sizes and exclusives. Every price is listed in the shop.'],
+  ['Is everything at Bunniihaus authentic?', 'Yes. Every piece is 100% authentic, with its original tags and dust bag. You’re welcome to visit us at 207 Hoang Sa, District 1 and see for yourself.'],
+  ['Where is Bunniihaus in Ho Chi Minh City?', 'Bunniihaus at 207 Hoang Sa, Tan Dinh Ward, District 1 carries 350+ designs — Bashful Bunny, Dragons, Bartholomew Bear, Amuseables, Smudge and rare exclusives. Call +84 81 770 02 05.'],
+  ['What are your prices like?', 'From under ₫1,000,000 for bag charms and Small sizes to over ₫10,000,000 for Really Big sizes and exclusives. Every price is listed in the shop.'],
   ['Do you ship across Vietnam?', 'Yes — we ship nationwide and can arrange international delivery. Message @bunniihaus on Instagram or call +84 81 770 02 05 to order.'],
-  ['How do I choose the right size?', 'Bashful Bunny comes in five sizes: Small (about 18 cm), Medium (31 cm), Large (36 cm), Huge (51 cm) and Really Big (67 cm), measured seated. See the size guide above, or message us for advice.'],
+  ['How do I choose the right size?', 'In store we carry Bashful Bunny in five sizes: Small (about 18 cm), Medium (31 cm), Large (36 cm), Huge (51 cm) and Really Big (67 cm), measured seated. See the size guide above, or message us for advice.'],
 ];
 function renderFaq(){
   document.getElementById('faqList').innerHTML = FAQ.map(([q,a],i) => `<details class="qa"${i === 0 ? ' open' : ''}><summary>${q}<i></i></summary><p>${a}</p></details>`).join('');
