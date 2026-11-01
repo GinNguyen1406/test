@@ -183,14 +183,22 @@ button{font-family:inherit;border:none;background:none;cursor:pointer;color:inhe
 .rail-nav svg{width:16px;height:16px;stroke:var(--ink);fill:none;stroke-width:1.6}
 
 /* ── EXCLUSIVES ── */
-.excl{background:var(--sand)}
-.excl .wrap{display:grid;gap:44px;padding-top:88px;padding-bottom:88px}
-.excl-list{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;margin:0 calc(var(--gut)*-1);padding:0 var(--gut)}
+.excl{background:linear-gradient(180deg,#FBE4E9 0%,#F8D9E0 100%)}
+.excl .wrap{padding-top:88px;padding-bottom:88px}
+.excl-head{display:grid;gap:18px;margin-bottom:40px}
+.excl .eyebrow{color:#9A5A68}
+.excl .eyebrow b{color:var(--pink-deep)}
+.excl .lead{color:#5C4247}
+.excl-list{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;margin:0 calc(var(--gut)*-1);padding:0 var(--gut) 4px;scroll-padding:0 var(--gut)}
 .excl-list::-webkit-scrollbar{display:none}
-.excl-list .pcard{width:66vw;max-width:300px;scroll-snap-align:start}
-.excl-list .pimg{background:radial-gradient(circle at 50% 42%,#FFFFFF 0%,#FFFDFB 60%,#F7F2EC 100%)}
-.origin{display:block;font-size:10.5px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--pink-deep);margin-top:14px}
-.excl-list .pname{margin-top:4px;font-family:var(--display);font-size:18px;letter-spacing:-.025em}
+.xcard{flex:0 0 auto;width:62vw;max-width:260px;scroll-snap-align:start;background:#fff;border-radius:22px;padding:10px 10px 18px;box-shadow:0 1px 0 rgba(122,30,62,.04),0 14px 34px -18px rgba(122,30,62,.28);transition:transform .4s cubic-bezier(.2,.8,.2,1),box-shadow .4s}
+.xcard:hover{transform:translateY(-6px);box-shadow:0 1px 0 rgba(122,30,62,.04),0 24px 44px -18px rgba(122,30,62,.38)}
+.xcard .pimg{border-radius:16px;background:radial-gradient(circle at 50% 45%,#FFFFFF 0%,#FFF9FA 60%,#FCEFF2 100%);box-shadow:none}
+.xcard .pimg img{padding:12%}
+.xcard-body{padding:14px 8px 0}
+.origin{display:block;font-size:10.5px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--pink-deep);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.xcard .pname{margin-top:6px;font-family:var(--display);font-size:17px;letter-spacing:-.02em}
+.xcard .xsz{font-size:12px;color:var(--mute);margin-top:2px}
 
 /* ── BUDGET ── */
 .tabs{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;margin-bottom:30px}
@@ -204,7 +212,7 @@ button{font-family:inherit;border:none;background:none;cursor:pointer;color:inhe
 .budget-foot{margin-top:40px;display:flex;justify-content:center}
 
 /* ── SIZE GUIDE ── */
-.size{background:var(--blush)}
+.size{background:var(--sand)}
 .size .wrap{padding-top:88px;padding-bottom:76px}
 .ruler{position:relative;margin-top:48px;overflow-x:auto;scrollbar-width:none;padding-bottom:6px}
 .ruler::-webkit-scrollbar{display:none}
@@ -305,9 +313,10 @@ button{font-family:inherit;border:none;background:none;cursor:pointer;color:inhe
   .rail .pcard{width:300px;max-width:none}
   .rail-nav{display:flex}
   .rail{padding-left:max(var(--gut),calc((100vw - var(--max))/2 + var(--gut)));scroll-padding-left:max(var(--gut),calc((100vw - var(--max))/2 + var(--gut)))}
-  .excl .wrap{grid-template-columns:.8fr 1.6fr;align-items:center;padding-top:128px;padding-bottom:128px}
-  .excl-list{margin:0;padding:0}
-  .excl-list .pcard{width:270px}
+  .excl .wrap{padding-top:120px;padding-bottom:120px}
+  .excl-head{grid-template-columns:1fr 1fr;align-items:end;gap:60px;margin-bottom:52px}
+  .excl-list{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;overflow:visible;margin:0;padding:0}
+  .xcard{width:auto;max-width:none}
   .grid{grid-template-columns:repeat(4,1fr);gap:40px 18px}
   .size .wrap{padding-top:128px;padding-bottom:110px}
   .ruler-in{gap:12px}
@@ -373,7 +382,7 @@ button{font-family:inherit;border:none;background:none;cursor:pointer;color:inhe
       <div class="slide on" data-name="Bashful Luxe Bunny Azure" data-meta="Huge · Bunny"><img src="img/Azure%20Huge%20Bunny.webp" alt="Bashful Luxe Bunny Azure" fetchpriority="high"></div>
       <div class="slide" data-name="Bartholomew Bear 'Bumblebee'" data-meta="Bear"><img src="img/Bartholomew%20Bear%20Bumblebee.webp" alt="Bartholomew Bear Bumblebee" loading="lazy"></div>
       <div class="slide" data-name="Blossom Tulip Pink Bunny" data-meta="Medium · Bunny"><img src="img/Blossom%20Tulip%20Pink%20Bunny.webp" alt="Blossom Tulip Pink Bunny" loading="lazy"></div>
-      <div class="slide" data-name="Liberty Mirabelle Bunny" data-meta="Liberty London exclusive"><img src="img/Liberty%20Mirabelle%20Bunny.webp?v=2" alt="Liberty Mirabelle Bunny" loading="lazy"></div>
+      <div class="slide" data-name="Liberty Mirabelle Bunny" data-meta="Liberty London exclusive"><img src="img/Liberty%20Mirabelle%20Bunny.webp?v=3" alt="Liberty Mirabelle Bunny" loading="lazy"></div>
       <div class="cap"><div class="cap-t" id="capT"><b>Bashful Luxe Bunny Azure</b>Huge · Bunny</div><div class="dots" id="dots"><i class="on"></i><i></i><i></i><i></i></div></div>
     </a>
   </div>
@@ -423,10 +432,9 @@ button{font-family:inherit;border:none;background:none;cursor:pointer;color:inhe
 <!-- ── 03 EXCLUSIVES ───────────────────────────────────────── -->
 <section class="excl" id="exclusive">
   <div class="wrap">
-    <div class="rv">
-      <div class="eyebrow"><b>03</b> — Rare finds</div>
-      <h2 class="h2">From London<br>&amp; New York</h2>
-      <p class="lead" style="margin-top:20px">Pieces sold only at Selfridges, Liberty London and FAO Schwarz in New York. Made in small numbers — brought home to Saigon for you.</p>
+    <div class="excl-head rv">
+      <div><div class="eyebrow"><b>03</b> — Rare finds</div><h2 class="h2">From London<br>&amp; New York</h2></div>
+      <p class="lead">Pieces sold only at Selfridges, Liberty London and FAO Schwarz in New York. Made in small numbers — brought home to Saigon for you.</p>
     </div>
     <div class="excl-list rv" id="exclList"></div>
   </div>
@@ -542,7 +550,7 @@ function fmtPrice(p){
 }
 const NEW_SINCE_ID = 309;
 const COL_EN = {Bunny:'Bunny',Dragon:'Dragon',Bear:'Bear',Smudge:'Smudge',Animal:'Animal',Food:'Food',Plants:'Plants',Keycharm:'Bag charm',Bag:'Bag'};
-const ORIGIN = {'Selfridges Exclusive':'Selfridges · London','Liberty Exclusive':'Liberty · London','NYC Exclusive':'FAO Schwarz · New York'};
+const ORIGIN = {'Selfridges Exclusive':'Selfridges','Liberty Exclusive':'Liberty London','NYC Exclusive':'FAO Schwarz NY'};
 const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 function card(p, tag){
   return `<a class="pcard" href="/shop?p=${p.id}" data-pid="${p.id}">
@@ -552,7 +560,7 @@ function card(p, tag){
   </a>`;
 }
 document.addEventListener('click', e => {
-  const a = e.target.closest('.pcard[data-pid]');
+  const a = e.target.closest('[data-pid]');
   if(a) trackEvent('home_product_click', {product_id: +a.dataset.pid});
 });
 
@@ -577,8 +585,10 @@ function renderNew(P){
   document.getElementById('newRail').innerHTML = list.map(p => card(p, 'New')).join('');
 }
 function renderExclusive(P){
-  document.getElementById('exclList').innerHTML = P.filter(p => p.badge).map(p =>
-    card(p).replace('<div class="pname">', `<span class="origin">${esc(ORIGIN[p.badge] || p.badge)}</span><div class="pname">`)).join('');
+  document.getElementById('exclList').innerHTML = P.filter(p => p.badge).map(p => `<a class="xcard" href="/shop?p=${p.id}" data-pid="${p.id}">
+    <div class="pimg"><img src="${p.img}" alt="${esc(p.name)}" loading="lazy" decoding="async"></div>
+    <div class="xcard-body"><span class="origin">${esc(ORIGIN[p.badge] || p.badge)}</span><div class="pname">${esc(displayName(p))}</div><div class="xsz">${esc(p.label || COL_EN[p.collection] || p.collection)}</div></div>
+  </a>`).join('');
 }
 
 const BANDS = [
