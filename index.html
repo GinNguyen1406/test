@@ -175,7 +175,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 :root{
   --pink:#FF6B8A; --pink-deep:#e85578; --orange:#FF9A6C; --cyan:#37DEE7;
-  --bg:#F8F8F8; --ink:#111; --mute:#888; --line:rgba(0,0,0,0.07);
+  --bg:#F8F8F8; --card-bg:radial-gradient(circle at 50% 42%,#FFFFFF 0%,#FBFAF8 55%,#F4F3F0 100%); --ink:#111; --mute:#888; --line:rgba(0,0,0,0.07);
   --font-vn:'SVN-Gilroy','Be Vietnam Pro','Outfit',system-ui,-apple-system,sans-serif;
 }
 html{scroll-behavior:smooth}
@@ -289,9 +289,8 @@ a.chip,a.subchip{text-decoration:none;-webkit-touch-callout:default}
 .pcw svg{width:12px;height:12px;stroke:#ddd;stroke-width:1.8;fill:none;transition:stroke .2s}
 
 .pci{padding:2px 8px 0}
-.pshape{width:100%;border-radius:14px;overflow:hidden;display:flex;align-items:center;justify-content:center;position:relative;transition:filter .22s,box-shadow .28s;box-shadow:inset 0 -8px 18px rgba(0,0,0,.04),0 3px 10px rgba(0,0,0,.05)}
-.pc:hover .pshape{box-shadow:inset 0 -8px 18px rgba(0,0,0,.06),0 6px 16px rgba(0,0,0,.09)}
-.pshape::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 65%,rgba(0,0,0,.06) 100%);pointer-events:none}
+.pshape{width:100%;border-radius:14px;overflow:hidden;display:flex;align-items:center;justify-content:center;position:relative;background:var(--card-bg);transition:filter .22s,box-shadow .28s;box-shadow:inset 0 0 0 1px rgba(0,0,0,.035)}
+.pc:hover .pshape{box-shadow:inset 0 0 0 1px rgba(0,0,0,.05)}
 .pshape img{width:100%;height:100%;object-fit:contain;padding:2px;mix-blend-mode:multiply;transition:transform .5s cubic-bezier(.25,.46,.45,.94);transform:scale(1.08)}
 .pc:hover .pshape img{transform:scale(1.55)}
 /* Dragons take more zoom — source images have lots of padding */
@@ -1073,7 +1072,7 @@ function buildCard(p, idx){
       <div class="pcw" onclick="event.stopPropagation()" aria-label="Wishlist"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
     </div>
     <div class="pci" onclick="openLightbox(${p.id})">
-      <div class="pshape" style="background:${p.shapeBg}">
+      <div class="pshape">
         <img src="${p.img}" alt="${p.name}" loading="lazy" decoding="async"/>
         <div class="pzoom"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7.5"/><path d="M19.5 19.5l-2.8-2.8M11 8v6M8 11h6"/></svg></div>
       </div>
