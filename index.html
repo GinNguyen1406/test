@@ -116,13 +116,14 @@ button{font-family:inherit;border:none;background:none;cursor:pointer;color:inhe
 .ig{width:38px;height:38px;border-radius:50%;border:1px solid var(--line);display:flex;align-items:center;justify-content:center}
 .ig svg{width:16px;height:16px;stroke:var(--ink);fill:none;stroke-width:1.5}
 .hide-sm{display:none}
+.only-sm{display:inline}
 
 /* ── HERO ── */
 .hero{padding:88px 0 56px}
 .hero .wrap{display:grid;gap:34px;align-items:end}
 .hero h1{font-family:var(--display);font-weight:300;font-size:clamp(52px,9.2vw,128px);line-height:.94;letter-spacing:-.05em;margin:20px 0 24px}
 .hero h1 span{color:var(--pink)}
-.hero .lead{margin-bottom:30px}
+.hero .lead{margin-bottom:30px;max-width:520px}
 .hero-ctas{display:flex;gap:10px;flex-wrap:wrap}
 .hero-stats{display:grid;grid-template-columns:repeat(3,auto);justify-content:start;gap:30px;margin-top:40px;padding-top:22px;border-top:1px solid var(--line)}
 .hero-stats b{font-family:var(--display);font-weight:400;font-size:26px;letter-spacing:-.03em;line-height:1;display:block}
@@ -307,6 +308,7 @@ button{font-family:inherit;border:none;background:none;cursor:pointer;color:inhe
 @media(min-width:768px){
   :root{--gut:44px}
   .hide-sm{display:inline}
+  .only-sm{display:none}
   .sec{padding:128px 0}
   .hero{padding:124px 0 80px}
   .hero .wrap{grid-template-columns:1.1fr .9fr;gap:64px;align-items:center}
@@ -371,7 +373,7 @@ button{font-family:inherit;border:none;background:none;cursor:pointer;color:inhe
     <div>
       <div class="eyebrow"><b>100% Authentic</b> · Quận 1, Sài Gòn</div>
       <h1>The gift<br>that <span>stays.</span></h1>
-      <p class="lead">Một cửa hàng thú bông nhỏ ở Quận 1. Mỗi bạn ở đây đều được chọn kỹ, từ Bashful Bunny quen thuộc đến những mẫu hiếm khó tìm.</p>
+      <p class="lead"><span class="only-sm">Một cửa hàng gấu bông nhỏ nép mình trên tầng 1, giữa trung tâm Sài Gòn. Mỗi bé gấu là một câu chuyện, được cậu chủ nhỏ 2K++ chọn về bằng cả tâm huyết, cho người yêu gấu bông và cho những món quà gửi người mình “thương”.</span><span class="hide-sm">Một cửa hàng gấu bông nhỏ nép mình trên tầng 1, giữa một con phố trung tâm Sài Gòn. Ở đây, mỗi bé gấu là một câu chuyện, được cậu chủ nhỏ 2K++ chọn về bằng cả tâm huyết, dành cho những ai yêu và sưu tầm gấu bông, và cho cả những món quà đặc biệt bạn muốn gửi tặng người mình “thương”.</span></p>
       <div class="hero-ctas">
         <a class="btn btn-ink" href="/shop" onclick="trackEvent('cta_hero_click',{cta_destination:'shop'})">Xem bộ sưu tập <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         <a class="btn btn-line" href="https://ig.me/m/bunniihaus" target="_blank" rel="noopener" onclick="trackEvent('cta_hero_click',{cta_destination:'instagram'})">Chat with us</a>
