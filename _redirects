@@ -1,0 +1,19 @@
+# Group links shared with customers (/bunny, /dragon/large…) are served by the shop page
+/bunny       /shop  200
+/bunny/*     /shop  200
+/dragon      /shop  200
+/dragon/*    /shop  200
+/bear        /shop  200
+/bear/*      /shop  200
+/smudge      /shop  200
+/smudge/*    /shop  200
+/bag         /shop  200
+/bag/*       /shop  200
+/animal      /shop  200
+/animal/*    /shop  200
+/plants      /shop  200
+/plants/*    /shop  200
+/food        /shop  200
+/food/*      /shop  200
+/keycharm    /shop  200
+/keycharm/*  /shop  200

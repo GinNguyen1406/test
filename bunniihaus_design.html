@@ -17,14 +17,14 @@
 <meta name="geo.placename" content="Ho Chi Minh City">
 <meta name="geo.position" content="10.7889;106.6890">
 <meta name="ICBM" content="10.7889, 106.6890">
-<link rel="canonical" href="https://bunniihaus.info/">
+<link rel="canonical" href="https://bunniihaus.info/shop">
 
 <!-- ── OPEN GRAPH (Facebook, Zalo, Messenger, LinkedIn) ────────── -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Bunniihaus">
 <meta property="og:title" content="Bunniihaus — Jellycat Authentic TP.HCM">
 <meta property="og:description" content="Cửa hàng Jellycat chính hãng nhập khẩu trực tiếp. 158+ mẫu thú bông cao cấp. Tag gốc · Dustbag · Bảo hành xuất xứ. Ghé 207 Hoàng Sa, Tân Định, Q.1.">
-<meta property="og:url" content="https://bunniihaus.info/">
+<meta property="og:url" content="https://bunniihaus.info/shop">
 <meta property="og:image" content="https://bunniihaus.info/og-image.jpg?v=4">
 <meta property="og:image:secure_url" content="https://bunniihaus.info/og-image.jpg?v=4">
 <meta property="og:image:width" content="1200">
@@ -519,7 +519,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <!-- HEADER -->
 <header class="hdr">
-  <div class="logo">Bunnii<em>haus</em></div>
+  <a class="logo" href="/" aria-label="Bunniihaus — trang chủ" style="text-decoration:none">Bunnii<em>haus</em></a>
   <nav class="hic">
     <button class="hb" aria-label="Search" onclick="document.getElementById('searchInput').focus()"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7.5"/><path d="M19.5 19.5l-2.8-2.8"/></svg></button>
     <button class="hb" aria-label="Menu"><svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h10"/></svg></button>
@@ -1045,7 +1045,7 @@ const COL_ORDER = ['Bunny','Dragon','Bear','Smudge','Bag','Animal','Plants','Foo
 const orderedCols = COL_ORDER.filter(c => ALL_COLS.includes(c)).concat(ALL_COLS.filter(c => !COL_ORDER.includes(c)));
 (function buildChips(){
   const wrap = document.getElementById('chips');
-  let html = `<a class="chip on" data-col="all" href="/" onclick="setFilter('all',this);return false">All <span class="cn">${PRODUCTS.length}</span></a>`;
+  let html = `<a class="chip on" data-col="all" href="/shop" onclick="setFilter('all',this);return false">All <span class="cn">${PRODUCTS.length}</span></a>`;
   orderedCols.forEach(c=>{
     const n = PRODUCTS.filter(p=>p.collection===c).length;
     html += `<a class="chip off" data-col="${c}" href="/${slugify(c)}" onclick="setFilter('${c}',this);return false">${c} <span class="cn">${n}</span></a>`;
@@ -1077,7 +1077,7 @@ function showToast(html){
 function consultProduct(id, location){
   const p = PRODUCTS.find(x=>x.id===id);
   if(!p){ window.open(INSTA_URL,'_blank'); return; }
-  const link = window.location.origin + '/?p=' + id;
+  const link = window.location.origin + '/shop?p=' + id;
   const msg = 'Tôi cần mua sản phẩm này từ Website: ' + p.name + ' (' + fmtPrice(p) + ') — ' + link;
   try { navigator.clipboard && navigator.clipboard.writeText(msg); } catch(e){}
   showToast('Đã sao chép tin nhắn! <b>Dán (Paste)</b> vào khung chat Instagram để gửi nhé 💬');
@@ -1236,7 +1236,7 @@ function setFilter(col, el){
 // ── URL ROUTING (/bunny, /bunny/huge) ───────────────────────
 const BASE_TITLE = document.title;
 function filterPath(){
-  if(currentFilter==='all') return '/';
+  if(currentFilter==='all') return '/shop';
   let path = '/' + slugify(currentFilter);
   if(SUB_SIZES[currentFilter] && currentSubFilter!=='all') path += '/' + slugify(currentSubFilter);
   return path;
@@ -1401,7 +1401,7 @@ if(applyRoute() && !new URLSearchParams(location.search).get('p')){
       document.querySelectorAll('.chip').forEach(c=>c.className='chip off');
       allChip.className = 'chip on';
       renderSubChips(); renderProducts(getFilteredList());
-      history.replaceState(null, '', '/' + location.search); updateHead();
+      history.replaceState(null, '', '/shop' + location.search); updateHead();
     }
     setTimeout(()=>openLightbox(pid), 300);
   }
