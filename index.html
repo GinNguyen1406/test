@@ -161,10 +161,11 @@ button{font-family:inherit;border:none;background:none;cursor:pointer;color:inhe
 .ct-name{font-family:var(--display);font-size:19px;font-weight:400;letter-spacing:-.025em}
 .ct-n{font-size:12px;color:var(--mute)}
 .ct:hover .ct-name{color:var(--pink-deep)}
-.ct-all .ct-img{background:var(--ink);box-shadow:none;flex-direction:column;gap:10px;color:var(--ivory)}
+.ct-all .ct-img{background:linear-gradient(160deg,#FFF1F4 0%,#FBE1E7 100%);box-shadow:inset 0 0 0 1px rgba(232,85,120,.12);flex-direction:column;gap:10px;color:var(--ink);transition:background .3s,color .3s}
 .ct-all .ct-img b{font-family:var(--display);font-weight:300;font-size:28px;letter-spacing:-.03em}
-.ct-all .ct-img span{font-size:12px;color:rgba(255,253,248,.6)}
-.ct-all:hover .ct-img{background:var(--pink-deep)}
+.ct-all .ct-img span{font-size:12px;color:var(--pink-deep);transition:color .3s}
+.ct-all:hover .ct-img{background:var(--pink);color:#fff}
+.ct-all:hover .ct-img span{color:rgba(255,255,255,.85)}
 
 /* ── PRODUCT CARD ── */
 .pcard{display:block;flex:0 0 auto}
