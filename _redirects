@@ -17,3 +17,25 @@
 /food/*      /shop  200
 /keycharm    /shop  200
 /keycharm/*  /shop  200
+
+# English site (/en…) — same pages, language picked from the URL
+/en          /      200
+/en/shop     /shop  200
+/en/bunny     /shop  200
+/en/bunny/*    /shop  200
+/en/dragon    /shop  200
+/en/dragon/*   /shop  200
+/en/bear      /shop  200
+/en/bear/*     /shop  200
+/en/smudge    /shop  200
+/en/smudge/*   /shop  200
+/en/bag       /shop  200
+/en/bag/*      /shop  200
+/en/animal    /shop  200
+/en/animal/*   /shop  200
+/en/plants    /shop  200
+/en/plants/*   /shop  200
+/en/food      /shop  200
+/en/food/*     /shop  200
+/en/keycharm  /shop  200
+/en/keycharm/* /shop  200
