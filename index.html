@@ -64,8 +64,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;1,500&family=Inter+Tight:wght@300;400;500&family=Inter:wght@300;400;500;600&display=swap" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;1,500&family=Inter+Tight:wght@300;400;500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"></noscript>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;1,500&family=Tenor+Sans&family=Inter+Tight:wght@300;400;500&family=Inter:wght@300;400;500;600&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;1,500&family=Tenor+Sans&family=Inter+Tight:wght@300;400;500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"></noscript>
 <link rel="preload" as="image" href="img/home/Azure%20Huge%20Bunny.webp" fetchpriority="high">
 <style>
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
@@ -124,6 +124,7 @@ button{font-family:inherit;border:none;background:none;cursor:pointer;color:inhe
 .hero h1{font-family:var(--display);font-weight:300;font-size:clamp(52px,9.2vw,128px);line-height:.94;letter-spacing:-.05em;margin:20px 0 24px}
 .hero h1 span{color:var(--pink)}
 .hero .lead{margin-bottom:30px;max-width:540px;text-wrap:pretty}
+.thuong{font-style:italic;color:var(--pink-deep)}
 .hero-ctas{display:flex;gap:10px;flex-wrap:wrap}
 .hero-stats{display:grid;grid-template-columns:repeat(3,auto);justify-content:start;gap:30px;margin-top:40px;padding-top:22px;border-top:1px solid var(--line)}
 .hero-stats b{font-family:var(--display);font-weight:400;font-size:26px;letter-spacing:-.03em;line-height:1;display:block}
@@ -289,7 +290,7 @@ button{font-family:inherit;border:none;background:none;cursor:pointer;color:inhe
 
 /* ── FLOATING DOCK NAV ── */
 .dock{position:fixed;left:50%;bottom:14px;transform:translateX(-50%);z-index:50;display:flex;align-items:stretch;gap:5px;padding:5px;border-radius:16px;background:rgba(31,26,27,.9);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 16px 40px rgba(31,26,27,.25);max-width:calc(100vw - 20px)}
-.dock-logo{flex:0 0 auto;width:48px;border-radius:11px;background:var(--pink);color:#fff;display:flex;align-items:center;justify-content:center;font-family:var(--logo);font-size:26px;font-weight:500}
+.dock-logo{flex:0 0 auto;width:48px;border-radius:11px;background:var(--pink);color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Tenor Sans',var(--sans);font-size:22px;font-weight:400}
 .dock-links{display:flex;gap:5px;overflow-x:auto;scrollbar-width:none}
 .dock-links::-webkit-scrollbar{display:none}
 .dock-links a{flex:0 0 auto;display:flex;align-items:center;padding:0 14px;height:48px;border-radius:11px;border:1px solid rgba(255,253,248,.14);color:rgba(255,253,248,.8);font-size:13px;transition:all .2s;white-space:nowrap}
@@ -372,9 +373,9 @@ button{font-family:inherit;border:none;background:none;cursor:pointer;color:inhe
 <section class="hero">
   <div class="wrap">
     <div>
-      <div class="eyebrow"><b>100% Authentic</b> · Quận 1, Sài Gòn</div>
+      <div class="eyebrow"><b>100% Authentic Jellycat</b> · 207 Hoàng Sa, TP.HCM</div>
       <h1>The gift<br>that <span>stays</span></h1>
-      <p class="lead"><span class="only-sm">Một cửa hàng gấu bông nhỏ nép mình trên tầng 1, giữa trung tâm Sài Gòn. Mỗi bé gấu là một câu chuyện, được cậu chủ nhỏ 2K++ chọn về bằng cả tâm huyết, cho người yêu gấu bông và cho những món quà gửi người mình “thương”.</span><span class="hide-sm">Một cửa hàng gấu bông nhỏ nép mình trên tầng 1, giữa một con phố trung tâm Sài Gòn. Ở đây, mỗi bé gấu là một câu chuyện, được cậu chủ nhỏ 2K++ chọn về bằng cả tâm huyết, dành cho những ai yêu và sưu tầm gấu bông, và cho cả những món quà đặc biệt bạn muốn gửi tặng người mình “thương”.</span></p>
+      <p class="lead"><span class="only-sm">Một cửa hàng gấu bông Jellycat chính hãng nhỏ nép mình trên tầng 1, giữa trung tâm Sài Gòn. Mỗi bé gấu là một câu chuyện, được cậu chủ nhỏ 2K++ chọn về bằng cả tâm huyết, cho người yêu gấu bông và cho những món quà gửi người <em class="thuong">“thương”</em>.</span><span class="hide-sm">Một cửa hàng gấu bông Jellycat chính hãng nhỏ nép mình trên tầng 1, giữa một con phố trung tâm Sài Gòn. Ở đây, mỗi bé gấu là một câu chuyện, được cậu chủ nhỏ 2K++ chọn về bằng cả tâm huyết, dành cho những ai yêu và sưu tầm gấu bông, và cho cả những món quà đặc biệt bạn muốn gửi tặng người <em class="thuong">“thương”</em>.</span></p>
       <div class="hero-ctas">
         <a class="btn btn-ink" href="/shop" onclick="trackEvent('cta_hero_click',{cta_destination:'shop'})">Xem bộ sưu tập <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         <a class="btn btn-line" href="https://ig.me/m/bunniihaus" target="_blank" rel="noopener" onclick="trackEvent('cta_hero_click',{cta_destination:'instagram'})">Chat with us</a>
@@ -522,7 +523,7 @@ button{font-family:inherit;border:none;background:none;cursor:pointer;color:inhe
         <div><h4>Ghé shop</h4><ul><li>207 Hoàng Sa, Quận 1</li><li>9:00 – 20:00 mỗi ngày</li><li><a href="tel:+84817700205" onclick="trackEvent('cta_phone_call',{cta_location:'home_footer'})">081 770 02 05</a></li></ul></div>
         <div><h4>Shop</h4><ul><li><a href="/shop">Tất cả sản phẩm</a></li><li><a href="/bunny">Bunny</a></li><li><a href="/dragon">Dragon</a></li><li><a href="/bear">Bear</a></li></ul></div>
         <div><h4>Theo dõi</h4><ul><li><a href="https://instagram.com/bunniihaus" target="_blank" rel="noopener">Instagram</a></li><li><a href="https://www.facebook.com/profile.php?id=61576813521029" target="_blank" rel="noopener">Facebook</a></li><li><a href="https://zalo.me/bunniihaus" target="_blank" rel="noopener">Zalo</a></li></ul></div>
-        <div><h4>Cam kết</h4><ul><li>100% chính hãng</li><li>Đủ tag gốc &amp; dustbag</li><li>Giao hàng toàn quốc</li></ul></div>
+        <div><h4>Cam kết</h4><ul><li>100% chính hãng</li><li>Đủ tag gốc &amp; dustbag</li><li>Giao hàng toàn quốc và quốc tế</li></ul></div>
       </div>
     </div>
     <div class="foot-copy"><span>© 2026 Bunniihaus · The Gift That Stays.</span><span>Hình ảnh chỉ mang tính minh hoạ.</span></div>
