@@ -43,21 +43,21 @@ h1{font-family:var(--logo);font-weight:400;font-size:30px;letter-spacing:.01em}
 <body>
 <div class="wrap">
   <h1>Bunniihaus — chọn bảng màu</h1>
-  <p class="sub">Bấm từng phương án để xem trang Home thật đổi màu (bên trái bản máy tính, bên phải bản điện thoại). Cuộn bên trong khung để xem hết các phần. Chọn xong, nhắn tên phương án cho Claude.</p>
+  <p class="sub">Bấm từng phương án để xem trang Home thật đổi màu (bên trái bản máy tính, bên phải bản điện thoại). Cuộn bên trong khung để xem hết các phần. Chọn xong, nhắn số hoặc tên phương án cho Claude (có thể trộn, ví dụ “nền số 3, hồng số 5”).</p>
   <div class="opts" id="opts"></div>
   <div class="stage">
-    <div class="frame desk"><header><span id="lab">Máy tính</span><a id="open" href="/" target="_blank" rel="noopener">Mở toàn trang</a></header><iframe id="fd" title="Home — máy tính" src="/"></iframe></div>
-    <div class="frame phone"><header><span>Điện thoại</span></header><iframe id="fm" title="Home — điện thoại" src="/"></iframe></div>
+    <div class="frame desk"><header><span id="lab">Máy tính</span><a id="open" href="/?pal=0" target="_blank" rel="noopener">Mở toàn trang</a></header><iframe id="fd" title="Home — máy tính" src="/?pal=0"></iframe></div>
+    <div class="frame phone"><header><span>Điện thoại</span></header><iframe id="fm" title="Home — điện thoại" src="/?pal=0"></iframe></div>
   </div>
 </div>
 <script>
 const OPTS = [
-  {k:'', name:'0 · Hiện tại', note:'Trắng ngà ấm + khối hồng phấn. Để so sánh.', sw:['#FFFDF8','#F6F1EA','#FBE4E9','#FF6B8A','#24201F']},
-  {k:'1', name:'1 · Porcelain Rose', note:'Kiểu Glossier: nền trắng sứ tinh, hồng là điểm nhấn duy nhất. Sạch, sáng, hiện đại.', sw:['#FFFFFF','#F7F3F1','#FCEFF2','#F25C84','#1C1718']},
-  {k:'2', name:'2 · Linen', note:'Kiểu Sézane / Aesop: nền vải lanh be ấm, hồng trầm. Sang, mộc, "boutique châu Âu".', sw:['#F5EFE6','#ECE3D6','#EED9D3','#D9577A','#2A211D']},
-  {k:'3', name:'3 · Ladurée', note:'Hồng + xanh pistachio như hộp macaron Ladurée. Vui, ngọt, vẫn sang; footer xanh rêu đậm.', sw:['#FCFAF5','#E6F0E9','#F9DEE5','#E8577E','#233229']},
-  {k:'4', name:'4 · Champagne Rosé', note:'Nền champagne, hồng đất (dusty rose). Trầm ấm, nữ tính, "luxury" nhất trong 5.', sw:['#FBF6F0','#F3E9DF','#F2DCD8','#C9597A','#2B2124']},
-  {k:'5', name:'5 · Butter & Rose', note:'Kem bơ vàng nhạt + hồng tươi. Tươi sáng, vui nhất, hợp shop quà tặng.', sw:['#FFFCF2','#FFF3D6','#FFE3EA','#F2557F','#2A1F1C']},
+  {k:'0', name:'0 · Porcelain Rose', note:'Đã chọn ở vòng trước: trắng sứ, hồng là điểm nhấn duy nhất. Sạch, sáng.', sw:['#FFFFFF','#F7F3F1','#FCEFF2','#F25C84','#1C1718']},
+  {k:'1', name:'1 · Peach Fuzz', note:'Pantone 2024. Đào mềm, ấm, khối mẫu hiếm nền cam đào rực, footer nâu cacao. Ngọt, dễ thương, rất "quà tặng".', sw:['#FFF7F2','#FFE6D8','#FFB49B','#F2667B','#3A2420']},
+  {k:'2', name:'2 · Viva Magenta', note:'Pantone 2023. Nền trắng tinh, điểm nhấn magenta đậm phủ cả dải chữ chạy và khối mẫu hiếm. Táo bạo, thời trang, wow nhất.', sw:['#FFFFFF','#FBE8EC','#BB2649','#9A1B3A','#3D0E1E']},
+  {k:'3', name:'3 · Digital Lavender', note:'Màu xu hướng WGSN. Tím oải hương loang sang hồng như mây. Mơ màng, Gen Z, khác biệt.', sw:['#FCFBFF','#EFE8FF','#E3D6FF','#F2649A','#241C3A']},
+  {k:'4', name:'4 · Mocha Mousse', note:'Pantone 2025. Nâu mocha sữa + hồng, như quán cà phê dưới shop. Ấm, sang, rất "café chic".', sw:['#FAF6F1','#EFE5DA','#A47864','#D06A86','#2E211B']},
+  {k:'5', name:'5 · Cotton Candy', note:'Kẹo bông: hồng kẹo + xanh baby, footer xanh navy. Tươi, trẻ, vui nhất.', sw:['#FBFDFF','#E8F3FA','#FFE4EF','#FF5C93','#1B2236']},
 ];
 const box = document.getElementById('opts'), fd = document.getElementById('fd'), fm = document.getElementById('fm'), open = document.getElementById('open');
 box.innerHTML = OPTS.map((o,i) => `<button class="opt" data-i="${i}" aria-pressed="${i===0}"><b>${o.name}</b><span class="sw">${o.sw.map(c=>`<i style="background:${c}"></i>`).join('')}</span><small>${o.note}</small></button>`).join('');
