@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Bunniihaus — chọn bảng màu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Tenor+Sans&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F2F1EF;--panel:#FFFFFF;--ink:#1F1A1B;--mute:#7C7476;--line:rgba(31,26,27,.12);--on:#1F1A1B;--sans:'Inter',system-ui,sans-serif;--logo:'Tenor Sans',var(--sans)}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{overflow-x:clip}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:15px}
+.wrap{max-width:1500px;margin:0 auto;padding:28px 20px 60px}
+h1{font-family:var(--logo);font-weight:400;font-size:30px;letter-spacing:.01em}
+.sub{color:var(--mute);margin-top:6px;max-width:720px;line-height:1.6}
+.opts{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:10px;margin:22px 0}
+.opt{all:unset;cursor:pointer;background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:14px;display:flex;flex-direction:column;gap:10px;transition:border-color .2s,box-shadow .2s}
+.opt:hover{border-color:var(--mute)}
+.opt:focus-visible{outline:2px solid var(--on);outline-offset:2px}
+.opt[aria-pressed="true"]{border-color:var(--on);box-shadow:0 0 0 1px var(--on)}
+.opt b{font-weight:600;font-size:15px}
+.opt small{color:var(--mute);font-size:12.5px;line-height:1.5}
+.sw{display:flex;gap:0;border-radius:9px;overflow:hidden;height:34px;border:1px solid var(--line)}
+.sw i{flex:1}
+.stage{display:grid;gap:18px;grid-template-columns:minmax(0,1fr)}
+.frame{background:var(--panel);border:1px solid var(--line);border-radius:18px;overflow:hidden}
+.frame header{display:flex;justify-content:space-between;align-items:center;padding:10px 14px;font-size:13px;color:var(--mute);border-bottom:1px solid var(--line)}
+.frame header a{color:var(--ink)}
+.desk{height:760px}
+.desk iframe{width:100%;height:calc(100% - 41px);border:0;display:block}
+.phone{display:none}
+@media(min-width:1100px){
+  .stage{grid-template-columns:minmax(0,1fr) 400px}
+  .phone{display:block;height:760px}
+  .phone iframe{width:390px;height:calc(100% - 41px);border:0;display:block;margin:0 auto}
+}
+@media(max-width:700px){.desk{height:80vh}}
+@media(prefers-reduced-motion:reduce){.opt{transition:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Bunniihaus — chọn bảng màu</h1>
+  <p class="sub">Bấm từng phương án để xem trang Home thật đổi màu (bên trái bản máy tính, bên phải bản điện thoại). Cuộn bên trong khung để xem hết các phần. Chọn xong, nhắn tên phương án cho Claude.</p>
+  <div class="opts" id="opts"></div>
+  <div class="stage">
+    <div class="frame desk"><header><span id="lab">Máy tính</span><a id="open" href="/" target="_blank" rel="noopener">Mở toàn trang</a></header><iframe id="fd" title="Home — máy tính" src="/"></iframe></div>
+    <div class="frame phone"><header><span>Điện thoại</span></header><iframe id="fm" title="Home — điện thoại" src="/"></iframe></div>
+  </div>
+</div>
+<script>
+const OPTS = [
+  {k:'', name:'0 · Hiện tại', note:'Trắng ngà ấm + khối hồng phấn. Để so sánh.', sw:['#FFFDF8','#F6F1EA','#FBE4E9','#FF6B8A','#24201F']},
+  {k:'1', name:'1 · Porcelain Rose', note:'Kiểu Glossier: nền trắng sứ tinh, hồng là điểm nhấn duy nhất. Sạch, sáng, hiện đại.', sw:['#FFFFFF','#F7F3F1','#FCEFF2','#F25C84','#1C1718']},
+  {k:'2', name:'2 · Linen', note:'Kiểu Sézane / Aesop: nền vải lanh be ấm, hồng trầm. Sang, mộc, "boutique châu Âu".', sw:['#F5EFE6','#ECE3D6','#EED9D3','#D9577A','#2A211D']},
+  {k:'3', name:'3 · Ladurée', note:'Hồng + xanh pistachio như hộp macaron Ladurée. Vui, ngọt, vẫn sang; footer xanh rêu đậm.', sw:['#FCFAF5','#E6F0E9','#F9DEE5','#E8577E','#233229']},
+  {k:'4', name:'4 · Champagne Rosé', note:'Nền champagne, hồng đất (dusty rose). Trầm ấm, nữ tính, "luxury" nhất trong 5.', sw:['#FBF6F0','#F3E9DF','#F2DCD8','#C9597A','#2B2124']},
+  {k:'5', name:'5 · Butter & Rose', note:'Kem bơ vàng nhạt + hồng tươi. Tươi sáng, vui nhất, hợp shop quà tặng.', sw:['#FFFCF2','#FFF3D6','#FFE3EA','#F2557F','#2A1F1C']},
+];
+const box = document.getElementById('opts'), fd = document.getElementById('fd'), fm = document.getElementById('fm'), open = document.getElementById('open');
+box.innerHTML = OPTS.map((o,i) => `<button class="opt" data-i="${i}" aria-pressed="${i===0}"><b>${o.name}</b><span class="sw">${o.sw.map(c=>`<i style="background:${c}"></i>`).join('')}</span><small>${o.note}</small></button>`).join('');
+function pick(i){
+  const o = OPTS[i], url = '/' + (o.k ? '?pal=' + o.k : '');
+  fd.src = url; fm.src = url; open.href = url;
+  box.querySelectorAll('.opt').forEach(b => b.setAttribute('aria-pressed', b.dataset.i == i));
+}
+box.addEventListener('click', e => { const b = e.target.closest('.opt'); if(b) pick(+b.dataset.i); });
+</script>
+</body>
+</html>
