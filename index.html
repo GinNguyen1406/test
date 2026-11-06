@@ -649,7 +649,7 @@ function fmtPrice(p){
   return p.priceNum > 0 ? String(p.priceNum).replace(/\B(?=(\d{3})+(?!\d))/g, '.') + 'k' : T('Liên hệ', 'Contact us');
 }
 const NEW_SINCE_ID = 309;
-const COL_EN = {Bunny:'Bunny',Dragon:'Dragon',Bear:'Bear',Smudge:'Smudge',Animal:'Animal',Food:'Food',Plants:'Plants',Keycharm:'Bag charm',Bag:'Bag'};
+const COL_EN = {Bunny:'Bunny',Dragon:'Dragon',Bear:'Bear',Smudge:'Smudge',Animal:'Animal',Food:'Food',Plants:'Plants',Keycharm:'Bag charm',Bag:'Bag',Others:'Others'};
 const ORIGIN = {'Selfridges Exclusive':'Selfridges','Liberty Exclusive':'Liberty London','NYC Exclusive':'FAO Schwarz NY'};
 const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 function card(p, tag){

@@ -17,6 +17,8 @@
 /food/*      /shop  200
 /keycharm    /shop  200
 /keycharm/*  /shop  200
+/others      /shop  200
+/others/*    /shop  200
 
 # English site (/en…) — same pages, language picked from the URL
 /en          /      200
@@ -39,3 +41,5 @@
 /en/food/*     /shop  200
 /en/keycharm  /shop  200
 /en/keycharm/* /shop  200
+/en/others    /shop  200
+/en/others/*  /shop  200
