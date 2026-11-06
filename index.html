@@ -82,10 +82,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <noscript><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;1,500&family=Tenor+Sans&family=Inter+Tight:wght@300;400;500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"></noscript>
 <link rel="preload" as="image" href="img/home/Azure%20Huge%20Bunny.webp" fetchpriority="high">
 <style>
-/* Hallmark · shape: kept · genre: playful · theme: brand (Cotton Candy, the shop's own) · redesign: restyle · hero: kept (split, stage right) · nav: kept (centred wordmark, floating dock) · footer: mast, the wordmark set across the page under four short columns · signature: the authentic seal turning on the stage corner · surface: absolute · copy: verbatim
+/* Hallmark · shape: kept · genre: playful · theme: brand (Cotton Candy, the shop's own) · redesign: restyle · hero: kept (split, stage right) · nav: kept (centred wordmark, floating dock) · footer: kept (wordmark and line left, four short columns) · signature: the authentic seal turning on the stage corner · surface: absolute · copy: verbatim
  * axes: tints pink/sky/lilac on white plates · contrast: pass · fold: pass · v2.0.0 */
 /* Hallmark · pre-emit critique: P4 H4 E4 S5 R4 V5 · weakest: E, the hero lead stays long because the owner wrote it; the seal, plates and tilted rare cards carry the play instead of more words */
 /* Hallmark · waive 7b · plates and product tiles stay pure white · every product photo is shot on a white studio sweep, a tinted plate would show a box around each plush */
+/* Hallmark · waive 59 · sections sit about 88px apart on desktop · the shop owner found the bigger gaps too empty and asked to tighten them */
 /* Hallmark · waive 38iii · the pink "stays" appears once, in the hero h1 · it is the shop's own line and the owner set the pink word on purpose */
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 :root{
@@ -99,9 +100,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   --excl-bg:linear-gradient(160deg,#FFDCE9 0%,#D7EBFA 100%); --excl-ink:var(--ink); --excl-text:var(--soft);
   --foot-bg:var(--ink); --foot-ink:#B9C0D3; --foot-dim:#8C94AB; --foot-line:rgba(255,251,253,.14);
   --dock-bg:#1B2236; --dock-line:rgba(255,251,253,.16); --dock-ink:#D9DDE8;
-  --tick-bg:#FFE4EF; --tick-ink:#8A3058; --tick-mark:var(--sky);
-  --shadow-pink:rgba(122,30,62,.28); --shadow-ink:rgba(27,34,54,.25); --stage-floor:rgba(122,60,72,.16);
-  --tape:repeating-linear-gradient(90deg,var(--pink) 0 2px,transparent 2px 12px);
+    --shadow-pink:rgba(122,30,62,.28); --shadow-ink:rgba(27,34,54,.25); --stage-floor:rgba(122,60,72,.16);
   --logo:'Tenor Sans',var(--sans);
   --display:'Inter Tight','Inter',system-ui,sans-serif;
   --sans:'Inter',system-ui,-apple-system,sans-serif;
@@ -120,7 +119,7 @@ button{font-family:inherit;border:none;background:none;cursor:pointer;color:inhe
 /* the section number as a small sticker riding the head */
 .h2[data-no]::after{content:attr(data-no);content:attr(data-no) / "";display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;margin-left:12px;vertical-align:top;border-radius:50%;background:var(--pink-deep);color:var(--paper);font-family:var(--sans);font-size:12px;font-weight:500;letter-spacing:0;transform:rotate(-8deg) translateY(-4px)}
 .lead{font-size:16px;line-height:1.7;color:var(--soft);max-width:480px;font-weight:300}
-.sec{padding:64px 0}
+.sec{padding:48px 0}
 .sec-head{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;margin-bottom:28px;flex-wrap:wrap}
 .more{font-size:14px;font-weight:500;display:inline-flex;align-items:center;gap:8px;border-bottom:1px solid currentColor;padding-bottom:4px;white-space:nowrap;transition:color .2s}
 .more:hover{color:var(--pink-deep)}
@@ -194,12 +193,11 @@ html:not(.js) .slide:not(:first-of-type){display:none}
 .seal b{font-family:var(--logo);font-weight:400;font-size:24px;line-height:1}
 @keyframes spin{to{transform:rotate(360deg)}}
 
-/* ── TICKER ── */
-.ticker{background:var(--tick-bg);border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden;white-space:nowrap;padding:20px 0}
-.tk{display:inline-flex;animation:tk 48s linear infinite}
-.tk span{font-family:var(--display);font-size:20px;font-weight:400;letter-spacing:-.02em;color:var(--tick-ink);padding:0 24px;display:inline-flex;align-items:center;gap:48px}
-.tk span::after{content:'✦';font-size:14px;color:var(--tick-mark)}
-@keyframes tk{to{transform:translateX(-50%)}}
+/* ── PROMISES: a quiet four-up strip under the hero ── */
+.promise{border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.promise .wrap{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;background:var(--line);padding:0}
+.promise span{display:flex;align-items:center;justify-content:center;gap:12px;min-height:56px;padding:12px 16px;background:var(--ivory);font-size:13px;line-height:1.35;color:var(--soft);text-align:center}
+.promise span::before{content:'';flex:0 0 auto;width:10px;height:5px;border-left:1.5px solid var(--pink-deep);border-bottom:1.5px solid var(--pink-deep);transform:rotate(-45deg) translateY(-2px)}
 
 /* ── COLLECTIONS: tinted tiles, each plush on a white plate ── */
 .cols{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;margin:0 calc(var(--gut)*-1);padding:0 var(--gut);scroll-padding:0 var(--gut)}
@@ -243,7 +241,7 @@ html:not(.js) .slide:not(:first-of-type){display:none}
 
 /* ── EXCLUSIVES: collector cards pinned at a tilt ── */
 .excl{background:var(--excl-bg);color:var(--excl-ink)}
-.excl .wrap{padding-top:64px;padding-bottom:64px}
+.excl .wrap{padding-top:48px;padding-bottom:48px}
 .excl-head{display:grid;gap:16px;margin-bottom:28px}
 .excl .lead{color:var(--excl-text)}
 .excl-list{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;margin:0 calc(var(--gut)*-1);padding:16px var(--gut) 20px;scroll-padding:0 var(--gut)}
@@ -273,20 +271,20 @@ html:not(.js) .slide:not(:first-of-type){display:none}
 .grid .pcard:nth-child(n+5){display:none}
 .budget-foot{margin-top:28px;display:flex;justify-content:center}
 
-/* ── SIZE GUIDE: a growth chart over a measuring tape ── */
+/* ── SIZE GUIDE ── */
 .size{background:var(--sand)}
-.size .wrap{padding-top:64px;padding-bottom:48px}
+.size .wrap{padding-top:48px;padding-bottom:40px}
 .size .lead{margin-top:20px}
 .ruler{position:relative;margin-top:32px;overflow-x:auto;scrollbar-width:none;padding-bottom:8px}
 .ruler::-webkit-scrollbar{display:none}
 .ruler-in{position:relative;display:flex;align-items:flex-end;justify-content:space-between;gap:12px;width:max-content;min-width:100%;height:calc(var(--maxh) + 76px);padding:0 8px 76px 56px}
-.ruler-in::before{content:'';position:absolute;left:0;right:0;bottom:64px;height:12px;background:var(--tape),var(--card);border-top:1px solid var(--pink);border-bottom:1px solid var(--pink)}
+.ruler-in::before{content:'';position:absolute;left:0;right:0;bottom:76px;height:1px;background:var(--ink)}
 .rline{position:absolute;z-index:1;left:0;right:0;border-top:1px dashed var(--line-2);pointer-events:none}
 .rline span{position:absolute;left:0;top:-10px;font-size:11px;color:var(--mute);background:var(--sand);padding-right:8px;font-variant-numeric:tabular-nums}
 .sz{position:relative;flex:0 0 auto;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%;z-index:2}
 .sz img{width:auto;max-width:none;transition:translate .4s}
 .sz:hover img{translate:0 -8px}
-.sz-lb{position:absolute;bottom:-64px;left:50%;translate:-50% 0;text-align:center;white-space:nowrap}
+.sz-lb{position:absolute;bottom:-60px;left:50%;translate:-50% 0;text-align:center;white-space:nowrap}
 .sz-lb b{display:inline-block;font-family:var(--display);font-weight:500;font-size:15px;letter-spacing:-.01em;line-height:1;padding:8px 16px;border-radius:999px;background:var(--card);transition:background-color .2s,color .2s}
 .sz-lb span{display:block;font-size:12px;color:var(--mute);margin-top:8px}
 .sz:hover .sz-lb b{background:var(--pink-deep);color:var(--paper)}
@@ -343,18 +341,18 @@ html:not(.js) .slide:not(:first-of-type){display:none}
 .qa[open] summary i::after{transform:translate(-50%,-50%) rotate(0)}
 .qa p{padding:0 48px 24px 0;font-size:15px;line-height:1.75;color:var(--soft);font-weight:300}
 
-/* ── FOOTER: a mast, the wordmark across the page ── */
-.foot{background:var(--foot-bg);color:var(--ivory);margin-top:64px;padding:64px 0 120px;overflow:hidden}
+/* ── FOOTER ── */
+.foot{background:var(--foot-bg);color:var(--ivory);margin-top:48px;padding:56px 0 120px}
 .foot-top{display:grid;gap:40px}
-.foot-tag{font-size:16px;color:var(--foot-ink);font-weight:300;max-width:320px;line-height:1.6}
+.foot-tag{font-size:14px;color:var(--foot-ink);font-weight:300;max-width:300px;line-height:1.6;margin-top:12px}
 .foot-cols{display:grid;gap:32px;grid-template-columns:repeat(2,minmax(0,1fr))}
 .foot h3{font-size:13px;color:var(--foot-dim);font-weight:500;margin-bottom:12px}
 .foot li{list-style:none;font-size:14px;line-height:2;color:var(--foot-ink);font-weight:300}
 .foot li a{white-space:nowrap;transition:color .2s}
 .foot li a:hover{color:var(--pink)}
-.foot-mast{display:block;margin-top:56px;font-family:var(--logo);font-weight:400;font-size:clamp(56px,16.5vw,232px);line-height:.85;letter-spacing:-.02em;color:var(--ivory);white-space:nowrap}
-.foot-mast em{font-style:normal;color:var(--pink)}
-.foot-copy{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:12px;color:var(--foot-dim);margin-top:32px;padding-top:20px;border-top:1px solid var(--foot-line)}
+.foot .logo{font-size:34px}
+.foot .logo em{color:var(--pink)}
+.foot-copy{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:12px;color:var(--foot-dim);margin-top:48px;padding-top:20px;border-top:1px solid var(--foot-line)}
 .foot :focus-visible{outline-color:var(--pink)}
 
 /* ── FLOATING DOCK NAV ── */
@@ -382,11 +380,11 @@ html:not(.js) .slide:not(:first-of-type){display:none}
   .top .logo{font-size:32px}
   .hide-sm{display:inline}
   .only-sm{display:none}
-  .sec{padding:128px 0}
+  .sec{padding:88px 0}
   .sec-head{margin-bottom:40px}
   .rv-head{margin-bottom:40px}
   .budget-foot{margin-top:40px}
-  .foot{margin-top:88px;padding-top:88px}
+  .foot{margin-top:64px;padding-top:72px}
   .ruler{margin-top:48px}
   .tabs{margin-bottom:32px}
   .hero{padding:48px 0 80px}
@@ -395,6 +393,8 @@ html:not(.js) .slide:not(:first-of-type){display:none}
   .ig{width:40px;height:40px}
   .h2[data-no]::after{width:44px;height:44px;font-size:13px;margin-left:16px}
   .hero .wrap{grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:64px;align-items:center}
+  .promise .wrap{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .promise span{min-height:64px;font-size:14px}
   .stage-wrap{order:0}
   .stage{aspect-ratio:4/5;max-height:76vh;width:100%}
   .seal{width:128px;height:128px;top:-28px;right:-24px}
@@ -414,13 +414,13 @@ html:not(.js) .slide:not(:first-of-type){display:none}
   .rail .pcard{width:300px;max-width:none}
   .rail-nav{display:flex}
   .rail{padding-left:max(var(--gut),calc((100% - var(--max))/2 + var(--gut)));scroll-padding-left:max(var(--gut),calc((100% - var(--max))/2 + var(--gut)))}
-  .excl .wrap{padding-top:120px;padding-bottom:120px}
+  .excl .wrap{padding-top:88px;padding-bottom:88px}
   .excl-head{grid-template-columns:repeat(2,minmax(0,1fr));align-items:end;gap:64px;margin-bottom:40px}
   .excl-list{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:20px;overflow:visible;margin:0;padding:16px 0 20px}
   .xcard{width:auto;max-width:none}
   .grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:40px 16px}
   .grid .pcard:nth-child(n+5){display:block}
-  .size .wrap{padding-top:128px;padding-bottom:112px}
+  .size .wrap{padding-top:88px;padding-bottom:80px}
   .ruler-in{gap:12px}
   .rv-head{grid-template-columns:minmax(0,1fr) auto;align-items:end}
   .reviews{grid-template-columns:minmax(0,1.25fr) minmax(0,1fr) minmax(0,1fr);gap:16px}
@@ -440,7 +440,7 @@ html:not(.js) .slide:not(:first-of-type){display:none}
 }
 @media(prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
-  .tk,.seal svg{animation:none}
+  .seal svg{animation:none}
   .js .rv{opacity:1;transform:none;transition:none}
   .slide,.slide img{transition:none}
   .xcard,.ct-img img,.pimg img{transition:none}
@@ -496,12 +496,9 @@ html:not(.js) .slide:not(:first-of-type){display:none}
   </div>
 </section>
 
-<!-- ── TICKER ──────────────────────────────────────────────── -->
-<div class="ticker" aria-hidden="true">
-  <div class="tk" data-i18n="ticker">
-    <span>100% Authentic</span><span>Đủ tag gốc &amp; dustbag</span><span>Nhiều mẫu hiếm, độc quyền, giới hạn</span><span>Giao toàn quốc &amp; quốc tế</span><span>207 Hoàng Sa, Quận 1</span>
-    <span>100% Authentic</span><span>Đủ tag gốc &amp; dustbag</span><span>Nhiều mẫu hiếm, độc quyền, giới hạn</span><span>Giao toàn quốc &amp; quốc tế</span><span>207 Hoàng Sa, Quận 1</span>
-  </div>
+<!-- ── PROMISES ────────────────────────────────────────────── -->
+<div class="promise">
+  <div class="wrap" data-i18n="ticker"><span>100% Authentic</span><span>Đủ tag gốc &amp; dustbag</span><span>Nhiều mẫu hiếm, độc quyền, giới hạn</span><span>Giao toàn quốc &amp; quốc tế</span></div>
 </div>
 
 <!-- ── 01 COLLECTIONS ──────────────────────────────────────── -->
@@ -617,7 +614,7 @@ html:not(.js) .slide:not(:first-of-type){display:none}
 <footer class="foot">
   <div class="wrap">
     <div class="foot-top">
-      <div><p class="foot-tag" data-i18n="footTag">Căn tiệm nhỏ với nhiều mẫu Jellycat chính hãng giữa lòng Sài Gòn</p></div>
+      <div><div class="logo">Bunnii<em>haus</em></div><p class="foot-tag" data-i18n="footTag">Căn tiệm nhỏ với nhiều mẫu Jellycat chính hãng giữa lòng Sài Gòn</p></div>
       <div class="foot-cols" data-i18n="footCols">
         <div><h3>Ghé shop</h3><ul><li>207 Hoàng Sa, Quận 1</li><li>10:00 – 20:00 mỗi ngày</li><li><a href="tel:+84817700205" onclick="trackEvent('cta_phone_call',{cta_location:'home_footer'})">081 770 02 05</a></li></ul></div>
         <div><h3>Shop</h3><ul><li><a href="/shop">Tất cả sản phẩm</a></li><li><a href="/bunny">Bunny</a></li><li><a href="/dragon">Dragon</a></li><li><a href="/bear">Bear</a></li></ul></div>
@@ -625,7 +622,6 @@ html:not(.js) .slide:not(:first-of-type){display:none}
         <div><h3>Cam kết</h3><ul><li>100% chính hãng</li><li>Đủ tag gốc &amp; dustbag</li><li>Giao hàng toàn quốc và quốc tế</li></ul></div>
       </div>
     </div>
-    <div class="foot-mast" aria-hidden="true">Bunnii<em>haus</em></div>
     <div class="foot-copy"><span>© 2026 Bunniihaus. The Gift That Stays</span><span data-i18n="footNote">Hình ảnh chỉ mang tính minh hoạ.</span></div>
   </div>
 </footer>
@@ -661,7 +657,7 @@ const I18N_EN = {
  "featured": "Featured",
  "seal": "100% authentic ✦ original tags &amp; dust bag ✦",
  "libertyMeta": "Liberty London exclusive",
- "ticker": "<span>100% Authentic</span><span>Original tags &amp; dust bags</span><span>Rare, exclusive &amp; limited editions</span><span>Nationwide &amp; international shipping</span><span>207 Hoang Sa, District 1</span><span>100% Authentic</span><span>Original tags &amp; dust bags</span><span>Rare, exclusive &amp; limited editions</span><span>Nationwide &amp; international shipping</span><span>207 Hoang Sa, District 1</span>",
+ "ticker": "<span>100% Authentic</span><span>Original tags &amp; dust bags</span><span>Rare, exclusive &amp; limited editions</span><span>Nationwide &amp; international shipping</span>",
  "viewAll": "View all products",
  "allTile": "All",
  "viewAllShort": "View all",
