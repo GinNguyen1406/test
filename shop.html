@@ -175,10 +175,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://fonts.cdnfonts.com" crossorigin>
 <!-- Fonts loaded NON-BLOCKING: text paints instantly in fallback, swaps when ready -->
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,500;1,600&family=Jost:ital,wght@0,500;1,500&family=Tenor+Sans&family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..600&family=Plus+Jakarta+Sans:ital,wght@0,400..800;1,400..600&family=Tenor+Sans&display=swap" onload="this.onload=null;this.rel='stylesheet'">
 <link rel="preload" as="style" href="https://fonts.cdnfonts.com/css/svn-gilroy" onload="this.onload=null;this.rel='stylesheet'">
 <noscript>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,500;1,600&family=Jost:ital,wght@0,500;1,500&family=Tenor+Sans&family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..600&family=Plus+Jakarta+Sans:ital,wght@0,400..800;1,400..600&family=Tenor+Sans&display=swap" rel="stylesheet">
 <link href="https://fonts.cdnfonts.com/css/svn-gilroy" rel="stylesheet">
 </noscript>
 <!-- LCP: preload featured hero image so it paints fast -->
@@ -188,7 +188,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 :root{
   --pink:#FF6B8A; --pink-deep:#e85578; --orange:#FF9A6C; --cyan:#37DEE7;
   --bg:#F8F8F8; --card-bg:radial-gradient(circle at 50% 42%,#FFFFFF 0%,#FBFAF8 55%,#F4F3F0 100%); --ink:#111; --mute:#888; --line:rgba(0,0,0,0.07);
-  --font-vn:'Be Vietnam Pro','SVN-Gilroy','Outfit',system-ui,-apple-system,sans-serif;
+  --font-vn:'Plus Jakarta Sans',system-ui,-apple-system,sans-serif;
+  --font-display:'Bricolage Grotesque','Plus Jakarta Sans',system-ui,sans-serif;
 }
 html{scroll-behavior:smooth}
 body{background:var(--bg);font-family:var(--font-vn);color:var(--ink);min-height:100vh;-webkit-font-smoothing:antialiased}
@@ -337,13 +338,13 @@ a.chip,a.subchip{text-decoration:none;-webkit-touch-callout:default}
 .bdec{position:absolute;width:160px;height:160px;border-radius:50%;background:rgba(255,255,255,.1);right:-40px;top:-40px}
 .bz{position:relative;z-index:1}
 .btag{font-size:9.5px;font-weight:600;letter-spacing:.18em;color:rgba(255,255,255,.6);text-transform:uppercase;margin-bottom:10px}
-.btitle{font-family:'Playfair Display',serif;font-size:22px;line-height:1.2;margin-bottom:8px}
+.btitle{font-family:var(--font-display);font-weight:500;font-size:22px;line-height:1.2;margin-bottom:8px}
 .btitle span{font-style:italic}
 .bsub{font-size:11px;color:rgba(255,255,255,.7);margin-bottom:18px;line-height:1.55}
 .brow{display:flex;border-top:1px solid rgba(255,255,255,.22);padding-top:14px}
 .bst{flex:1;text-align:center}
 .bst+.bst{border-left:1px solid rgba(255,255,255,.22)}
-.bsn{font-family:'Playfair Display',serif;font-size:20px;line-height:1.15}
+.bsn{font-family:var(--font-display);font-weight:500;font-size:20px;line-height:1.15}
 .bsl{font-size:9px;color:rgba(255,255,255,.65);letter-spacing:.1em;text-transform:uppercase;margin-top:3px}
 
 /* ── FOOTER ────────────────────────────────────────────────────────── */
@@ -398,7 +399,7 @@ a.chip,a.subchip{text-decoration:none;-webkit-touch-callout:default}
 .lb-img{max-width:92vw;max-height:78vh;object-fit:contain;border-radius:14px;animation:zoomIn .3s cubic-bezier(.25,.46,.45,.94);box-shadow:0 30px 80px rgba(0,0,0,.5);background:#fff;padding:18px}
 @keyframes zoomIn{from{transform:scale(.85);opacity:0}to{transform:scale(1);opacity:1}}
 .lb-info{margin-top:18px;text-align:center;color:#fff;max-width:90vw}
-.lb-name{font-family:'Playfair Display',serif;font-size:20px;font-weight:600;margin-bottom:4px}
+.lb-name{font-family:var(--font-display);font-size:20px;font-weight:500;margin-bottom:4px}
 .lb-meta{font-size:11px;color:rgba(255,255,255,.55);letter-spacing:.06em;text-transform:uppercase;margin-bottom:10px}
 .lb-price{font-size:16px;font-weight:700;color:#FFB4C5;margin-bottom:14px}
 .lb-cta{display:inline-flex;align-items:center;gap:6px;padding:11px 22px;background:var(--pink);color:#fff;border-radius:22px;font-size:12px;font-weight:700;text-decoration:none;transition:all .18s}
@@ -505,9 +506,9 @@ a.chip,a.subchip{text-decoration:none;-webkit-touch-callout:default}
   .mason{grid-template-columns:repeat(4,1fr)}
 }
 /* ── TYPOGRAPHY (Patrick Ta-style scale: geometric sans, tight title-case names, uppercase labels/buttons) ── */
-.chip{font-weight:400;letter-spacing:-.005em}
+.chip{font-family:var(--font-display);font-weight:400;letter-spacing:-.005em}
 .chip.on{font-weight:500}
-.pcn{font-size:14px;font-weight:500;line-height:1.12;letter-spacing:-.015em}
+.pcn{font-family:var(--font-display);font-size:14.5px;font-weight:500;line-height:1.15;letter-spacing:-.015em}
 .pcs{font-weight:500;letter-spacing:.08em}
 .pcp{font-size:13.5px;font-weight:600;letter-spacing:-.02em;white-space:nowrap}
 .pcf{gap:4px;padding-left:10px;padding-right:9px}
@@ -515,7 +516,7 @@ a.chip,a.subchip{text-decoration:none;-webkit-touch-callout:default}
 .pcb span{font-weight:500;font-size:9.5px}
 .cnt{font-weight:800;color:#999;letter-spacing:.04em}
 .sortbtn{font-weight:500;text-transform:uppercase;letter-spacing:.04em}
-.lb-name{font-family:var(--font-vn);font-weight:600;letter-spacing:-.015em;line-height:1.15}
+.lb-name{font-family:var(--font-display);font-weight:500;letter-spacing:-.02em;line-height:1.15}
 .lb-cta{font-weight:500}
 .fb{font-weight:500;text-transform:uppercase;letter-spacing:.04em}
 @media(min-width:768px){
@@ -1029,7 +1030,7 @@ const PRODUCTS = [
   {id:332,name:"Bartholomew Bear 'Bumblebee'",collection:"Bear",price:"2250k",priceNum:2250,shapeBg:"#FFF9F0",img:"img/Bartholomew%20Bear%20Bumblebee.webp"},
   {id:333,name:"Bartholomew Bear Comforter",collection:"Bear",price:"1050k",priceNum:1050,shapeBg:"#FFF5F7",img:"img/Bartholomew%20Bear%20Comforter.webp"},
   {id:335,name:"Bartholomew Bear — Really Big",collection:"Bear",label:"Really Big",price:"6290k",priceNum:6290,shapeBg:"#FFFCEF",img:"img/Bartholomew%20Bear%20Huge.webp"},
-  {id:336,name:"Leola Bear with Strawberry Cake",collection:"Bear",price:"2550k",priceNum:2550,shapeBg:"#FFF8F2",img:"img/Leola%20Bear%20Strawberry%20Cake.webp"},
+  {id:336,name:"Leola Bear with Strawberry Cake",collection:"Bear",price:"2550k",priceNum:2550,shapeBg:"#FFF8F2",img:"img/Leola%20Bear%20Strawberry%20Cake.webp?v=2"},
   {id:337,name:"Bartholomew Bear — Small",collection:"Bear",label:"Small",price:"950k",priceNum:950,shapeBg:"#FFFBFA",img:"img/Bartholomew%20Bear.webp"},
   {id:338,name:"Leola Bear — Large",collection:"Bear",label:"Large",price:"1790k",priceNum:1790,shapeBg:"#FFF6F0",img:"img/Leola%20Bear.webp"},
   {id:339,name:"Oatus Bear with Ice Cream",collection:"Bear",price:"2950k",priceNum:2950,badge:"NYC Exclusive",shapeBg:"#FFFAF0",img:"img/Oatus%20Bear%20Ice%20Cream.webp"},
