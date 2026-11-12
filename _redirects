@@ -19,6 +19,8 @@
 /keycharm/*  /shop  200
 /others      /shop  200
 /others/*    /shop  200
+/dich-vu  /shop  200
+/dich-vu/*  /shop  200
 
 # English site (/en…) — same pages, language picked from the URL
 /en          /      200
@@ -43,3 +45,5 @@
 /en/keycharm/* /shop  200
 /en/others    /shop  200
 /en/others/*  /shop  200
+/en/dich-vu  /shop  200
+/en/dich-vu/*  /shop  200

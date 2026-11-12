@@ -333,6 +333,35 @@ a.chip,a.subchip{text-decoration:none;-webkit-touch-callout:default}
 .plist li small{color:#666;font-size:12px;flex:1}
 .plist li span{font-weight:600;white-space:nowrap;font-variant-numeric:tabular-nums}
 .plist details > :last-child{padding-bottom:16px}
+
+/* ── SERVICES TAB (Dịch vụ khác) ─────────────────────────────────── */
+.svc[hidden]{display:none}
+.svc{max-width:1100px;margin:0 auto;padding:8px 20px 28px}
+.svc h2{font-family:var(--font-display);font-weight:500;font-size:24px;letter-spacing:-.02em;line-height:1.15;margin-bottom:6px}
+.svc-lead{font-size:13.5px;color:#666;line-height:1.6;max-width:62ch;margin-bottom:18px}
+.svc-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:14px}
+.svc-card{display:flex;flex-direction:column;background:#fff;border:1px solid var(--line);border-radius:20px;padding:22px 22px 24px;box-shadow:0 6px 18px rgba(0,0,0,.05)}
+.svc-card h3{font-family:var(--font-display);font-weight:500;font-size:20px;letter-spacing:-.015em;line-height:1.2}
+.svc-sub{font-size:12.5px;color:#777;margin:3px 0 12px}
+.svc-list{list-style:none;margin:0;padding:0}
+.svc-list li{display:flex;align-items:baseline;gap:10px;padding:9px 0;font-size:14.5px}
+.svc-dots{flex:1;min-width:14px;border-bottom:1.5px dotted rgba(0,0,0,.25);transform:translateY(-3px)}
+.svc-list b{font-weight:700;font-variant-numeric:tabular-nums;white-space:nowrap}
+.svc-note{font-size:12.5px;color:#666;line-height:1.55;margin-top:6px}
+.svc-note + .svc-note{margin-top:2px}
+.svc-cta{align-self:flex-start;margin-top:20px;background:var(--pink);color:#fff;font-size:13px;font-weight:700;padding:11px 22px;border-radius:22px;text-decoration:none;transition:background .18s,transform .18s}
+.svc-cta:hover{background:var(--pink-deep);transform:translateY(-1px)}
+.svc-cta:focus-visible{outline:2px solid var(--pink-deep);outline-offset:3px}
+@media(min-width:768px){
+  .svc{padding:12px 36px 40px}
+  .svc h2{font-size:30px}
+  .svc-lead{font-size:15px;margin-bottom:24px}
+  .svc-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+  .svc-card{padding:28px 30px 30px}
+  .svc-card h3{font-size:23px}
+  .svc-list li{font-size:16px;padding:11px 0}
+}
+@media(prefers-reduced-motion:reduce){.svc-cta{transition:none}.svc-cta:hover{transform:none}}
 .flog{font-family:'Tenor Sans',var(--font-vn);font-size:21px;letter-spacing:.01em}
 .flog em{font-style:normal;color:var(--pink)}
 .fadr{font-size:10.5px;color:#A29D97;margin:6px 0 18px;line-height:1.55}
@@ -580,6 +609,38 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <span data-i18n="emptyTxt">Không tìm thấy sản phẩm phù hợp</span>
 </div>
 
+<!-- SERVICES: shown by the "Dịch vụ khác" tab -->
+<section class="svc" id="svcPanel" aria-labelledby="svcTitle" hidden>
+  <h2 id="svcTitle" data-i18n="svcTitle">Dịch vụ khác</h2>
+  <p class="svc-lead" data-i18n="svcLead">Ngoài bán Jellycat, Bunniihaus còn nhận thêu tên theo yêu cầu và vệ sinh gấu bông.</p>
+  <div class="svc-grid">
+    <article class="svc-card">
+      <h3 data-i18n="svcEmbT">Thêu tên Jellycat</h3>
+      <p class="svc-sub" data-i18n="svcEmbS">Thêu theo yêu cầu, giá theo size</p>
+      <ul class="svc-list">
+        <li><span>Size S</span><i class="svc-dots"></i><b class="svc-p">60.000đ</b></li>
+        <li><span>Size M</span><i class="svc-dots"></i><b class="svc-p">80.000đ</b></li>
+        <li><span>Size L</span><i class="svc-dots"></i><b class="svc-p">100.000đ</b></li>
+        <li><span>Size Huge</span><i class="svc-dots"></i><b class="svc-p">120.000đ</b></li>
+      </ul>
+      <p class="svc-note" data-i18n="svcEmbN1">Đơn giá mỗi tai.</p>
+      <p class="svc-note" data-i18n="svcEmbN2">Gỡ thêu: tính gấp đôi đơn giá thêu.</p>
+      <a class="svc-cta" href="https://www.instagram.com/stories/highlights/18023199167573487/" target="_blank" rel="noopener" data-i18n="svcEmbCta" onclick="trackEvent('cta_embroidery_samples',{cta_location:'services_tab'})">Tham khảo mẫu thêu</a>
+    </article>
+    <article class="svc-card">
+      <h3 data-i18n="svcWashT">Giặt sấy Jellycat</h3>
+      <p class="svc-sub" data-i18n="svcWashS">Vệ sinh gấu bông, giá theo size</p>
+      <ul class="svc-list">
+        <li><span>Size S</span><i class="svc-dots"></i><b class="svc-p">40.000đ</b></li>
+        <li><span>Size M</span><i class="svc-dots"></i><b class="svc-p">50.000đ</b></li>
+        <li><span>Size L</span><i class="svc-dots"></i><b class="svc-p">90.000đ</b></li>
+        <li><span>Size Huge</span><i class="svc-dots"></i><b class="svc-p">120.000đ</b></li>
+        <li><span>Size Really Big</span><i class="svc-dots"></i><b class="svc-p">250.000đ</b></li>
+      </ul>
+    </article>
+  </div>
+</section>
+
 <!-- BRAND STRIP -->
 <section class="bstrip">
   <div class="bdec"></div>
@@ -666,13 +727,23 @@ const I18N_EN = {
  "modalTitle": "Contact Bunniihaus",
  "modalSub": "Choose how you’d like to message us",
  "zaloBtn": "Message on Zalo",
- "messBtn": "Message on Messenger"
+ "messBtn": "Message on Messenger",
+ "svcTitle": "Other services",
+ "svcLead": "Besides selling Jellycat, Bunniihaus also does custom name embroidery and plush cleaning.",
+ "svcEmbT": "Jellycat name embroidery",
+ "svcEmbS": "Made to order, priced by size",
+ "svcEmbN1": "Price per ear.",
+ "svcEmbN2": "Removing embroidery: twice the embroidery price.",
+ "svcEmbCta": "See embroidery examples",
+ "svcWashT": "Jellycat washing & drying",
+ "svcWashS": "Plush cleaning, priced by size"
 };
 // ── LANGUAGE: apply English strings + /en links, wire the VI | EN switch ──
 (function applyLang(){
   if(LANG === 'en'){
     document.documentElement.lang = 'en';
     document.querySelectorAll('[data-i18n]').forEach(el => { const v = I18N_EN[el.dataset.i18n]; if(v != null) el.innerHTML = v; });
+    document.querySelectorAll('.svc-p').forEach(el => { el.textContent = el.textContent.replace(/\./g, ','); });
     document.querySelectorAll('[data-i18n-attr]').forEach(el => el.dataset.i18nAttr.split(';').forEach(pair => { const [a, k] = pair.split(':'); if(I18N_EN[k] != null) el.setAttribute(a, I18N_EN[k]); }));
     document.querySelectorAll('a[href^="/"]:not([data-lang])').forEach(a => a.setAttribute('href', L(a.getAttribute('href'))));
     if(I18N_EN._title) document.title = I18N_EN._title;
@@ -1104,6 +1175,7 @@ const orderedCols = COL_ORDER.filter(c => ALL_COLS.includes(c)).concat(ALL_COLS.
     const n = PRODUCTS.filter(p=>p.collection===c).length;
     html += `<a class="chip off" data-col="${c}" href="${PFX}/${slugify(c)}" onclick="setFilter('${c}',this);return false">${c} <span class="cn">${n}</span></a>`;
   });
+  html += `<a class="chip off" data-col="services" href="${PFX}/dich-vu" onclick="setFilter('services',this);return false">${T('Dịch vụ khác','Other services')}</a>`;
   wrap.innerHTML = html;
 })();
 
@@ -1192,6 +1264,15 @@ let currentFilter = 'all';
 let currentList = [];
 
 function renderProducts(list){
+  const svc = currentFilter === 'services';
+  document.getElementById('svcPanel').hidden = !svc;
+  document.querySelector('.crow').style.display = svc ? 'none' : '';
+  if(svc){
+    currentList = [];
+    document.getElementById('masonGrid').style.display = 'none';
+    document.getElementById('emptyState').style.display = 'none';
+    return;
+  }
   currentList = list;
   const grid = document.getElementById('masonGrid');
   if(list.length === 0){
@@ -1291,13 +1372,14 @@ function setFilter(col, el){
 const BASE_TITLE = document.title;
 function filterPath(){
   if(currentFilter==='all') return PFX + '/shop';
+  if(currentFilter==='services') return PFX + '/dich-vu';
   let path = PFX + '/' + slugify(currentFilter);
   if(SUB_SIZES[currentFilter] && currentSubFilter!=='all') path += '/' + slugify(currentSubFilter);
   return path;
 }
 function updateHead(){
   const path = filterPath();
-  let label = currentFilter==='all' ? '' : currentFilter + (currentSubFilter!=='all' ? ' ' + currentSubFilter : '');
+  let label = currentFilter==='all' ? '' : currentFilter==='services' ? T('Dịch vụ khác','Other services') : currentFilter + (currentSubFilter!=='all' ? ' ' + currentSubFilter : '');
   document.title = label ? label + ' — Bunniihaus | Jellycat Authentic TP.HCM' : BASE_TITLE;
   const canon = document.querySelector('link[rel="canonical"]');
   if(canon) canon.href = 'https://bunniihaus.info' + path;
@@ -1310,10 +1392,11 @@ function syncUrl(){
 // Read /<group>[/<size>] from URL and apply filter (no history push)
 function applyRoute(){
   const parts = location.pathname.replace(/^\/en(?=\/|$)/, '').split('/').filter(Boolean).map(x=>decodeURIComponent(x).toLowerCase());
-  const col = parts[0] ? orderedCols.find(c => slugify(c)===parts[0]) : null;
+  const isSvc = parts[0]==='dich-vu';
+  const col = parts[0] && !isSvc ? orderedCols.find(c => slugify(c)===parts[0]) : null;
   const sizes = col && SUB_SIZES[col];
   const sz = sizes && parts[1] ? sizes.find(x => slugify(x)===parts[1] && PRODUCTS.some(p => p.collection===col && p.label===x)) : null;
-  currentFilter = col || 'all';
+  currentFilter = isSvc ? 'services' : (col || 'all');
   currentSubFilter = sz || 'all';
   document.querySelectorAll('.chip').forEach(c => c.className = 'chip ' + (c.dataset.col===currentFilter ? 'on' : 'off'));
   renderSubChips();
@@ -1322,12 +1405,22 @@ function applyRoute(){
   const path = filterPath();
   if(location.pathname !== path) history.replaceState(null, '', path + location.search);
   updateHead();
-  return !!col;
+  // Open link on a tab that sits off-screen (e.g. /dich-vu on a phone): scroll the tab bar to it
+  const wrap = document.getElementById('chips'), on = wrap.querySelector('.chip.on');
+  if(on && currentFilter !== 'all') wrap.scrollLeft = on.offsetLeft - (wrap.clientWidth - on.offsetWidth) / 2;
+  return !!col || isSvc;
 }
 window.addEventListener('popstate', applyRoute);
 
+function leaveServices(){
+  currentFilter = 'all'; currentSubFilter = 'all';
+  document.querySelectorAll('.chip').forEach(c => c.className = 'chip ' + (c.dataset.col==='all' ? 'on' : 'off'));
+  renderSubChips();
+  syncUrl();
+}
 let searchDebounceTimer;
 function filterProducts(){
+  if(currentFilter==='services' && document.getElementById('searchInput').value.trim()) leaveServices();
   renderProducts(getFilteredList());
   clearTimeout(searchDebounceTimer);
   searchDebounceTimer = setTimeout(()=>{
