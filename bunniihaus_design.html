@@ -334,7 +334,7 @@ a.chip,a.subchip{text-decoration:none;-webkit-touch-callout:default}
 .plist li span{font-weight:600;white-space:nowrap;font-variant-numeric:tabular-nums}
 .plist details > :last-child{padding-bottom:16px}
 
-/* ── SERVICES TAB (Dịch vụ khác) ─────────────────────────────────── */
+/* ── SERVICES TAB (Thêu và Spa) ─────────────────────────────────── */
 .svc[hidden]{display:none}
 .svc{max-width:1100px;margin:0 auto;padding:8px 20px 28px}
 .svc h2{font-family:var(--font-display);font-weight:500;font-size:24px;letter-spacing:-.02em;line-height:1.15;margin-bottom:6px}
@@ -609,9 +609,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <span data-i18n="emptyTxt">Không tìm thấy sản phẩm phù hợp</span>
 </div>
 
-<!-- SERVICES: shown by the "Dịch vụ khác" tab -->
+<!-- SERVICES: shown by the "Thêu và Spa" tab -->
 <section class="svc" id="svcPanel" aria-labelledby="svcTitle" hidden>
-  <h2 id="svcTitle" data-i18n="svcTitle">Dịch vụ khác</h2>
+  <h2 id="svcTitle" data-i18n="svcTitle">Thêu và Spa</h2>
   <p class="svc-lead" data-i18n="svcLead">Ngoài bán Jellycat, Bunniihaus còn nhận thêu tên theo yêu cầu và vệ sinh gấu bông.</p>
   <div class="svc-grid">
     <article class="svc-card">
@@ -728,7 +728,7 @@ const I18N_EN = {
  "modalSub": "Choose how you’d like to message us",
  "zaloBtn": "Message on Zalo",
  "messBtn": "Message on Messenger",
- "svcTitle": "Other services",
+ "svcTitle": "Embroidery &amp; Spa",
  "svcLead": "Besides selling Jellycat, Bunniihaus also does custom name embroidery and plush cleaning.",
  "svcEmbT": "Jellycat name embroidery",
  "svcEmbS": "Made to order, priced by size",
@@ -1175,7 +1175,7 @@ const orderedCols = COL_ORDER.filter(c => ALL_COLS.includes(c)).concat(ALL_COLS.
     const n = PRODUCTS.filter(p=>p.collection===c).length;
     html += `<a class="chip off" data-col="${c}" href="${PFX}/${slugify(c)}" onclick="setFilter('${c}',this);return false">${c} <span class="cn">${n}</span></a>`;
   });
-  html += `<a class="chip off" data-col="services" href="${PFX}/dich-vu" onclick="setFilter('services',this);return false">${T('Dịch vụ khác','Other services')}</a>`;
+  html += `<a class="chip off" data-col="services" href="${PFX}/dich-vu" onclick="setFilter('services',this);return false">${T('Thêu và Spa','Embroidery &amp; Spa')}</a>`;
   wrap.innerHTML = html;
 })();
 
@@ -1379,7 +1379,7 @@ function filterPath(){
 }
 function updateHead(){
   const path = filterPath();
-  let label = currentFilter==='all' ? '' : currentFilter==='services' ? T('Dịch vụ khác','Other services') : currentFilter + (currentSubFilter!=='all' ? ' ' + currentSubFilter : '');
+  let label = currentFilter==='all' ? '' : currentFilter==='services' ? T('Thêu và Spa','Embroidery & Spa') : currentFilter + (currentSubFilter!=='all' ? ' ' + currentSubFilter : '');
   document.title = label ? label + ' — Bunniihaus | Jellycat Authentic TP.HCM' : BASE_TITLE;
   const canon = document.querySelector('link[rel="canonical"]');
   if(canon) canon.href = 'https://bunniihaus.info' + path;
