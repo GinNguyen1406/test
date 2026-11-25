@@ -352,6 +352,24 @@ a.chip,a.subchip{text-decoration:none;-webkit-touch-callout:default}
 .svc-cta{align-self:flex-start;margin-top:20px;background:var(--pink);color:#fff;font-size:13px;font-weight:700;padding:11px 22px;border-radius:22px;text-decoration:none;transition:background .18s,transform .18s}
 .svc-cta:hover{background:var(--pink-deep);transform:translateY(-1px)}
 .svc-cta:focus-visible{outline:2px solid var(--pink-deep);outline-offset:3px}
+@media(max-width:767px){
+  /* both price tables fit in one screen between the sticky bars and the chat bar */
+  .svc{padding:6px 16px 20px}
+  .svc h2{font-size:19px;margin-bottom:2px}
+  .svc-lead{font-size:12px;line-height:1.45;margin-bottom:8px}
+  .svc-grid{gap:10px}
+  .svc-card{padding:14px 16px 16px;border-radius:18px}
+  .svc-card h3{font-size:17px}
+  .svc-sub{font-size:12px;margin:1px 0 6px}
+  .svc-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:16px}
+  .svc-list li{padding:6px 0;font-size:13px;gap:5px}
+  .svc-list li:last-child:nth-child(odd){grid-column:1/-1}
+  .svc-list li span{white-space:nowrap}
+  .svc-dots{min-width:6px}
+  .svc-note{font-size:12px;line-height:1.45;margin-top:4px}
+  .svc-cta{margin-top:12px;padding:9px 18px;font-size:12.5px}
+}
+@media(max-width:359px){.svc-list{grid-template-columns:minmax(0,1fr)}}
 @media(min-width:768px){
   .svc{padding:12px 36px 40px}
   .svc h2{font-size:30px}
@@ -1358,6 +1376,17 @@ function setSubFilter(sz, el){
   trackEvent('filter_bunny_size', {size: sz, result_count: currentList.length});
 }
 
+// Scroll to the product list; the short services panel is parked right under the sticky header + chip bar so nothing is covered
+function jumpToCatalog(smooth){
+  if(currentFilter === 'services'){
+    const stick = document.querySelector('.hdr').offsetHeight + document.querySelector('.fbar').offsetHeight;
+    const top = document.getElementById('svcPanel').getBoundingClientRect().top + window.scrollY - stick;
+    window.scrollTo({top: Math.max(0, top), behavior: 'auto'});
+  } else {
+    document.getElementById('catalog').scrollIntoView(smooth ? {behavior:'smooth'} : undefined);
+  }
+}
+
 function setFilter(col, el){
   currentFilter = col;
   currentSubFilter = 'all';
@@ -1366,7 +1395,7 @@ function setFilter(col, el){
   renderSubChips();
   renderProducts(getFilteredList());
   syncUrl();
-  document.getElementById('catalog').scrollIntoView({behavior:'smooth'});
+  jumpToCatalog(true);
   trackEvent('filter_collection', {collection_name: col, result_count: currentList.length});
 }
 
@@ -1537,7 +1566,7 @@ document.addEventListener('dragstart', e => {
 // ── INIT ────────────────────────────────────────────────────
 if(applyRoute() && !new URLSearchParams(location.search).get('p')){
   // Shared group link → jump straight to the catalog
-  requestAnimationFrame(()=>document.getElementById('catalog').scrollIntoView());
+  requestAnimationFrame(()=>jumpToCatalog(false));
 }
 
 // Deep-link: ?q=<text> pre-fills the search (used by search engines' site search box)
