@@ -748,7 +748,7 @@ function renderCollections(P){
   document.getElementById('statCount').textContent = Math.floor(P.length / 10) * 10 + '+';
 }
 function renderNew(P){
-  const list = P.filter(p => p.id >= NEW_SINCE_ID && p.priceNum > 0 && !p.badge).sort((a,b) => b.id - a.id).slice(0, 14);
+  const list = P.filter(p => p.id >= NEW_SINCE_ID && p.priceNum > 0 && !p.badge && !p.noNew).sort((a,b) => b.id - a.id).slice(0, 14);
   document.getElementById('newRail').innerHTML = list.map(p => card(p, T('Mới về', 'New'))).join('');
 }
 function renderExclusive(P){
