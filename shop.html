@@ -1310,9 +1310,10 @@ function renderProducts(list){
 }
 
 let currentSubFilter = 'all';
-// Actual height shown after the size pill on each product card (Bunny only)
+// Actual height shown after the size pill on each product card (collections listed here only)
 const SIZE_CM = {
-  Bunny: {Small:'18cm', Medium:'31cm', Large:'36cm', Huge:'51cm', 'Really Big':'67cm'}
+  Bunny: {Small:'18cm', Medium:'31cm', Large:'36cm', Huge:'51cm', 'Really Big':'67cm'},
+  Dragon: {Large:'50cm', Huge:'66cm'}
 };
 const sizeCm = p => (SIZE_CM[p.collection] || {})[p.label] || '';
 const SUB_SIZES = {
