@@ -280,9 +280,9 @@ a.chip,a.subchip{text-decoration:none;-webkit-touch-callout:default}
 .pc:hover .pshape{box-shadow:inset 0 0 0 1px rgba(0,0,0,.05)}
 .pshape img{width:100%;height:100%;object-fit:contain;padding:2px;mix-blend-mode:multiply;transition:transform .5s cubic-bezier(.25,.46,.45,.94);transform:scale(1.08)}
 .pc:hover .pshape img{transform:scale(1.55)}
-/* Dragons take more zoom — source images have lots of padding */
-.pc[data-collection="Dragon"] .pshape img{transform:scale(1.4);padding:0}
-.pc[data-collection="Dragon"]:hover .pshape img{transform:scale(1.9)}
+/* Dragons are wide pictures (the dragon spans ~85% of the width), so no zoom at rest or the head and tail get cut off */
+.pc[data-collection="Dragon"] .pshape img{transform:scale(1);padding:0}
+.pc[data-collection="Dragon"]:hover .pshape img{transform:scale(1.5)}
 .pc[data-name="onyx"] .pshape img{transform:scale(0.95) !important;padding:8px !important}
 .pc[data-name="onyx"]:hover .pshape img{transform:scale(1.2) !important}
 .pzoom{position:absolute;bottom:6px;right:6px;width:22px;height:22px;background:rgba(255,255,255,.9);border-radius:50%;display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .2s;pointer-events:none;z-index:2}
